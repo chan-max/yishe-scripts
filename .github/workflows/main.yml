@@ -1,0 +1,41 @@
+name: Backup DB from Remote Server with Password SSH
+
+on:
+  schedule:
+    - cron: '0 3 * * *'  # 每天凌晨 3 点执行
+  workflow_dispatch:
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
+      - name: Run Backup Command on Remote Server
+        run: |
+          sshpass -p "${{ secrets.DATABASE_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.DATABASE_USER }}@${{ secrets.SERVER_HOST }} "
+            mysqldump -u root -p'你的数据库密码' 数据库名 > ~/backup.sql &&
+            gzip -f ~/backup.sql
+          "
+
+      - name: Copy Backup File
+        run: |
+          sshpass -p "${{ secrets.DATABASE_PASSWORD }}" scp -o StrictHostKeyChecking=no \
+            ${{ secrets.DATABASE_USER }}@${{ secrets.SERVER_HOST }}:~/backup.sql.gz ./backup.sql.gz
+
+      - name: Save and Commit
+        run: |
+          mkdir -p db_backups
+          TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+          mv backup.sql.gz db_backups/backup_$TIMESTAMP.sql.gz
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add db_backups/backup_*.sql.gz
+          git commit -m "Auto backup at $TIMESTAMP" || echo "No changes"
+          git push
