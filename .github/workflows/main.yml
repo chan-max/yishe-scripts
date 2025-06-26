@@ -46,11 +46,15 @@ jobs:
           git push
 
       - name: Send Feishu Notification
-        env:
-          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
         run: |
-          MSG="数据库 s1 备份完成，时间: $(date +%Y-%m-%d' '%H:%M:%S)"
-          curl -X POST -H "Content-Type: application/json" -d '{"msg_type":"text","content":{"text":"'$MSG'"}}' "$FEISHU_WEBHOOK_URL"
+          curl -X POST ${{ secrets.FEISHU_WEBHOOK_URL }} \
+            -H "Content-Type: application/json" \
+            -d '{
+              "msg_type": "text",
+              "content": {
+                "text": "🎉 数据库 s1 备份成功！\n\n📌 备份信息：\n• 时间：'"$(date +'%Y-%m-%d %H:%M:%S')"'\n• 服务器：${{ secrets.SERVER_HOST }}\n\n✨ 备份文件已上传至仓库 db_backups 目录。"
+              }
+            }'
 
       - name: Debug SSH Variables
         run: |
