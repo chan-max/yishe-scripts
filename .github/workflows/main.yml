@@ -1,4 +1,4 @@
-name: Backup DB from Remote Server with Password SSH
+name: Backup All DBs from Remote Server with Password SSH
 
 on:
   push:
@@ -21,15 +21,15 @@ jobs:
 
       - name: Run Backup Command on Remote Server
         run: |
-          sshpass -p "${{ secrets.DATABASE_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.DATABASE_USERNAME }}@${{ secrets.SERVER_HOST }} "
-            mysqldump -u root -p'你的数据库密码' 数据库名 > ~/backup.sql &&
+          sshpass -p "${{ secrets.SERVER_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "
+            mysqldump -u${{ secrets.DATABASE_USERNAME }} -p'${{ secrets.DATABASE_PASSWORD }}' --all-databases > ~/backup.sql &&
             gzip -f ~/backup.sql
           "
 
       - name: Copy Backup File
         run: |
-          sshpass -p "${{ secrets.DATABASE_PASSWORD }}" scp -o StrictHostKeyChecking=no \
-            ${{ secrets.DATABASE_USERNAME }}@${{ secrets.SERVER_HOST }}:~/backup.sql.gz ./backup.sql.gz
+          sshpass -p "${{ secrets.SERVER_PASSWORD }}" scp -o StrictHostKeyChecking=no \
+            ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}:~/backup.sql.gz ./backup.sql.gz
 
       - name: Save and Commit
         run: |
@@ -45,5 +45,6 @@ jobs:
 
       - name: Debug SSH Variables
         run: |
-          echo "User: ${{ secrets.DATABASE_USERNAME }}"
-          echo "Host: ${{ secrets.SERVER_HOST }}"
+          echo "SERVER_USERNAME: ${{ secrets.SERVER_USERNAME }}"
+          echo "SERVER_HOST: ${{ secrets.SERVER_HOST }}"
+          echo "DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}"
