@@ -1,4 +1,4 @@
-name: Backup All DBs from Remote Server with Password SSH
+name: Backup s1 DB from Remote Server with Password SSH
 
 on:
   push:
@@ -16,13 +16,13 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Install sshpass
-        run: sudo apt-get update && sudo apt-get install -y sshpass
+      - name: Install sshpass & curl
+        run: sudo apt-get update && sudo apt-get install -y sshpass curl
 
       - name: Run Backup Command on Remote Server
         run: |
           sshpass -p "${{ secrets.SERVER_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "
-            mysqldump -u${{ secrets.DATABASE_USERNAME }} -p'${{ secrets.DATABASE_PASSWORD }}' --all-databases > ~/backup.sql &&
+            mysqldump -u${{ secrets.DATABASE_USERNAME }} -p'${{ secrets.DATABASE_PASSWORD }}' s1 > ~/backup.sql &&
             gzip -f ~/backup.sql
           "
 
@@ -31,17 +31,26 @@ jobs:
           sshpass -p "${{ secrets.SERVER_PASSWORD }}" scp -o StrictHostKeyChecking=no \
             ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}:~/backup.sql.gz ./backup.sql.gz
 
-      - name: Save and Commit
+      - name: Save, Limit to 99 Backups, and Commit
         run: |
           mkdir -p db_backups
           TIMESTAMP=$(date +%Y%m%d_%H%M%S)
           mv backup.sql.gz db_backups/backup_$TIMESTAMP.sql.gz
+          # 保留最新的 99 个备份，删除多余的
+          ls -1t db_backups/backup_*.sql.gz | tail -n +100 | xargs -r rm --
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add db_backups/backup_*.sql.gz
           git commit -m "Auto backup at $TIMESTAMP" || echo "No changes"
           git push
+
+      - name: Send Feishu Notification
+        env:
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+        run: |
+          MSG="数据库 s1 备份完成，时间: $(date +%Y-%m-%d' '%H:%M:%S)"
+          curl -X POST -H "Content-Type: application/json" -d '{"msg_type":"text","content":{"text":"'$MSG'"}}' "$FEISHU_WEBHOOK_URL"
 
       - name: Debug SSH Variables
         run: |
