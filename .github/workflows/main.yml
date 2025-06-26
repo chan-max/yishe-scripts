@@ -1,9 +1,6 @@
-name: Backup s1 DB from Remote Server with Password SSH
+name: 每日自动备份 s1 数据库
 
 on:
-  push:
-    branches:
-      - main
   schedule:
     - cron: '0 3 * * *'  # 每天凌晨 3 点执行
   workflow_dispatch:
