@@ -21,7 +21,7 @@ jobs:
 
       - name: Run Backup Command on Remote Server
         run: |
-          sshpass -p "${{ secrets.DATABASE_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.DATABASE_USER }}@${{ secrets.SERVER_HOST }} "
+          sshpass -p "${{ secrets.DATABASE_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.DATABASE_USERNAME }}@${{ secrets.SERVER_HOST }} "
             mysqldump -u root -p'你的数据库密码' 数据库名 > ~/backup.sql &&
             gzip -f ~/backup.sql
           "
@@ -29,7 +29,7 @@ jobs:
       - name: Copy Backup File
         run: |
           sshpass -p "${{ secrets.DATABASE_PASSWORD }}" scp -o StrictHostKeyChecking=no \
-            ${{ secrets.DATABASE_USER }}@${{ secrets.SERVER_HOST }}:~/backup.sql.gz ./backup.sql.gz
+            ${{ secrets.DATABASE_USERNAME }}@${{ secrets.SERVER_HOST }}:~/backup.sql.gz ./backup.sql.gz
 
       - name: Save and Commit
         run: |
@@ -45,5 +45,5 @@ jobs:
 
       - name: Debug SSH Variables
         run: |
-          echo "User: ${{ secrets.DATABASE_USER }}"
+          echo "User: ${{ secrets.DATABASE_USERNAME }}"
           echo "Host: ${{ secrets.SERVER_HOST }}"
