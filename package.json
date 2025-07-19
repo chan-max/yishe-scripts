@@ -2,13 +2,20 @@
   "name": "yishe-scripts",
   "version": "1.0.0",
   "description": "自动化爬虫脚本",
-  "main": "example.js",
+  "main": "cli.js",
   "scripts": {
-    "start": "node example.js",
-    "scrape": "node example.js"
+    "start": "node cli.js",
+    "scrape": "node example.js",
+    "baidu": "node scripts/baidu.js",
+    "baidu-news": "node scripts/baidu-news.js",
+    "example": "node scripts/example-usage.js",
+    "test": "node test.js"
   },
   "dependencies": {
-    "puppeteer": "^24.10.2",
-    "axios": "^1.6.0"
+    "axios": "^1.6.0",
+    "chalk": "^4.1.2",
+    "inquirer": "^9.2.12",
+    "ora": "^5.4.1",
+    "puppeteer": "^24.14.0"
   }
 }
