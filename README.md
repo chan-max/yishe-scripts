@@ -1,110 +1,93 @@
-# 🔥 热搜数据收集脚本
+# 易舍自动化脚本
 
-一个用于获取各大媒体和电商平台热搜数据的Node.js项目，支持微博、抖音、小红书、快手、淘宝、京东等平台。
+这是一个自动化爬虫项目，可以爬取百度首页数据并通过飞书机器人发送通知。
 
-## ✨ 功能特性
+## 功能特性
 
-- 🔍 **多平台支持**: 微博、抖音、小红书、快手、淘宝、京东
-- 💾 **数据存储**: 自动保存热搜数据到JSON文件
-- 🛡️ **错误处理**: 完善的错误处理和重试机制
-- 📊 **数据格式化**: 统一的数据格式，包含排名、标题、热度等信息
-- 🌐 **真实API**: 使用各平台的真实API接口
+- 🔍 自动爬取百度首页数据
+- 📸 自动截图保存
+- 🤖 通过飞书机器人发送通知
+- ⚡ GitHub Actions 自动运行
+- 📅 支持定时任务和手动触发
 
-## 📦 安装依赖
+## 项目结构
 
+```
+yishe-scripts/
+├── example.js              # 主爬虫脚本
+├── package.json            # 项目依赖配置
+├── .github/workflows/      # GitHub Actions 工作流
+│   ├── main.yml           # 数据库备份工作流
+│   └── scraper.yml        # 爬虫工作流
+└── README.md              # 项目说明
+```
+
+## 安装和运行
+
+### 本地运行
+
+1. 安装依赖：
 ```bash
 npm install
 ```
 
-## 🚀 快速开始
-
-### 命令行使用
-
+2. 设置环境变量：
 ```bash
-# 获取所有平台热搜
-node scripts/hot-search.js
+export FEISHU_WEBHOOK_URL="你的飞书机器人webhook地址"
 ```
 
-## 📊 数据格式
-
-每个平台返回的数据格式如下：
-
-```json
-{
-  "platform": "微博",
-  "timestamp": "2024-01-01T12:00:00.000Z",
-  "data": [
-    {
-      "rank": 1,
-      "title": "热搜标题",
-      "hot": "热度值",
-      "category": "分类",
-      "url": "搜索链接"
-    }
-  ]
-}
+3. 运行爬虫：
+```bash
+npm start
 ```
 
-## 🛠️ 项目结构
+### GitHub Actions 自动运行
 
-```
-yishe-scripts/
-├── package.json              # 项目配置
-├── README.md                 # 项目说明
-├── scripts/
-│   └── hot-search.js         # 热搜获取脚本
-└── data/                     # 数据存储目录（自动创建）
-    └── *.json               # 热搜数据文件
-```
+项目配置了GitHub Actions工作流，会在以下情况自动运行：
 
-## 🔧 配置说明
+- 🔄 代码推送到 main/master 分支
+- 📝 创建 Pull Request
+- ⏰ 每天早上9点定时执行
+- 🖱️ 手动触发
 
-### 支持的平台
+## 配置说明
 
-| 平台 | 键值 | 状态 | 说明 |
-|------|------|------|------|
-| 微博 | weibo | ✅ | 实时热搜榜 |
-| 抖音 | douyin | ✅ | 热门搜索 |
-| 小红书 | xiaohongshu | ✅ | 热门话题 |
-| 快手 | kuaishou | ✅ | 热门内容 |
-| 淘宝 | taobao | ⚠️ | 模拟数据 |
-| 京东 | jd | ⚠️ | 模拟数据 |
+### 飞书机器人配置
 
-> ⚠️ 注意：淘宝和京东由于反爬机制，目前使用模拟数据
+1. 在飞书中创建一个机器人
+2. 获取webhook地址
+3. 在GitHub仓库的Settings > Secrets and variables > Actions中添加：
+   - 名称：`FEISHU_WEBHOOK_URL`
+   - 值：你的飞书机器人webhook地址
 
-## 📝 使用示例
+### 工作流触发条件
 
-### JavaScript代码示例
+- **代码推送**：当 `example.js` 或 `package.json` 文件发生变化时
+- **定时任务**：每天早上9点自动执行
+- **手动触发**：在GitHub Actions页面可以手动运行
 
-```javascript
-const HotSearchCollector = require('./scripts/hot-search');
+## 输出内容
 
-async function getHotSearch() {
-    const collector = new HotSearchCollector();
-    
-    // 获取所有平台热搜
-    const allResults = await collector.getAllHotSearch();
-    console.log('所有平台热搜:', allResults);
-    
-    // 保存数据
-    await collector.saveToFile(allResults, 'my-hot-search.json');
-    
-    // 打印摘要
-    collector.printSummary();
-}
-```
+爬虫会收集以下信息并发送到飞书：
 
-## ⚠️ 注意事项
+- 📄 页面标题
+- 🔥 热搜榜（前10个）
+- 📰 热门新闻（前5个）
+- 📸 页面截图
+- ⏰ 执行时间
 
-1. **反爬机制**: 部分平台有反爬虫机制，可能需要配置代理或Cookie
-2. **API限制**: 某些平台的API可能有访问频率限制
-3. **数据准确性**: 模拟数据仅供参考，实际数据以平台官方为准
-4. **网络环境**: 确保网络环境能够访问目标平台
+## 注意事项
 
-## 📄 许可证
+- 确保飞书webhook地址正确配置
+- 爬虫使用无头浏览器模式运行
+- 截图会自动保存到仓库
+- 失败时会发送错误通知
+
+## 依赖包
+
+- `puppeteer`: 浏览器自动化
+- `axios`: HTTP请求库
+
+## 许可证
 
 MIT License
-
-## 🤝 贡献
-
-欢迎提交Issue和Pull Request！

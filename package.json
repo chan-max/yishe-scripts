@@ -1,0 +1,14 @@
+{
+  "name": "yishe-scripts",
+  "version": "1.0.0",
+  "description": "自动化爬虫脚本",
+  "main": "example.js",
+  "scripts": {
+    "start": "node example.js",
+    "scrape": "node example.js"
+  },
+  "dependencies": {
+    "puppeteer": "^24.10.2",
+    "axios": "^1.6.0"
+  }
+}

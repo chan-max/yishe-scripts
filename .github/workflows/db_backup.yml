@@ -1,0 +1,60 @@
+name: 每日自动备份 s1 数据库
+
+on:
+  schedule:
+    - cron: '0 3 * * *'  # 每天凌晨 3 点执行
+  workflow_dispatch:
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Install sshpass & curl
+        run: sudo apt-get update && sudo apt-get install -y sshpass curl
+
+      - name: Run Backup Command on Remote Server
+        run: |
+          sshpass -p "${{ secrets.SERVER_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "
+            mysqldump -u${{ secrets.DATABASE_USERNAME }} -p'${{ secrets.DATABASE_PASSWORD }}' s1 > ~/backup.sql &&
+            gzip -f ~/backup.sql
+          "
+
+      - name: Copy Backup File
+        run: |
+          sshpass -p "${{ secrets.SERVER_PASSWORD }}" scp -o StrictHostKeyChecking=no \
+            ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}:~/backup.sql.gz ./backup.sql.gz
+
+      - name: Save, Limit to 99 Backups, and Commit
+        run: |
+          mkdir -p db_backups
+          TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+          mv backup.sql.gz db_backups/backup_$TIMESTAMP.sql.gz
+          # 保留最新的 99 个备份，删除多余的
+          ls -1t db_backups/backup_*.sql.gz | tail -n +100 | xargs -r rm --
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add db_backups/backup_*.sql.gz
+          git commit -m "Auto backup at $TIMESTAMP" || echo "No changes"
+          git push
+
+      - name: Send Feishu Notification
+        run: |
+          curl -X POST ${{ secrets.FEISHU_WEBHOOK_URL }} \
+            -H "Content-Type: application/json" \
+            -d '{
+              "msg_type": "text",
+              "content": {
+                "text": "🎉 数据库 s1 备份成功！\n\n📌 备份信息：\n• 时间：'"$(date +'%Y-%m-%d %H:%M:%S')"'\n• 服务器：${{ secrets.SERVER_HOST }}\n\n✨ 备份文件已上传至仓库 db_backups 目录。"
+              }
+            }'
+
+      - name: Debug SSH Variables
+        run: |
+          echo "SERVER_USERNAME: ${{ secrets.SERVER_USERNAME }}"
+          echo "SERVER_HOST: ${{ secrets.SERVER_HOST }}"
+          echo "DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}"
