@@ -1,0 +1,13 @@
+{"page":8,"name":"Honda Automobiles","svgUrl":"https://cdn.worldvectorlogo.com/logos/honda-automobiles-1.svg","status":"fail","errMsg":"read ETIMEDOUT"}
+{"page":9,"name":"TotalEnergies","svgUrl":"https://cdn.worldvectorlogo.com/logos/totalenergies-1.svg","status":"fail","errMsg":"read ETIMEDOUT"}
+{"page":11,"name":"Ryzen","svgUrl":"https://cdn.worldvectorlogo.com/logos/ryzen.svg","status":"fail","errMsg":"read ETIMEDOUT"}
+{"page":11,"name":"UL","svgUrl":"https://cdn.worldvectorlogo.com/logos/ul.svg","status":"fail","errMsg":"read ETIMEDOUT"}
+{"page":15,"name":"Phonepe","svgUrl":"https://cdn.worldvectorlogo.com/logos/phonepe-1.svg","status":"fail","errMsg":"read ETIMEDOUT"}
+{"page":16,"name":"Asics","svgUrl":"https://cdn.worldvectorlogo.com/logos/asics-6.svg","status":"fail","errMsg":"read ETIMEDOUT"}
+{"page":18,"name":"WiFi","svgUrl":"https://cdn.worldvectorlogo.com/logos/wifi-2.svg","status":"fail","errMsg":"read ETIMEDOUT"}
+{"page":20,"name":"chrome","svgUrl":"https://cdn.worldvectorlogo.com/logos/chrome.svg","status":"fail","errMsg":"read ETIMEDOUT"}
+{"page":22,"name":"Palmeiras","svgUrl":"https://cdn.worldvectorlogo.com/logos/palmeiras.svg","status":"fail","errMsg":"read ETIMEDOUT"}
+{"page":23,"name":"VTB Bank / ВТБ","svgUrl":"https://cdn.worldvectorlogo.com/logos/vtb-bank--2.svg","status":"fail","errMsg":"ENOENT: no such file or directory, open '/Users/jackie/workspace/yishe-scripts/scripts/worldvectorlogo/VTB Bank / ВТБ.svg'"}
+{"page":40,"name":"СБП / SBP","svgUrl":"https://cdn.worldvectorlogo.com/logos/sbp.svg","status":"fail","errMsg":"ENOENT: no such file or directory, open '/Users/jackie/workspace/yishe-scripts/scripts/worldvectorlogo/СБП / SBP.svg'"}
+{"page":136,"name":"Disney+ w/background","svgUrl":"https://cdn.worldvectorlogo.com/logos/disney-wbackground.svg","status":"fail","errMsg":"ENOENT: no such file or directory, open '/Users/jackie/workspace/yishe-scripts/scripts/worldvectorlogo/Disney+ w/background.svg'"}
+{"page":153,"name":"MegaFon / Мегафон","svgUrl":"https://cdn.worldvectorlogo.com/logos/megafon--1.svg","status":"fail","errMsg":"ENOENT: no such file or directory, open '/Users/jackie/workspace/yishe-scripts/scripts/worldvectorlogo/MegaFon / Мегафон.svg'"}
