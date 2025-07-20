@@ -46,35 +46,76 @@ jobs:
         retention-days: 7
         
     - name: 部署到Windows服务器
-      if: ${{ secrets.WINDOWS_SERVER_HOST != '' }}
       run: |
+        # 检查必要的密钥是否存在
+        if [ -z "${{ secrets.WINDOWS_SERVER_HOST }}" ]; then
+          echo "错误: WINDOWS_SERVER_HOST 未设置"
+          exit 1
+        fi
+        
+        if [ -z "${{ secrets.WINDOWS_SERVER_USER }}" ]; then
+          echo "错误: WINDOWS_SERVER_USER 未设置"
+          exit 1
+        fi
+        
+        if [ -z "${{ secrets.WINDOWS_SERVER_PASSWORD }}" ]; then
+          echo "错误: WINDOWS_SERVER_PASSWORD 未设置"
+          exit 1
+        fi
+        
+        # 设置变量
+        SERVER_HOST="${{ secrets.WINDOWS_SERVER_HOST }}"
+        SERVER_USER="${{ secrets.WINDOWS_SERVER_USER }}"
+        SERVER_PASSWORD="${{ secrets.WINDOWS_SERVER_PASSWORD }}"
+        SERVER_PORT="${{ secrets.WINDOWS_SERVER_PORT || '22' }}"
+        DEPLOY_PATH="${{ secrets.WINDOWS_SERVER_PATH }}"
+        
+        # 创建部署脚本
+        cat > deploy-script.ps1 << 'POWERSHELL_EOF'
+        param(
+            [string]$DeployPath,
+            [string]$BackupPath
+        )
+        
+        # 创建备份
+        if (Test-Path "$DeployPath\current") {
+            Copy-Item "$DeployPath\current" $BackupPath -Recurse
+            Write-Host "备份已创建: $BackupPath"
+        }
+        
+        # 解压新版本
+        if (Test-Path "$DeployPath\deploy-package.tar.gz") {
+            Expand-Archive -Path "$DeployPath\deploy-package.tar.gz" -DestinationPath "$DeployPath\temp" -Force
+            if (Test-Path "$DeployPath\current") {
+                Remove-Item "$DeployPath\current" -Recurse -Force
+            }
+            Move-Item "$DeployPath\temp\deploy-package" "$DeployPath\current"
+            Remove-Item "$DeployPath\temp" -Recurse -Force
+            Write-Host "新版本已部署到: $DeployPath\current"
+        } else {
+            Write-Host "错误: 部署包不存在"
+            exit 1
+        }
+        
+        # 清理旧备份（保留最近5个）
+        Get-ChildItem "$DeployPath\backup-*" | Sort-Object CreationTime -Descending | Select-Object -Skip 5 | Remove-Item -Recurse -Force
+        Write-Host "旧备份已清理"
+        
+        Write-Host "部署完成: $(Get-Date)"
+        POWERSHELL_EOF
+        
         # 使用密码方式连接Windows服务器
-        echo "${{ secrets.WINDOWS_SERVER_PASSWORD }}" | sshpass -p "${{ secrets.WINDOWS_SERVER_PASSWORD }}" \
+        echo "$SERVER_PASSWORD" | sshpass -p "$SERVER_PASSWORD" \
         ssh -o StrictHostKeyChecking=no \
-            -p ${{ secrets.WINDOWS_SERVER_PORT || '22' }} \
-            ${{ secrets.WINDOWS_SERVER_USER }}@${{ secrets.WINDOWS_SERVER_HOST }} << 'EOF'
-          # PowerShell脚本
-          $deployPath = "${{ secrets.WINDOWS_SERVER_PATH }}"
+            -p $SERVER_PORT \
+            $SERVER_USER@$SERVER_HOST << 'SSH_EOF'
+          # 设置变量
+          $deployPath = "$DEPLOY_PATH"
           $backupPath = "$deployPath\backup-$(Get-Date -Format 'yyyyMMdd-HHmmss')"
           
-          # 创建备份
-          if (Test-Path "$deployPath\current") {
-            Copy-Item "$deployPath\current" $backupPath -Recurse
-          }
-          
-          # 解压新版本
-          Expand-Archive -Path "$deployPath\deploy-package.tar.gz" -DestinationPath "$deployPath\temp" -Force
-          if (Test-Path "$deployPath\current") {
-            Remove-Item "$deployPath\current" -Recurse -Force
-          }
-          Move-Item "$deployPath\temp\deploy-package" "$deployPath\current"
-          Remove-Item "$deployPath\temp" -Recurse -Force
-          
-          # 清理旧备份（保留最近5个）
-          Get-ChildItem "$deployPath\backup-*" | Sort-Object CreationTime -Descending | Select-Object -Skip 5 | Remove-Item -Recurse -Force
-          
-          Write-Host "部署完成: $(Get-Date)"
-        EOF
+          # 执行部署脚本
+          & "$deployPath\deploy-script.ps1" -DeployPath $deployPath -BackupPath $backupPath
+        SSH_EOF
         
     - name: 发送部署通知
       if: always()
