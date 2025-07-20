@@ -38,6 +38,7 @@ yishe-scripts/
 ### 快速启动
 
 #### Windows 用户
+
 ```bash
 # 双击运行
 start.bat
@@ -47,6 +48,7 @@ start.bat
 ```
 
 #### Linux/macOS 用户
+
 ```bash
 # 直接运行
 ./start.sh
@@ -58,11 +60,13 @@ bash start.sh
 ### 手动安装和运行
 
 1. 安装依赖：
+
 ```bash
 npm install
 ```
 
 2. 运行交互式界面：
+
 ```bash
 npm start
 # 或者
@@ -70,6 +74,7 @@ node cli.js
 ```
 
 3. 直接运行爬虫（无界面）：
+
 ```bash
 npm run scrape
 # 或者
@@ -77,6 +82,7 @@ node example.js
 ```
 
 4. 运行使用示例：
+
 ```bash
 npm run example
 # 或者
@@ -84,11 +90,13 @@ node scripts/example-usage.js
 ```
 
 5. 配置自动化部署：
+
 ```bash
 npm run deploy:setup
 ```
 
 6. 手动部署：
+
 ```bash
 npm run deploy
 ```
@@ -206,14 +214,13 @@ npm run deploy
 ### 快速配置
 
 1. 运行部署配置向导：
+
 ```bash
 npm run deploy:setup
 ```
 
 2. 按照向导提示配置GitHub Secrets
-
 3. 在Windows服务器上准备部署环境
-
 4. 推送代码触发自动部署
 
 详细配置说明请参考 [DEPLOY_SETUP.md](./DEPLOY_SETUP.md) 文件。
@@ -221,10 +228,12 @@ npm run deploy:setup
 ## 📋 依赖包
 
 ### 核心依赖
+
 - `puppeteer`: 浏览器自动化
 - `axios`: HTTP请求库
 
 ### 命令行界面
+
 - `inquirer`: 交互式命令行界面
 - `chalk`: 终端颜色输出
 - `ora`: 加载动画
@@ -234,26 +243,27 @@ npm run deploy:setup
 ### 常见问题
 
 1. **Puppeteer 下载失败**
+
    ```bash
    # 设置镜像源
    export PUPPETEER_DOWNLOAD_HOST=https://npm.taobao.org/mirrors
    npm install
    ```
-
 2. **权限问题（Linux/macOS）**
+
    ```bash
    chmod +x start.sh
    chmod +x cli.js
    ```
-
 3. **依赖安装失败**
+
    ```bash
    # 清理并重新安装
    rm -rf node_modules package-lock.json
    npm install
    ```
-
 4. **Node.js 版本问题**
+
    ```bash
    # 检查 Node.js 版本
    node --version
@@ -263,6 +273,7 @@ npm run deploy:setup
 ### 日志文件
 
 程序运行时会生成以下文件：
+
 - `config.json`: 配置文件
 - `history.json`: 历史记录
 - `screenshots/`: 截图目录
@@ -278,5 +289,11 @@ MIT License
 ## 📞 联系方式
 
 如有问题，请通过以下方式联系：
+
 - GitHub Issues
 - 邮箱: your-email@example.com
+
+
+# 
+
+#

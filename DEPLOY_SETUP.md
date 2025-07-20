@@ -23,7 +23,7 @@
 ```
 WINDOWS_SERVER_HOST          # Windows服务器IP地址或域名
 WINDOWS_SERVER_USER          # 服务器用户名
-WINDOWS_SERVER_PATH          # 服务器上的目标路径，如：C:\deploy\yishe-scripts
+WINDOWS_SERVER_PATH          # 服务器上的目标路径，如：C:\Users\用户名\Desktop\dev\yishe-scripts
 ```
 
 #### 必需配置
@@ -53,9 +53,14 @@ WINDOWS_SERVER_PORT          # SSH端口（可选，默认22）
 
 ### 3. 创建目标目录
 
-在Windows服务器上创建部署目标目录：
+部署脚本会自动创建目标目录，默认路径为：
+```
+C:\Users\用户名\Desktop\dev\yishe-scripts
+```
+
+你也可以手动创建目录：
 ```powershell
-mkdir C:\deploy\yishe-scripts
+mkdir C:\Users\用户名\Desktop\dev\yishe-scripts
 ```
 
 ## 部署流程
@@ -88,7 +93,7 @@ mkdir C:\deploy\yishe-scripts
 
 部署后的目录结构：
 ```
-C:\deploy\yishe-scripts\
+C:\Users\用户名\Desktop\dev\yishe-scripts\
 ├── current\              # 当前版本
 │   ├── scripts\
 │   ├── package.json
