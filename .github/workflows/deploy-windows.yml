@@ -57,12 +57,6 @@ jobs:
           $deployPath = "${{ secrets.WINDOWS_SERVER_PATH }}"
           $backupPath = "$deployPath\backup-$(Get-Date -Format 'yyyyMMdd-HHmmss')"
           
-          # 创建部署目录（如果不存在）
-          if (-not (Test-Path $deployPath)) {
-            New-Item -ItemType Directory -Path $deployPath -Force
-            Write-Host "创建部署目录: $deployPath"
-          }
-          
           # 创建备份
           if (Test-Path "$deployPath\current") {
             Copy-Item "$deployPath\current" $backupPath -Recurse
