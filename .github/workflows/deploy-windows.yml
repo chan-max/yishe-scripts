@@ -96,7 +96,6 @@ jobs:
             Write-Host "错误: 部署包不存在"
             exit 1
         }
-        
         # 清理旧备份（保留最近5个）
         Get-ChildItem "$DeployPath\backup-*" | Sort-Object CreationTime -Descending | Select-Object -Skip 5 | Remove-Item -Recurse -Force
         Write-Host "旧备份已清理"
