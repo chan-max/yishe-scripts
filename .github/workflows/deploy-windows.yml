@@ -1,0 +1,91 @@
+name: 部署到Windows服务器
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+      
+    - name: 创建部署包
+      run: |
+        # 创建部署目录
+        mkdir -p deploy-package
+        
+        # 复制需要的文件，排除不需要的文件
+        rsync -av --exclude='node_modules' \
+                  --exclude='.git' \
+                  --exclude='.github' \
+                  --exclude='screenshots' \
+                  --exclude='temp' \
+                  --exclude='db_backups' \
+                  --exclude='*.log' \
+                  --exclude='.DS_Store' \
+                  ./ deploy-package/
+                  
+        # 创建部署信息文件
+        echo "部署时间: $(date)" > deploy-package/deploy-info.txt
+        echo "提交哈希: ${{ github.sha }}" >> deploy-package/deploy-info.txt
+        echo "分支: ${{ github.ref_name }}" >> deploy-package/deploy-info.txt
+        echo "提交者: ${{ github.actor }}" >> deploy-package/deploy-info.txt
+        
+    - name: 压缩部署包
+      run: tar -czf deploy-package.tar.gz deploy-package/
+        
+    - name: 上传部署包
+      uses: actions/upload-artifact@v4
+      with:
+        name: deploy-package
+        path: deploy-package.tar.gz
+        retention-days: 7
+        
+    - name: 部署到Windows服务器
+      if: ${{ secrets.WINDOWS_SERVER_HOST != '' }}
+      run: |
+        # 使用密码方式连接Windows服务器
+        echo "${{ secrets.WINDOWS_SERVER_PASSWORD }}" | sshpass -p "${{ secrets.WINDOWS_SERVER_PASSWORD }}" \
+        ssh -o StrictHostKeyChecking=no \
+            -p ${{ secrets.WINDOWS_SERVER_PORT || '22' }} \
+            ${{ secrets.WINDOWS_SERVER_USER }}@${{ secrets.WINDOWS_SERVER_HOST }} << 'EOF'
+          # PowerShell脚本
+          $deployPath = "${{ secrets.WINDOWS_SERVER_PATH }}"
+          $backupPath = "$deployPath\backup-$(Get-Date -Format 'yyyyMMdd-HHmmss')"
+          
+          # 创建备份
+          if (Test-Path "$deployPath\current") {
+            Copy-Item "$deployPath\current" $backupPath -Recurse
+          }
+          
+          # 解压新版本
+          Expand-Archive -Path "$deployPath\deploy-package.tar.gz" -DestinationPath "$deployPath\temp" -Force
+          if (Test-Path "$deployPath\current") {
+            Remove-Item "$deployPath\current" -Recurse -Force
+          }
+          Move-Item "$deployPath\temp\deploy-package" "$deployPath\current"
+          Remove-Item "$deployPath\temp" -Recurse -Force
+          
+          # 清理旧备份（保留最近5个）
+          Get-ChildItem "$deployPath\backup-*" | Sort-Object CreationTime -Descending | Select-Object -Skip 5 | Remove-Item -Recurse -Force
+          
+          Write-Host "部署完成: $(Get-Date)"
+        EOF
+        
+    - name: 发送部署通知
+      if: always()
+      run: |
+        if [ "${{ job.status }}" == "success" ]; then
+          echo "✅ 部署成功！"
+          echo "部署时间: $(date)"
+          echo "提交哈希: ${{ github.sha }}"
+          echo "分支: ${{ github.ref_name }}"
+          echo "提交者: ${{ github.actor }}"
+        else
+          echo "❌ 部署失败！"
+          echo "请检查部署日志"
+        fi 

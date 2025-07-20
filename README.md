@@ -83,6 +83,16 @@ npm run example
 node scripts/example-usage.js
 ```
 
+5. 配置自动化部署：
+```bash
+npm run deploy:setup
+```
+
+6. 手动部署：
+```bash
+npm run deploy
+```
+
 ## 🎯 使用说明
 
 ### 交互式界面
@@ -181,6 +191,32 @@ node scripts/example-usage.js
 - 📝 创建 Pull Request
 - ⏰ 每天早上9点定时执行
 - 🖱️ 手动触发
+
+## 🚀 自动化部署
+
+### 功能特性
+
+- ✅ 自动触发：推送到main/master/develop分支时自动部署
+- ✅ 手动触发：可以在GitHub Actions页面手动触发部署
+- ✅ 文件过滤：自动排除不需要的文件（node_modules、.git等）
+- ✅ 版本备份：自动备份当前版本，支持回滚
+- ✅ 密码认证：使用用户名密码方式连接服务器
+- ✅ 部署通知：部署完成后显示详细信息
+
+### 快速配置
+
+1. 运行部署配置向导：
+```bash
+npm run deploy:setup
+```
+
+2. 按照向导提示配置GitHub Secrets
+
+3. 在Windows服务器上准备部署环境
+
+4. 推送代码触发自动部署
+
+详细配置说明请参考 [DEPLOY_SETUP.md](./DEPLOY_SETUP.md) 文件。
 
 ## 📋 依赖包
 
