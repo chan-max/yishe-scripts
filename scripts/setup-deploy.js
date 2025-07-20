@@ -44,7 +44,7 @@ async function getServerConfig() {
             type: 'input',
             name: 'path',
             message: '服务器上的目标路径:',
-            default: 'C:\\deploy\\yishe-scripts',
+            default: 'C:\\Users\\%USERNAME%\\Desktop\\dev\\yishe-scripts',
             validate: (input) => input.trim() ? true : '请输入目标路径'
         }
     ]);
@@ -80,7 +80,7 @@ function showHelp() {
     console.log(chalk.gray('   WINDOWS_SERVER_HOST: 服务器IP地址'));
     console.log(chalk.gray('   WINDOWS_SERVER_USER: 服务器用户名'));
     console.log(chalk.gray('   WINDOWS_SERVER_PASSWORD: 服务器密码'));
-    console.log(chalk.gray('   WINDOWS_SERVER_PATH: 目标路径'));
+    console.log(chalk.gray('   WINDOWS_SERVER_PATH: 目标路径（如：C:\\Users\\用户名\\Desktop\\dev\\yishe-scripts）'));
     console.log(chalk.gray('   WINDOWS_SERVER_PORT: SSH端口（可选）'));
     console.log('3. 在Windows服务器上准备相应的环境');
     console.log('\n详细说明请参考 DEPLOY_SETUP.md 文件');
