@@ -14,7 +14,8 @@
         "deploy": "node scripts/deploy.js",
         "deploy:setup": "node scripts/setup-deploy.js",
         "nasa-html-fetch": "node scripts/nasa.gov/nasa-html-fetch.js",
-        "nasa-image-crawler": "node scripts/nasa.gov/nasa-image-crawler.js"
+        "nasa-image-crawler": "node scripts/nasa.gov/nasa-image-crawler.js",
+        "arts-open-search": "node scripts/artsandculture.google.com/open-search.js"
     },
     "dependencies": {
         "axios": "^1.6.0",
