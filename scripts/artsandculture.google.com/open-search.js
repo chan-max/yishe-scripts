@@ -1,25 +1,40 @@
-/*
- * @Author: chan-max jackieontheway666@gmail.com
- * @Date: 2025-07-22 06:07:14
- * @LastEditors: chan-max jackieontheway666@gmail.com
- * @LastEditTime: 2025-07-22 06:15:54
- * @FilePath: /design-server/Users/jackie/workspace/yishe-scripts/scripts/artsandculture.google.com/open-search.js
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
+#!/usr/bin/env node
 
 const puppeteer = require('puppeteer');
+const inquirer = require('inquirer');
+const chalk = require('chalk');
+const prompt = inquirer.prompt || (inquirer.default && inquirer.default.prompt);
 
 (async function main() {
-    const url = 'https://artsandculture.google.com/search/asset?q';
+    const baseUrl = 'https://artsandculture.google.com/search/asset?q=';
+    console.log(chalk.bgBlue.white.bold('\n==============================='));
+    console.log(chalk.bgBlue.white.bold('  Google Arts & Culture 爬虫  '));
+    console.log(chalk.bgBlue.white.bold('===============================\n'));
+    console.log(chalk.green('目标网站: ') + chalk.underline.blue(baseUrl));
+    console.log(chalk.yellow('功能: 自动爬取谷歌艺术与文化中的图片资源。'));
+    console.log(chalk.cyan('你可以输入任意关键词进行搜索，脚本会自动打开对应的搜索结果页面。\n'));
+
+    const {
+        keyword
+    } = await prompt([{
+        type: 'input',
+        name: 'keyword',
+        message: chalk.magenta('请输入你想搜索的内容（如 van gogh、cat、flower 等）：'),
+        validate: input => input.trim() ? true : '搜索内容不能为空'
+    }]);
+
+    const searchUrl = baseUrl + encodeURIComponent(keyword.trim());
+    console.log(chalk.green('\n即将打开: ') + chalk.underline.blue(searchUrl) + '\n');
+
     const browser = await puppeteer.launch({
         headless: false,
         args: ['--no-sandbox']
     });
     const page = await browser.newPage();
-    await page.goto(url, {
+    await page.goto(searchUrl, {
         waitUntil: 'domcontentloaded',
         timeout: 120000
     });
-    console.log('已打开页面:', url);
+    console.log(chalk.bgGreen.white.bold('页面已打开，祝你探索愉快！'));
     // 保持页面不自动关闭
 })();
