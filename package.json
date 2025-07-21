@@ -12,7 +12,9 @@
         "test": "node test.js",
         "worldvectorlogo-crawler": "node scripts/worldvectorlogo/worldvectorlogo-crawler.js",
         "deploy": "node scripts/deploy.js",
-        "deploy:setup": "node scripts/setup-deploy.js"
+        "deploy:setup": "node scripts/setup-deploy.js",
+        "nasa-html-fetch": "node scripts/nasa.gov/nasa-html-fetch.js",
+        "nasa-image-crawler": "node scripts/nasa.gov/nasa-image-crawler.js"
     },
     "dependencies": {
         "axios": "^1.6.0",
