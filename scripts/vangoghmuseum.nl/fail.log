@@ -1,0 +1,3 @@
+{"imgUrl":"https://iiif.micr.io/yzksg/full/1800,/0/default.jpg","status":"fail","errMsg":"unable to verify the first certificate; if the root CA is installed locally, try running Node.js with --use-system-ca"}
+{"imgUrl":"https://iiif.micr.io/PkNZD/full/1800,/0/default.jpg","status":"fail","errMsg":"unable to verify the first certificate; if the root CA is installed locally, try running Node.js with --use-system-ca"}
+{"imgUrl":"https://iiif.micr.io/qDCTO/full/1800,/0/default.jpg","status":"fail","errMsg":"unable to verify the first certificate; if the root CA is installed locally, try running Node.js with --use-system-ca"}
