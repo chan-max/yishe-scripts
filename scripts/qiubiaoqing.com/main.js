@@ -87,15 +87,17 @@ async function saveToServer({ url, name, source, suffix, description, keywords }
 
 async function downloadAndUploadToCOS(imgUrl, cosKey) {
   const tempPath = path.join(__dirname, 'tmp_' + Date.now() + path.extname(imgUrl).split('?')[0]);
+  let cosResult = null;
   try {
     const res = await axios.get(imgUrl, { responseType: 'arraybuffer' });
     fs.writeFileSync(tempPath, res.data);
-    const cosResult = await uploadLocalFileToCOS(tempPath, cosKey);
-    if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
+    cosResult = await uploadLocalFileToCOS(tempPath, cosKey);
     return cosResult.url;
   } catch (err) {
-    if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
     throw new Error('下载或上传COS失败: ' + err.message);
+  } finally {
+    // 无论成功失败都删除本地文件
+    try { if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath); } catch (e) { console.error('删除临时文件失败:', e.message); }
   }
 }
 
@@ -106,6 +108,7 @@ async function fetchAlbumImages(albumUrl, albumTitle, existedImages = []) {
   const cosUrlSet = new Set(allImages.filter(img => img.cosUrl).map(img => img.url));
   while (true) {
     const url = albumUrl + (albumUrl.includes('?') ? `&page=${page}` : `?page=${page}`);
+    let pageOk = true;
     try {
       const response = await axios.get(url, {
         headers: {
@@ -114,60 +117,72 @@ async function fetchAlbumImages(albumUrl, albumTitle, existedImages = []) {
       });
       const $ = cheerio.load(response.data);
       let found = false;
-      $('.album-img-list .row-nest .mb-2').each(async (i, el) => {
-        const $a = $(el).find('a').first();
-        const $img = $a.find('img').first();
-        const imgPageUrl = $a.attr('href') || '';
-        if (!imgPageUrl || imageUrlSet.has(imgPageUrl)) return;
-        found = true;
-        const imgTitle = $a.attr('title') || $img.attr('alt') || $img.attr('title') || '';
-        const originImg = $img.attr('src') || '';
-        // 断点续传：如果已上传cosUrl则跳过
-        let cosUrl = '';
-        let serverRes = null;
-        let alreadyUploaded = false;
-        // 查找已存在且有cosUrl的图片
-        const existed = allImages.find(img => img.url === imgPageUrl && img.cosUrl);
-        if (existed) {
-          cosUrl = existed.cosUrl;
-          serverRes = existed.serverRes;
-          alreadyUploaded = true;
-        }
-        if (!alreadyUploaded) {
-          let cosKey = `qiubiaoqing/${albumTitle.replace(/[^\w\d]/g, '_').slice(0, 32)}/${path.basename(originImg).split('?')[0]}`;
-          try {
-            cosUrl = await downloadAndUploadToCOS(originImg, cosKey);
+      const imgEls = $('.album-img-list .row-nest .mb-2').toArray();
+      for (const el of imgEls) {
+        try {
+          const $a = $(el).find('a').first();
+          const $img = $a.find('img').first();
+          const imgPageUrl = $a.attr('href') || '';
+          if (!imgPageUrl || imageUrlSet.has(imgPageUrl)) continue;
+          found = true;
+          const imgTitle = $a.attr('title') || $img.attr('alt') || $img.attr('title') || '';
+          const originImg = $img.attr('src') || '';
+          // 断点续传：如果已上传cosUrl则跳过
+          let cosUrl = '';
+          let serverRes = null;
+          let alreadyUploaded = false;
+          // 查找已存在且有cosUrl的图片
+          const existed = allImages.find(img => img.url === imgPageUrl && img.cosUrl);
+          if (existed) {
+            cosUrl = existed.cosUrl;
+            serverRes = existed.serverRes;
+            alreadyUploaded = true;
+          }
+          if (!alreadyUploaded) {
+            let cosKey = `qiubiaoqing/${albumTitle.replace(/[^\w\d]/g, '_').slice(0, 32)}/${path.basename(originImg).split('?')[0]}`;
+            try {
+              cosUrl = await downloadAndUploadToCOS(originImg, cosKey);
+            } catch (e) {
+              console.error(chalk.red(`[上传失败] ${originImg}`), e.message);
+              continue; // 上传失败直接跳过
+            }
             // 自动生成 description 和 keywords
             const description = `${albumTitle} - ${imgTitle}`;
             const keywords = [albumTitle, imgTitle].filter(Boolean).join(',');
-            serverRes = await saveToServer({
-              url: cosUrl,
-              name: imgTitle || path.basename(originImg),
-              source: 'qiubiaoqing.com',
-              suffix: path.extname(originImg).replace('.', '') || 'jpg',
-              description,
-              keywords
-            });
-          } catch (e) {
-            console.error(chalk.red(`[上传失败] ${originImg}`), e.message);
+            try {
+              serverRes = await saveToServer({
+                url: cosUrl,
+                name: imgTitle || path.basename(originImg),
+                source: 'qiubiaoqing.com',
+                suffix: path.extname(originImg).replace('.', '') || 'jpg',
+                description,
+                keywords
+              });
+            } catch (e) {
+              console.error(chalk.red(`[通知服务器失败] ${cosUrl}`), e.message);
+            }
           }
+          allImages.push({
+            url: imgPageUrl,
+            title: imgTitle,
+            img: originImg,
+            cosUrl,
+            albumTitle,
+            serverRes
+          });
+          saveAlbums(allImages); // 实时保存
+        } catch (imgErr) {
+          console.error(chalk.red(`[图片处理异常]`), imgErr.message);
+          continue;
         }
-        allImages.push({
-          url: imgPageUrl,
-          title: imgTitle,
-          img: originImg,
-          cosUrl,
-          albumTitle,
-          serverRes
-        });
-        saveAlbums(allImages); // 实时保存
-      });
+      }
       if (!found) break;
       page++;
     } catch (e) {
       console.error(chalk.red(`专辑 ${albumTitle} 页面 ${page} 抓取失败: `), e.message);
-      break;
+      pageOk = false;
     }
+    if (!pageOk) break;
   }
   return allImages;
 }
