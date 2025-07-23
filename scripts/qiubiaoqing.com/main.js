@@ -142,7 +142,7 @@ async function fetchAlbumImages(albumUrl, albumTitle, existedImages = []) {
             const keywords = [albumTitle, imgTitle].filter(Boolean).join(',');
             serverRes = await saveToServer({
               url: cosUrl,
-              name: path.basename(originImg),
+              name: imgTitle || path.basename(originImg),
               source: 'qiubiaoqing.com',
               suffix: path.extname(originImg).replace('.', '') || 'jpg',
               description,
