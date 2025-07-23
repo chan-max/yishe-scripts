@@ -31,7 +31,7 @@ async function main() {
     await downloadImage(url, tempPath);
     // 使用 imghash 计算感知哈希
     const start = Date.now();
-    const hash = await imghash.hash(tempPath, 8, 'hex');
+    const hash = await imghash.hash(tempPath, 12, 'hex');
     const end = Date.now();
     console.log('图片URL:', url);
     console.log('感知哈希(pHash):', hash);
