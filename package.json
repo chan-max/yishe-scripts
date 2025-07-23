@@ -17,7 +17,8 @@
         "nasa-image-crawler": "node scripts/nasa.gov/nasa-image-crawler.js",
         "arts-open-search": "node scripts/artsandculture.google.com/open-search.js",
         "van-gogh-open-collection": "node scripts/vangoghmuseum.nl/open-collection.js",
-        "dpm-crawler": "node scripts/dpm.org.cn/dpm-crawler.js"
+        "dpm-crawler": "node scripts/dpm.org.cn/dpm-crawler.js",
+        "start:qiubiaoqing": "node scripts/qiubiaoqing.com/main.js"
     },
     "dependencies": {
         "axios": "^1.6.0",

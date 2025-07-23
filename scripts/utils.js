@@ -5,6 +5,7 @@ const axios = require('axios');
 const COS = require('cos-nodejs-sdk-v5');
 const fs = require('fs');
 const path = require('path');
+const chalk = require('chalk');
 
 // 默认配置
 let config = {
@@ -110,9 +111,36 @@ async function uploadLocalFileToCOS(filePath, key, cosConfig) {
     });
 }
 
+function printHeader() {
+    const width = 48;
+    const line = chalk.gray('┏' + '━'.repeat(width - 2) + '┓');
+    const empty = chalk.gray('┃' + ' '.repeat(width - 2) + '┃');
+    const brand = chalk.bold.bgGreen(' 1s 脚本 ');
+    const author = chalk.white('作者:') + ' ' + chalk.cyan('chen zheng');
+    const contact = chalk.white('联系方式:') + ' ' + chalk.yellow('18742539196');
+    const icon = chalk.green('🛠️');
+
+    // 居中辅助函数
+    function center(str) {
+        const len = str.replace(/\u001b\[[0-9;]*m/g, '').length;
+        const pad = Math.floor((width - 2 - len) / 2);
+        return ' '.repeat(pad) + str + ' '.repeat(width - 2 - len - pad);
+    }
+
+    console.log(line);
+    console.log(chalk.gray('┃') + center(icon + ' ' + brand) + chalk.gray('┃'));
+    console.log(empty);
+    console.log(chalk.gray('┃') + center(author) + chalk.gray('┃'));
+    console.log(chalk.gray('┃') + center(contact) + chalk.gray('┃'));
+    console.log(empty);
+    console.log(line.replace('┏', '┗').replace('┓', '┛'));
+    console.log();
+}
+
 module.exports = {
     setConfig,
     sendToFeishu,
     uploadLocalFileToCOS,
     config,
+    printHeader
 };
