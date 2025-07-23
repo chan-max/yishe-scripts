@@ -2,14 +2,18 @@
 // 该网站支持传入 page 参数，最大页数目前不确定，例如：https://www.qiubiaoqing.com/?page=2
 // 后续可实现自动遍历、命令行参数等功能
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 const axios = require('axios');
 const chalk = require('chalk');
 const { printHeader } = require('../utils');
 const cheerio = require('cheerio');
 const fs = require('fs');
 const path = require('path');
+const { uploadLocalFileToCOS } = require('../utils');
 
 const DATA_FILE = path.join(__dirname, 'albums.json');
+const DESIGN_SERVER_API = 'https://1s.design:1520/api/crawler/material/add';
 
 function loadAlbums() {
   if (fs.existsSync(DATA_FILE)) {
@@ -63,10 +67,43 @@ async function fetchPage(page) {
   }
 }
 
+async function saveToServer({ url, name, source, suffix, description, keywords }) {
+  try {
+    const res = await axios.post(DESIGN_SERVER_API, {
+      url,
+      name,
+      source,
+      suffix,
+      description,
+      keywords
+    });
+    console.log(`[design-server返回]`, res.data);
+    return res.data;
+  } catch (err) {
+    console.error('[保存到design-server失败]', err.message);
+    return null;
+  }
+}
+
+async function downloadAndUploadToCOS(imgUrl, cosKey) {
+  const tempPath = path.join(__dirname, 'tmp_' + Date.now() + path.extname(imgUrl).split('?')[0]);
+  try {
+    const res = await axios.get(imgUrl, { responseType: 'arraybuffer' });
+    fs.writeFileSync(tempPath, res.data);
+    const cosResult = await uploadLocalFileToCOS(tempPath, cosKey);
+    if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
+    return cosResult.url;
+  } catch (err) {
+    if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
+    throw new Error('下载或上传COS失败: ' + err.message);
+  }
+}
+
 async function fetchAlbumImages(albumUrl, albumTitle, existedImages = []) {
   let page = 1;
   let allImages = existedImages || [];
   const imageUrlSet = new Set(allImages.map(img => img.url));
+  const cosUrlSet = new Set(allImages.filter(img => img.cosUrl).map(img => img.url));
   while (true) {
     const url = albumUrl + (albumUrl.includes('?') ? `&page=${page}` : `?page=${page}`);
     try {
@@ -77,18 +114,53 @@ async function fetchAlbumImages(albumUrl, albumTitle, existedImages = []) {
       });
       const $ = cheerio.load(response.data);
       let found = false;
-      $('.album-img-list .row-nest .mb-2').each((i, el) => {
+      $('.album-img-list .row-nest .mb-2').each(async (i, el) => {
         const $a = $(el).find('a').first();
         const $img = $a.find('img').first();
-        const imgUrl = $a.attr('href') || '';
-        if (!imgUrl || imageUrlSet.has(imgUrl)) return;
+        const imgPageUrl = $a.attr('href') || '';
+        if (!imgPageUrl || imageUrlSet.has(imgPageUrl)) return;
         found = true;
+        const imgTitle = $a.attr('title') || $img.attr('alt') || $img.attr('title') || '';
+        const originImg = $img.attr('src') || '';
+        // 断点续传：如果已上传cosUrl则跳过
+        let cosUrl = '';
+        let serverRes = null;
+        let alreadyUploaded = false;
+        // 查找已存在且有cosUrl的图片
+        const existed = allImages.find(img => img.url === imgPageUrl && img.cosUrl);
+        if (existed) {
+          cosUrl = existed.cosUrl;
+          serverRes = existed.serverRes;
+          alreadyUploaded = true;
+        }
+        if (!alreadyUploaded) {
+          let cosKey = `qiubiaoqing/${albumTitle.replace(/[^\w\d]/g, '_').slice(0, 32)}/${path.basename(originImg).split('?')[0]}`;
+          try {
+            cosUrl = await downloadAndUploadToCOS(originImg, cosKey);
+            // 自动生成 description 和 keywords
+            const description = `${albumTitle} - ${imgTitle}`;
+            const keywords = [albumTitle, imgTitle].filter(Boolean).join(',');
+            serverRes = await saveToServer({
+              url: cosUrl,
+              name: path.basename(originImg),
+              source: 'qiubiaoqing.com',
+              suffix: path.extname(originImg).replace('.', '') || 'jpg',
+              description,
+              keywords
+            });
+          } catch (e) {
+            console.error(chalk.red(`[上传失败] ${originImg}`), e.message);
+          }
+        }
         allImages.push({
-          url: imgUrl,
-          title: $a.attr('title') || $img.attr('alt') || $img.attr('title') || '',
-          img: $img.attr('src') || ''
+          url: imgPageUrl,
+          title: imgTitle,
+          img: originImg,
+          cosUrl,
+          albumTitle,
+          serverRes
         });
-        imageUrlSet.add(imgUrl);
+        saveAlbums(allImages); // 实时保存
       });
       if (!found) break;
       page++;
@@ -104,8 +176,8 @@ async function main() {
   printHeader();
   printBanner();
   let page = 1;
-  let allAlbums = loadAlbums();
-  const albumUrlSet = new Set(allAlbums.map(a => a.albumUrl));
+  let globalAllAlbums = loadAlbums();
+  const albumUrlSet = new Set(globalAllAlbums.map(a => a.albumUrl));
   let foundAny = true;
   while (foundAny) {
     console.log(chalk.cyan(`抓取第 ${page} 页...`));
@@ -120,15 +192,15 @@ async function main() {
         // 新专辑，立即抓取图片信息
         console.log(chalk.blue(`抓取专辑：${album.title}`));
         const images = await fetchAlbumImages(album.albumUrl, album.title);
-        allAlbums.push({ ...album, images });
+        globalAllAlbums.push({ ...album, images });
         albumUrlSet.add(album.albumUrl);
         newCount++;
-        saveAlbums(allAlbums);
+        saveAlbums(globalAllAlbums);
         console.log(chalk.green(`  已抓取 ${images.length} 张图片`));
       }
     }
     if (newCount > 0) {
-      console.log(chalk.green(`新增 ${newCount} 条，已累计 ${allAlbums.length} 条。`));
+      console.log(chalk.green(`新增 ${newCount} 条，已累计 ${globalAllAlbums.length} 条。`));
     } else {
       console.log(chalk.gray('本页无新专辑。'));
     }
