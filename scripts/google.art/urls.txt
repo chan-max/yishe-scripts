@@ -1,0 +1,15 @@
+# Google Arts & Culture URL 列表
+# 每行一个 URL，以 # 开头的行为注释
+# 支持的格式: https://artsandculture.google.com/asset/...
+
+# 梵高作品
+https://artsandculture.google.com/asset/sunflowers-文森特·梵高/hwEGmsM-FoHAwA
+https://artsandculture.google.com/asset/the-starry-night/bgEuwDxel93-Uw
+
+# 达芬奇作品
+https://artsandculture.google.com/asset/mona-lisa/uQGZ28lYUJ3OGw
+
+# 毕加索作品
+https://artsandculture.google.com/asset/les-demoiselles-d-avignon/lgECL1JfZYO-Ew
+
+# 可以继续添加更多 URL...
