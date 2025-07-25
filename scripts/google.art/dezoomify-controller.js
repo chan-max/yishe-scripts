@@ -67,6 +67,9 @@ class DezoomifyController {
             case 'linux':
                 binaryName = 'dezoomify-rs-linux';
                 break;
+            case 'win32':
+                binaryName = 'dezoomify-rs-win.exe';
+                break;
             default:
                 throw new Error(`不支持的操作系统: ${platform}`);
         }
@@ -78,11 +81,13 @@ class DezoomifyController {
             throw new Error(`二进制文件不存在: ${binaryPath}`);
         }
 
-        // 确保文件有执行权限
-        try {
-            fs.chmodSync(binaryPath, '755');
-        } catch (error) {
-            console.warn(`警告: 无法设置执行权限: ${error.message}`);
+        // Windows 不需要设置执行权限
+        if (platform !== 'win32') {
+            try {
+                fs.chmodSync(binaryPath, '755');
+            } catch (error) {
+                console.warn(`警告: 无法设置执行权限: ${error.message}`);
+            }
         }
 
         return binaryPath;
@@ -151,6 +156,7 @@ class DezoomifyController {
         if (options.maxHeight) args.push('--max-height', options.maxHeight.toString());
         if (options.parallelism) args.push('--parallelism', options.parallelism.toString());
         if (options.retries) args.push('--retries', options.retries.toString());
+        if (options.zoomLevel !== undefined) args.push('--zoom-level', options.zoomLevel.toString());
         if (options.headers) {
             options.headers.forEach(header => {
                 args.push('--header', header);
@@ -209,17 +215,101 @@ class DezoomifyController {
             return false;
         }
     }
+
+    /**
+     * 解析 dezoomify-rs 的 --info 输出，提取 zoom levels
+     * @param {string} stdout - dezoomify-rs 的 stdout
+     * @returns {Array<{width: number, height: number}>} 解析出的 zoom levels 数组
+     */
+    parseZoomLevels(stdout) {
+        const levels = [];
+        const lines = stdout.split('\n');
+        for (const line of lines) {
+            if (line.includes('Zoom level')) {
+                const match = line.match(/Zoom level (\d+): (\d+)x(\d+)/);
+                if (match) {
+                    levels.push({
+                        level: parseInt(match[1]),
+                        width: parseInt(match[2]),
+                        height: parseInt(match[3])
+                    });
+                }
+            }
+        }
+        return levels;
+    }
+
+    /**
+     * 获取 zoom level 列表（通过解析 dezoomify-rs 的交互输出）
+     * @param {string} imageUrl
+     * @returns {Promise<Array<{level: number, title: string, width: number, height: number, tiles: number}>>}
+     */
+    async getZoomLevelsByParsing(imageUrl) {
+        return new Promise((resolve, reject) => {
+            const { spawn } = require('child_process');
+            const child = spawn(this.binaryPath, [imageUrl], { stdio: ['ignore', 'pipe', 'pipe'] });
+            let output = '';
+            let error = '';
+            child.stdout.on('data', (data) => {
+                output += data.toString();
+                if (output.includes('Which level do you want to download?')) {
+                    child.kill();
+                }
+            });
+            child.stderr.on('data', (data) => {
+                error += data.toString();
+            });
+            child.on('close', () => {
+                // 解析 zoom level 列表
+                const levels = [];
+                const regex = /\s*(\d+)\. (.*?)\(\s*(\d+) x\s*(\d+) pixels,\s*(\d+) tiles\)/g;
+                let match;
+                while ((match = regex.exec(output)) !== null) {
+                    levels.push({
+                        level: parseInt(match[1]),
+                        title: match[2].trim(),
+                        width: parseInt(match[3]),
+                        height: parseInt(match[4]),
+                        tiles: parseInt(match[5])
+                    });
+                }
+                resolve(levels);
+            });
+            child.on('error', (err) => {
+                reject(err);
+            });
+        });
+    }
 }
 
 // 如果直接运行此脚本，使用预设参数而不是命令行参数
 if (require.main === module) {
+    // 引入chalk用于美化命令行输出
+    let chalk;
+    try {
+        chalk = require('chalk');
+    } catch (e) {
+        console.warn('\x1b[33m提示：建议安装 chalk 包以获得更美观的命令行输出。\x1b[0m');
+        chalk = {
+            cyan: (s) => `\x1b[36m${s}\x1b[0m`,
+            green: (s) => `\x1b[32m${s}\x1b[0m`,
+            yellow: (s) => `\x1b[33m${s}\x1b[0m`,
+            red: (s) => `\x1b[31m${s}\x1b[0m`,
+            bold: (s) => `\x1b[1m${s}\x1b[0m`,
+            magenta: (s) => `\x1b[35m${s}\x1b[0m`,
+        };
+    }
     const controller = new DezoomifyController();
     
     // 处理配置
     const processConfig = () => {
         // 设置输出路径（如果未指定）
         if (!CONFIG.singleDownload.outputPath) {
-            CONFIG.singleDownload.outputPath = path.join(__dirname, 'output-image.jpg');
+            // 生成带时间戳的文件名
+            const now = new Date();
+            const pad = n => n.toString().padStart(2, '0');
+            const ts = `${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}_${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
+            CONFIG.singleDownload.outputPath = path.join(__dirname, `output-image_${ts}.jpg`);
         } else if (!path.isAbsolute(CONFIG.singleDownload.outputPath)) {
             CONFIG.singleDownload.outputPath = path.join(__dirname, CONFIG.singleDownload.outputPath);
         }
@@ -244,42 +334,177 @@ if (require.main === module) {
         try {
             // 根据配置的模式执行相应操作
             switch (CONFIG.mode) {
-                case 'single':
+                case 'single': {
+                    // 新增：命令行交互，提示用户输入图片地址
+                    const readline = require('readline');
+                    const rl = readline.createInterface({
+                        input: process.stdin,
+                        output: process.stdout
+                    });
+                    const question = (q) => new Promise(res => rl.question(q, res));
+                    console.log(chalk.cyan('=============================='));
+                    console.log(chalk.bold(chalk.magenta('Google Art 图片下载工具')));
+                    console.log(chalk.green('请输入要下载的 Google Art 图片地址（直接回车使用默认地址）：'));
+                    console.log(chalk.yellow(`默认地址: ${CONFIG.singleDownload.imageUrl}`));
+                    console.log(chalk.cyan('=============================='));
+                    let inputUrl = '';
+                    while (true) {
+                        inputUrl = (await question('图片地址: ')).trim();
+                        if (!inputUrl) {
+                            // 直接回车，使用默认
+                            break;
+                        }
+                        if (!/^https:\/\/artsandculture\.google\.com\//.test(inputUrl)) {
+                            console.error(chalk.red('错误：请输入有效的 Google Art 图片地址！'));
+                            console.error(chalk.yellow('示例：https://artsandculture.google.com/asset/xxxx'));
+                        } else {
+                            break;
+                        }
+                    }
+                    if (inputUrl) {
+                        CONFIG.singleDownload.imageUrl = inputUrl;
+                    }
+                    // 新增：获取并显示所有可用的 zoom levels（解析 dezoomify-rs 输出）
+                    console.log(chalk.cyan('=============================='));
+                    console.log(chalk.bold(chalk.magenta('正在分析图片的可用分辨率...')));
+                    console.log(chalk.cyan('=============================='));
+                    let zoomLevels = [];
+                    try {
+                        zoomLevels = await controller.getZoomLevelsByParsing(inputUrl || CONFIG.singleDownload.imageUrl);
+                    } catch (e) {
+                        zoomLevels = [];
+                    }
+                    if (zoomLevels && zoomLevels.length > 0) {
+                        console.log(chalk.cyan('=============================='));
+                        console.log(chalk.bold(chalk.magenta('可用的分辨率选项：')));
+                        zoomLevels.forEach((level, index) => {
+                            const sizeText = `${level.width}x${level.height}`;
+                            const isLargest = index === zoomLevels.length - 1;
+                            const displayText = isLargest ? 
+                                chalk.green(`${index}. ${sizeText} (最大分辨率) ${level.title}`) : 
+                                chalk.green(`${index}. ${sizeText} ${level.title}`);
+                            console.log(displayText);
+                        });
+                        console.log(chalk.cyan('=============================='));
+                        let zoomChoice = '';
+                        while (true) {
+                            zoomChoice = (await question(`请选择分辨率 (0-${zoomLevels.length - 1}): `)).trim();
+                            if (/^\d+$/.test(zoomChoice) && parseInt(zoomChoice) >= 0 && parseInt(zoomChoice) < zoomLevels.length) {
+                                break;
+                            }
+                            console.error(chalk.red(`错误：请输入 0 到 ${zoomLevels.length - 1} 之间的数字`));
+                        }
+                        const selectedLevel = parseInt(zoomChoice);
+                        CONFIG.singleDownload.options.zoomLevel = selectedLevel;
+                        delete CONFIG.singleDownload.options.largest;
+                        delete CONFIG.singleDownload.options.maxWidth;
+                        delete CONFIG.singleDownload.options.maxHeight;
+                        const selectedZoom = zoomLevels[selectedLevel];
+                        console.log(chalk.green(`已选择分辨率：${selectedZoom.width}x${selectedZoom.height} ${selectedZoom.title}`));
+                    } else {
+                        // 回退到原来的分辨率选择逻辑
+                        console.log(chalk.yellow('无法获取详细的分辨率信息，使用默认选择方式'));
+                        console.log(chalk.cyan('=============================='));
+                        console.log(chalk.bold(chalk.magenta('选择下载分辨率：')));
+                        console.log(chalk.green('1. 最大分辨率（推荐）'));
+                        console.log(chalk.green('2. 自定义分辨率'));
+                        console.log(chalk.green('3. 使用默认设置'));
+                        console.log(chalk.cyan('=============================='));
+                        let resolutionChoice = '';
+                        while (true) {
+                            resolutionChoice = (await question('请选择 (1/2/3): ')).trim();
+                            if (['1', '2', '3'].includes(resolutionChoice)) {
+                                break;
+                            }
+                            console.error(chalk.red('错误：请输入 1、2 或 3'));
+                        }
+                        if (resolutionChoice === '2') {
+                            // 自定义分辨率
+                            let maxWidth = '';
+                            let maxHeight = '';
+                            while (true) {
+                                maxWidth = (await question('请输入最大宽度 (像素，直接回车使用默认5000): ')).trim();
+                                if (!maxWidth) {
+                                    maxWidth = '5000';
+                                    break;
+                                }
+                                if (/^\d+$/.test(maxWidth) && parseInt(maxWidth) > 0) {
+                                    break;
+                                }
+                                console.error(chalk.red('错误：请输入有效的数字'));
+                            }
+                            while (true) {
+                                maxHeight = (await question('请输入最大高度 (像素，直接回车使用默认5000): ')).trim();
+                                if (!maxHeight) {
+                                    maxHeight = '5000';
+                                    break;
+                                }
+                                if (/^\d+$/.test(maxHeight) && parseInt(maxHeight) > 0) {
+                                    break;
+                                }
+                                console.error(chalk.red('错误：请输入有效的数字'));
+                            }
+                            CONFIG.singleDownload.options.maxWidth = parseInt(maxWidth);
+                            CONFIG.singleDownload.options.maxHeight = parseInt(maxHeight);
+                            console.log(chalk.green(`已设置自定义分辨率：${maxWidth}x${maxHeight}`));
+                        } else if (resolutionChoice === '1') {
+                            // 最大分辨率
+                            CONFIG.singleDownload.options.largest = true;
+                            delete CONFIG.singleDownload.options.maxWidth;
+                            delete CONFIG.singleDownload.options.maxHeight;
+                            console.log(chalk.green('已选择最大分辨率'));
+                        } else {
+                            // 使用默认设置
+                            console.log(chalk.green('使用默认设置'));
+                        }
+                    }
+                    rl.close();
+                    // 下载单个图像前，自动覆盖已存在的输出文件
+                    if (fs.existsSync(CONFIG.singleDownload.outputPath)) {
+                        try {
+                            fs.unlinkSync(CONFIG.singleDownload.outputPath);
+                            console.log(chalk.yellow('提示：已自动删除已存在的输出文件，准备覆盖。'));
+                        } catch (e) {
+                            console.error(chalk.red('错误：无法删除已存在的输出文件！'), e.message);
+                            process.exit(1);
+                        }
+                    }
                     // 下载单个图像
-                    console.log(`开始下载图像: ${CONFIG.singleDownload.imageUrl}`);
-                    console.log(`输出路径: ${CONFIG.singleDownload.outputPath}`);
+                    console.log(chalk.cyan('------------------------------'));
+                    console.log(chalk.green(`开始下载图像: ${CONFIG.singleDownload.imageUrl}`));
+                    console.log(chalk.green(`输出路径: ${CONFIG.singleDownload.outputPath}`));
                     await controller.downloadImage(
                         CONFIG.singleDownload.imageUrl, 
                         CONFIG.singleDownload.outputPath, 
                         CONFIG.singleDownload.options
                     );
-                    console.log(`图像已下载到: ${CONFIG.singleDownload.outputPath}`);
+                    console.log(chalk.bold(chalk.green(`图像已下载到: ${CONFIG.singleDownload.outputPath}`)));
                     break;
-                    
+                }
                 case 'bulk':
                     // 批量下载
-                    console.log(`开始批量下载，源文件: ${CONFIG.bulkDownload.bulkSource}`);
-                    console.log(`输出目录: ${CONFIG.bulkDownload.options.outputPrefix || '当前目录'}`);
+                    console.log(chalk.cyan('------------------------------'));
+                    console.log(chalk.green(`开始批量下载，源文件: ${CONFIG.bulkDownload.bulkSource}`));
+                    console.log(chalk.green(`输出目录: ${CONFIG.bulkDownload.options.outputPrefix || '当前目录'}`));
                     await controller.bulkDownload(
                         CONFIG.bulkDownload.bulkSource, 
                         CONFIG.bulkDownload.options
                     );
-                    console.log(`批量下载完成`);
+                    console.log(chalk.bold(chalk.green('批量下载完成')));
                     break;
-                    
                 case 'version':
                     // 获取版本信息
                     const version = await controller.getVersion();
-                    console.log(`Dezoomify-rs 版本: ${version}`);
+                    console.log(chalk.cyan('------------------------------'));
+                    console.log(chalk.green(`Dezoomify-rs 版本: ${version}`));
                     break;
-                    
                 default:
-                    console.error(`错误: 未知的运行模式 '${CONFIG.mode}'`);
-                    console.log(`支持的模式: 'single', 'bulk', 'version'`);
+                    console.error(chalk.red(`错误: 未知的运行模式 '${CONFIG.mode}'`));
+                    console.log(chalk.yellow(`支持的模式: 'single', 'bulk', 'version'`));
                     process.exit(1);
             }
         } catch (error) {
-            console.error('错误:', error.message);
+            console.error(chalk.red('错误:'), error.message);
             process.exit(1);
         }
     }
