@@ -2,6 +2,12 @@
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
+
+
+/**
+ * SELECT COUNT(*) FROM crawler_material WHERE phash IS NULL OR phash = '';
+*/
+
 const axios = require('axios');
 const chalk = require('chalk');
 
