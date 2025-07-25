@@ -295,7 +295,24 @@ MIT License
 - GitHub Issues
 - 邮箱: your-email@example.com
 
+## 批量补全贴纸和爬虫素材 phash
 
-# 
+该脚本可一键批量补全贴纸素材和爬虫素材的感知哈希（phash），自动调用后端批量接口，适用于数据迁移、历史数据修复等场景。
 
-#
+### 用法示例
+
+- 生产环境（1s.design接口，默认）：
+
+  ```bash
+  node scripts/gen-hash-stickerandcrawler.js
+  # 或
+  node scripts/gen-hash-stickerandcrawler.js prod
+  ```
+
+- 开发环境（本地localhost接口）：
+
+  ```bash
+  node scripts/gen-hash-stickerandcrawler.js dev
+  ```
+
+脚本会自动等待后端处理完成，适合大批量数据补全。
