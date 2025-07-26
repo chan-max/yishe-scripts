@@ -363,6 +363,19 @@ class HotSearchCrawler {
                     msg += '\n';
                 }
 
+                // 推送Bilibili热搜
+                const bilibili = this.results.find(r => r.platform === 'bilibili' && r.success);
+                if (bilibili && Array.isArray(bilibili.data)) {
+                    msg += '【Bilibili热搜】\n';
+                    bilibili.data.forEach((item, idx) => {
+                        const hot = item.hot || '';
+                        const hotText = hot ? ` (${hot})` : '';
+                        const title = item.title || '未知';
+                        msg += `${idx + 1}. ${title}${hotText}\n`;
+                    });
+                    msg += '\n';
+                }
+
                 if (msg) {
                     await sendToFeishu(msg, 'text');
                 } else {

@@ -11,12 +11,14 @@ const weibo = require('./platforms/weibo');
 const douyin = require('./platforms/douyin');
 const ks = require('./platforms/ks');
 const toutiao = require('./platforms/toutiao');
+const bilibili = require('./platforms/bilibili');
 
 const PLATFORMS = {
     weibo,
     douyin,
     ks,
     toutiao,
+    bilibili,
     zhihu: {
         name: '知乎',
         url: '',
