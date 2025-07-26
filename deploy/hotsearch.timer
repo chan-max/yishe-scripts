@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Hot Search Crawler every hour
+Requires=hotsearch.service
+
+[Timer]
+OnCalendar=hourly
+Persistent=true
+
+[Install]
+WantedBy=timers.target 

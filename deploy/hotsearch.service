@@ -1,0 +1,14 @@
+[Unit]
+Description=Hot Search Crawler Service
+After=network.target
+
+[Service]
+Type=oneshot
+User=your-username
+WorkingDirectory=/path/to/yishe-scripts
+ExecStart=/usr/bin/node scripts/hotsearch/main.js --feishu
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target 
