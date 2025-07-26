@@ -1,0 +1,145 @@
+name: 飞书机器人通知
+
+on:
+  push:
+    branches: [ main, master, develop, feature/*, hotfix/*, release/* ]
+  pull_request:
+    branches: [ main, master, develop ]
+  create:
+  delete:
+  fork:
+  gollum:
+  issues:
+  issue_comment:
+  watch:
+  release:
+  deployment:
+  deployment_status:
+  public:
+  repository_dispatch:
+
+jobs:
+  notify-feishu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 获取事件信息
+        id: event_info
+        run: |
+          echo "event_name=${{ github.event_name }}" >> $GITHUB_OUTPUT
+          echo "ref=${{ github.ref }}" >> $GITHUB_OUTPUT
+          echo "ref_name=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+          echo "sha=${{ github.sha }}" >> $GITHUB_OUTPUT
+          echo "repository=${{ github.repository }}" >> $GITHUB_OUTPUT
+          echo "actor=${{ github.actor }}" >> $GITHUB_OUTPUT
+          echo "workflow=${{ github.workflow }}" >> $GITHUB_OUTPUT
+          
+          # 获取提交信息
+          if [ "${{ github.event_name }}" = "push" ]; then
+            echo "commit_message=$(git log --format=%B -n 1 ${{ github.sha }})" >> $GITHUB_OUTPUT
+            echo "commit_author=$(git log --format=%an -n 1 ${{ github.sha }})" >> $GITHUB_OUTPUT
+            echo "commit_date=$(git log --format=%cd -n 1 ${{ github.sha }})" >> $GITHUB_OUTPUT
+          fi
+          
+          # 获取PR信息
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "pr_title=${{ github.event.pull_request.title }}" >> $GITHUB_OUTPUT
+            echo "pr_body=${{ github.event.pull_request.body }}" >> $GITHUB_OUTPUT
+            echo "pr_author=${{ github.event.pull_request.user.login }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 发送飞书通知
+        run: |
+          # 构建消息内容
+          PROJECT_NAME="yishe-scripts"
+          EVENT_NAME="${{ steps.event_info.outputs.event_name }}"
+          BRANCH="${{ steps.event_info.outputs.ref_name }}"
+          REPOSITORY="${{ steps.event_info.outputs.repository }}"
+          ACTOR="${{ steps.event_info.outputs.actor }}"
+          SHA="${{ steps.event_info.outputs.sha }}"
+          
+          # 根据事件类型构建不同的消息
+          case $EVENT_NAME in
+            "push")
+              COMMIT_MSG="${{ steps.event_info.outputs.commit_message }}"
+              COMMIT_AUTHOR="${{ steps.event_info.outputs.commit_author }}"
+              COMMIT_DATE="${{ steps.event_info.outputs.commit_date }}"
+              
+              MESSAGE="🚀 **代码推送通知**
+              
+              📁 **项目**: $PROJECT_NAME
+              🌿 **分支**: $BRANCH
+              👤 **提交者**: $ACTOR
+              📝 **提交信息**: $COMMIT_MSG
+              👨‍💻 **作者**: $COMMIT_AUTHOR
+              📅 **提交时间**: $COMMIT_DATE
+              🔗 **仓库**: https://github.com/$REPOSITORY
+              🔗 **提交链接**: https://github.com/$REPOSITORY/commit/$SHA"
+              ;;
+              
+            "pull_request")
+              PR_TITLE="${{ steps.event_info.outputs.pr_title }}"
+              PR_BODY="${{ steps.event_info.outputs.pr_body }}"
+              PR_AUTHOR="${{ steps.event_info.outputs.pr_author }}"
+              
+              MESSAGE="🔀 **Pull Request 通知**
+              
+              📁 **项目**: $PROJECT_NAME
+              🌿 **分支**: $BRANCH
+              👤 **创建者**: $PR_AUTHOR
+              📝 **PR标题**: $PR_TITLE
+              📄 **PR描述**: $PR_BODY
+              🔗 **仓库**: https://github.com/$REPOSITORY
+              🔗 **PR链接**: ${{ github.event.pull_request.html_url }}"
+              ;;
+              
+            "create")
+              MESSAGE="✨ **分支创建通知**
+              
+              📁 **项目**: $PROJECT_NAME
+              🌿 **分支**: $BRANCH
+              👤 **创建者**: $ACTOR
+              🔗 **仓库**: https://github.com/$REPOSITORY"
+              ;;
+              
+            "delete")
+              MESSAGE="🗑️ **分支删除通知**
+              
+              📁 **项目**: $PROJECT_NAME
+              🌿 **分支**: $BRANCH
+              👤 **删除者**: $ACTOR
+              🔗 **仓库**: https://github.com/$REPOSITORY"
+              ;;
+              
+            *)
+              MESSAGE="📢 **Git事件通知**
+              
+              📁 **项目**: $PROJECT_NAME
+              🌿 **分支**: $BRANCH
+              👤 **操作者**: $ACTOR
+              📋 **事件类型**: $EVENT_NAME
+              🔗 **仓库**: https://github.com/$REPOSITORY"
+              ;;
+          esac
+          
+          # 发送到飞书机器人
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"msg_type\": \"post\",
+              \"content\": {
+                \"post\": {
+                  \"zh_cn\": {
+                    \"title\": \"Git操作通知 - $PROJECT_NAME\",
+                    \"content\": [
+                      [
+                        {
+                          \"tag\": \"text\",
+                          \"text\": \"$MESSAGE\"
+                        }
+                      ]
+                    ]
+                  }
+                }
+              }
+            }" \
+            "https://open.feishu.cn/open-apis/bot/v2/hook/143ed889-eace-42df-ba97-d8b2bac28e6d" 
