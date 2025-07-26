@@ -21,7 +21,14 @@
         "start:qiubiaoqing": "node scripts/qiubiaoqing.com/main.js",
         "phash": "node ./scripts/image-phash-example.js",
         "google-art-crawl": "node ./scripts/google.art/google-art-crawler.js",
-        "download-google-art": "node scripts/google.art/dezoomify-controller.js"
+        "download-google-art": "node scripts/google.art/dezoomify-controller.js",
+        "hot-search": "node scripts/hot-search-crawler.js",
+        "hot-search:feishu": "node scripts/hot-search-crawler.js --feishu",
+        "hot-search:advanced": "node scripts/hot-search-advanced.js",
+        "hot-search:advanced:feishu": "node scripts/hot-search-advanced.js --feishu",
+        "hot-search:scheduler": "node scripts/hot-search-scheduler.js",
+        "hot-search:scheduler:feishu": "node scripts/hot-search-scheduler.js --feishu",
+        "hot-search:scheduler:basic": "node scripts/hot-search-scheduler.js --script-type basic"
     },
     "dependencies": {
         "axios": "^1.6.0",
