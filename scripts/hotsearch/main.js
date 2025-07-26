@@ -30,85 +30,7 @@ const USER_AGENTS = [
 ];
 
 // 平台配置（后续由你提供接口和数据结构）
-const PLATFORMS = {
-    weibo: {
-        name: '微博',
-        url: 'https://weibo.com/ajax/side/hotSearch',
-        headers: {},
-        parser: function (data) {
-            // 解析微博热搜返回结构
-            if (!data || !data.data || !Array.isArray(data.data.realtime)) return [];
-            return data.data.realtime.map(item => ({
-                title: item.word,
-                hot: item.num,
-                note: item.note,
-                label: item.label_name,
-                icon: item.icon,
-                icon_desc: item.icon_desc,
-                rank: item.rank + 1,
-                topic_flag: item.topic_flag,
-                flag: item.flag,
-                word_scheme: item.word_scheme
-            }));
-        },
-        enabled: true
-    },
-    zhihu: {
-        name: '知乎',
-        url: '',
-        headers: {},
-        parser: null,
-        enabled: false
-    },
-    douyin: {
-        name: '抖音',
-        url: 'https://www.douyin.com/aweme/v1/web/hot/search/list/',
-        headers: {
-            'Referer': 'https://www.douyin.com/',
-            'Origin': 'https://www.douyin.com',
-            'Accept': 'application/json, text/plain, */*',
-            'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'Connection': 'keep-alive',
-            'Sec-Fetch-Dest': 'empty',
-            'Sec-Fetch-Mode': 'cors',
-            'Sec-Fetch-Site': 'same-origin'
-        },
-        parser: function (data) {
-            if (!data || !data.data || !Array.isArray(data.data.word_list)) return [];
-            return data.data.word_list.map(item => ({
-                title: item.word,
-                hot: item.hot_value,
-                rank: item.position,
-                video_count: item.video_count,
-                discuss_video_count: item.discuss_video_count,
-                label: item.label,
-                label_url: item.label_url,
-                word_type: item.word_type,
-                event_time: item.event_time,
-                group_id: item.group_id,
-                sentence_id: item.sentence_id,
-                sentence_tag: item.sentence_tag,
-                word_cover: item.word_cover
-            }));
-        },
-        enabled: true
-    },
-    xiaohongshu: {
-        name: '小红书',
-        url: '',
-        headers: {},
-        parser: null,
-        enabled: false
-    },
-    kuaishou: {
-        name: '快手',
-        url: '',
-        headers: {},
-        parser: null,
-        enabled: false
-    }
-};
+const PLATFORMS = require('./platforms');
 
 // 飞书Webhook地址（可根据需要改为配置文件或环境变量）
 const FEISHU_WEBHOOK = 'https://open.feishu.cn/open-apis/bot/v2/hook/77213058-0955-487d-8376-863ca5845ab4';
@@ -124,7 +46,9 @@ async function sendToFeishu(content, msgType = 'text') {
         if (msgType === 'text') {
             body = {
                 msg_type: 'text',
-                content: { text: content }
+                content: {
+                    text: content
+                }
             };
         } else if (msgType === 'post') {
             body = {
@@ -134,7 +58,10 @@ async function sendToFeishu(content, msgType = 'text') {
                         zh_cn: {
                             title: '热搜榜单',
                             content: [
-                                [ { tag: 'text', text: content } ]
+                                [{
+                                    tag: 'text',
+                                    text: content
+                                }]
                             ]
                         }
                     }
@@ -144,7 +71,9 @@ async function sendToFeishu(content, msgType = 'text') {
             throw new Error('不支持的消息类型');
         }
         const res = await axios.post(FEISHU_WEBHOOK, body, {
-            headers: { 'Content-Type': 'application/json' }
+            headers: {
+                'Content-Type': 'application/json'
+            }
         });
         if (res.data && res.data.code === 0) {
             console.log(chalk.green('✅ 飞书推送成功'));
@@ -193,7 +122,7 @@ class HotSearchCrawler {
     // 带重试的请求
     async requestWithRetry(url, options = {}, retryTimes = CONFIG.retryTimes) {
         const axiosInstance = this.createAxiosInstance();
-        
+
         for (let i = 0; i <= retryTimes; i++) {
             try {
                 const response = await axiosInstance.get(url, options);
@@ -216,7 +145,7 @@ class HotSearchCrawler {
 
         try {
             console.log(chalk.blue(`正在获取 ${platformConfig.name} 热搜数据...`));
-            
+
             const data = await this.requestWithRetry(platformConfig.url, {
                 headers: platformConfig.headers
             });
@@ -258,16 +187,16 @@ class HotSearchCrawler {
     // 获取所有平台的热搜数据
     async fetchAllPlatforms() {
         console.log(chalk.green('开始获取热搜数据...'));
-        
-        const promises = Object.entries(PLATFORMS).map(([key, config]) => 
+
+        const promises = Object.entries(PLATFORMS).map(([key, config]) =>
             this.fetchPlatformData(key, config)
         );
 
         const results = await Promise.all(promises);
-        
+
         // 过滤掉null结果
         this.results = results.filter(result => result !== null);
-        
+
         return this.results;
     }
 
@@ -286,11 +215,13 @@ class HotSearchCrawler {
             if (result.success) {
                 console.log(chalk.blue(`📱 ${result.name}`));
                 if (Array.isArray(result.data)) {
-                    result.data.slice(0, 10).forEach((item, index) => {
+                    result.data.forEach((item, index) => {
                         const rank = chalk.yellow(`#${index + 1}`);
-                        const title = chalk.white(item.title || item.name || '未知标题');
-                        const hot = item.hot ? chalk.gray(`(${item.hot})`) : '';
-                        console.log(`  ${rank} ${title} ${hot}`);
+                        // 快手平台使用name字段，其他平台使用title字段
+                        const title = chalk.white(item.title || item.word || item.name || '未知');
+                        const hot = item.hot || item.hotValue || item.num || '';
+                        const hotText = hot ? chalk.gray(`(${hot})`) : '';
+                        console.log(`  ${rank} ${title} ${hotText}`);
                     });
                 } else {
                     console.log(chalk.gray('  数据结构需要自定义解析'));
@@ -308,7 +239,9 @@ class HotSearchCrawler {
 
         // 确保输出目录存在
         if (!fs.existsSync(CONFIG.outputDir)) {
-            fs.mkdirSync(CONFIG.outputDir, { recursive: true });
+            fs.mkdirSync(CONFIG.outputDir, {
+                recursive: true
+            });
         }
 
         const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
@@ -349,10 +282,12 @@ class HotSearchCrawler {
             if (result.success) {
                 markdown += `## 📱 ${result.name}\n\n`;
                 if (Array.isArray(result.data)) {
-                    result.data.slice(0, 10).forEach((item, index) => {
-                        const title = item.title || item.name || '未知标题';
-                        const hot = item.hot ? ` (${item.hot})` : '';
-                        markdown += `${index + 1}. **${title}**${hot}\n`;
+                    result.data.forEach((item, index) => {
+                        // 快手平台使用name字段，其他平台使用title字段
+                        const title = item.title || item.word || item.name || '未知';
+                        const hot = item.hot || item.hotValue || item.num || '';
+                        const hotText = hot ? ` (${hot})` : '';
+                        markdown += `${index + 1}. **${title}**${hotText}\n`;
                     });
                 } else {
                     markdown += `数据结构需要自定义解析\n`;
@@ -376,26 +311,58 @@ class HotSearchCrawler {
             // 检查命令行参数 --feishu
             if (process.argv.includes('--feishu')) {
                 let msg = '';
-                
-                // 推送微博热搜前10条
+
+                // 推送微博热搜
                 const weibo = this.results.find(r => r.platform === 'weibo' && r.success);
                 if (weibo && Array.isArray(weibo.data)) {
-                    msg += '【微博热搜前10】\n';
-                    weibo.data.slice(0, 10).forEach((item, idx) => {
-                        msg += `${idx + 1}. ${item.title} (${item.hot})\n`;
+                    msg += '【微博热搜】\n';
+                    weibo.data.forEach((item, idx) => {
+                        const hot = item.hot || item.num || '';
+                        const hotText = hot ? ` (${hot})` : '';
+                        msg += `${idx + 1}. ${item.title}${hotText}\n`;
                     });
                     msg += '\n';
                 }
-                
-                // 推送抖音热搜前10条
+
+                // 推送抖音热搜
                 const douyin = this.results.find(r => r.platform === 'douyin' && r.success);
                 if (douyin && Array.isArray(douyin.data)) {
-                    msg += '【抖音热搜前10】\n';
-                    douyin.data.slice(0, 10).forEach((item, idx) => {
-                        msg += `${idx + 1}. ${item.title} (${item.hot})\n`;
+                    msg += '【抖音热搜】\n';
+                    douyin.data.forEach((item, idx) => {
+                        const hot = item.hot || item.hotValue || '';
+                        const hotText = hot ? ` (${hot})` : '';
+                        msg += `${idx + 1}. ${item.title}${hotText}\n`;
                     });
+                    msg += '\n';
                 }
-                
+
+                // 推送快手热搜
+                const ks = this.results.find(r => r.platform === 'ks' && r.success);
+                if (ks && Array.isArray(ks.data)) {
+                    msg += '【快手热搜】\n';
+                    ks.data.forEach((item, idx) => {
+                        const hot = item.hot || item.hotValue || '';
+                        const hotText = hot ? ` (${hot})` : '';
+                        // 快手平台使用name字段
+                        const title = item.name || item.title || '未知';
+                        msg += `${idx + 1}. ${title}${hotText}\n`;
+                    });
+                    msg += '\n';
+                }
+
+                // 推送今日头条热搜
+                const toutiao = this.results.find(r => r.platform === 'toutiao' && r.success);
+                if (toutiao && Array.isArray(toutiao.data)) {
+                    msg += '【今日头条热搜】\n';
+                    toutiao.data.forEach((item, idx) => {
+                        const hot = item.hot || item.hotValue || '';
+                        const hotText = hot ? ` (${hot})` : '';
+                        const title = item.title || '未知';
+                        msg += `${idx + 1}. ${title}${hotText}\n`;
+                    });
+                    msg += '\n';
+                }
+
                 if (msg) {
                     await sendToFeishu(msg, 'text');
                 } else {
