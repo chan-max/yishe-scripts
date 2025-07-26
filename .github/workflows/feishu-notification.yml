@@ -64,16 +64,7 @@ jobs:
               COMMIT_AUTHOR="${{ steps.event_info.outputs.commit_author }}"
               COMMIT_DATE="${{ steps.event_info.outputs.commit_date }}"
               
-              MESSAGE="🚀 **代码推送通知**
-              
-              📁 **项目**: $PROJECT_NAME
-              🌿 **分支**: $BRANCH
-              👤 **提交者**: $ACTOR
-              📝 **提交信息**: $COMMIT_MSG
-              👨‍💻 **作者**: $COMMIT_AUTHOR
-              📅 **提交时间**: $COMMIT_DATE
-              🔗 **仓库**: https://github.com/$REPOSITORY
-              🔗 **提交链接**: https://github.com/$REPOSITORY/commit/$SHA"
+              MESSAGE="🚀 代码推送通知\n\n📁 项目: $PROJECT_NAME\n🌿 分支: $BRANCH\n👤 提交者: $ACTOR\n📝 提交信息: $COMMIT_MSG\n👨‍💻 作者: $COMMIT_AUTHOR\n📅 提交时间: $COMMIT_DATE\n🔗 仓库: https://github.com/$REPOSITORY\n🔗 提交链接: https://github.com/$REPOSITORY/commit/$SHA"
               ;;
               
             "pull_request")
@@ -81,65 +72,44 @@ jobs:
               PR_BODY="${{ steps.event_info.outputs.pr_body }}"
               PR_AUTHOR="${{ steps.event_info.outputs.pr_author }}"
               
-              MESSAGE="🔀 **Pull Request 通知**
-              
-              📁 **项目**: $PROJECT_NAME
-              🌿 **分支**: $BRANCH
-              👤 **创建者**: $PR_AUTHOR
-              📝 **PR标题**: $PR_TITLE
-              📄 **PR描述**: $PR_BODY
-              🔗 **仓库**: https://github.com/$REPOSITORY
-              🔗 **PR链接**: ${{ github.event.pull_request.html_url }}"
+              MESSAGE="🔀 Pull Request 通知\n\n📁 项目: $PROJECT_NAME\n🌿 分支: $BRANCH\n👤 创建者: $PR_AUTHOR\n📝 PR标题: $PR_TITLE\n📄 PR描述: $PR_BODY\n🔗 仓库: https://github.com/$REPOSITORY\n🔗 PR链接: ${{ github.event.pull_request.html_url }}"
               ;;
               
             "create")
-              MESSAGE="✨ **分支创建通知**
-              
-              📁 **项目**: $PROJECT_NAME
-              🌿 **分支**: $BRANCH
-              👤 **创建者**: $ACTOR
-              🔗 **仓库**: https://github.com/$REPOSITORY"
+              MESSAGE="✨ 分支创建通知\n\n📁 项目: $PROJECT_NAME\n🌿 分支: $BRANCH\n👤 创建者: $ACTOR\n🔗 仓库: https://github.com/$REPOSITORY"
               ;;
               
             "delete")
-              MESSAGE="🗑️ **分支删除通知**
-              
-              📁 **项目**: $PROJECT_NAME
-              🌿 **分支**: $BRANCH
-              👤 **删除者**: $ACTOR
-              🔗 **仓库**: https://github.com/$REPOSITORY"
+              MESSAGE="🗑️ 分支删除通知\n\n📁 项目: $PROJECT_NAME\n🌿 分支: $BRANCH\n👤 删除者: $ACTOR\n🔗 仓库: https://github.com/$REPOSITORY"
               ;;
               
             *)
-              MESSAGE="📢 **Git事件通知**
-              
-              📁 **项目**: $PROJECT_NAME
-              🌿 **分支**: $BRANCH
-              👤 **操作者**: $ACTOR
-              📋 **事件类型**: $EVENT_NAME
-              🔗 **仓库**: https://github.com/$REPOSITORY"
+              MESSAGE="📢 Git事件通知\n\n📁 项目: $PROJECT_NAME\n🌿 分支: $BRANCH\n👤 操作者: $ACTOR\n📋 事件类型: $EVENT_NAME\n🔗 仓库: https://github.com/$REPOSITORY"
               ;;
           esac
           
-          # 发送到飞书机器人
-          curl -X POST \
+          # 发送到飞书机器人 - 使用text格式
+          RESPONSE=$(curl -s -w "%{http_code}" -X POST \
             -H "Content-Type: application/json" \
             -d "{
-              \"msg_type\": \"post\",
+              \"msg_type\": \"text\",
               \"content\": {
-                \"post\": {
-                  \"zh_cn\": {
-                    \"title\": \"Git操作通知 - $PROJECT_NAME\",
-                    \"content\": [
-                      [
-                        {
-                          \"tag\": \"text\",
-                          \"text\": \"$MESSAGE\"
-                        }
-                      ]
-                    ]
-                  }
-                }
+                \"text\": \"$MESSAGE\"
               }
             }" \
-            "https://open.feishu.cn/open-apis/bot/v2/hook/143ed889-eace-42df-ba97-d8b2bac28e6d" 
+            "https://open.feishu.cn/open-apis/bot/v2/hook/143ed889-eace-42df-ba97-d8b2bac28e6d")
+          
+          # 检查响应
+          HTTP_CODE="${RESPONSE: -3}"
+          RESPONSE_BODY="${RESPONSE%???}"
+          
+          echo "HTTP Code: $HTTP_CODE"
+          echo "Response: $RESPONSE_BODY"
+          
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "❌ 飞书通知发送失败，HTTP状态码: $HTTP_CODE"
+            echo "响应内容: $RESPONSE_BODY"
+            exit 1
+          else
+            echo "✅ 飞书通知发送成功"
+          fi 
