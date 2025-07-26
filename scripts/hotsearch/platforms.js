@@ -12,6 +12,9 @@ const douyin = require('./platforms/douyin');
 const ks = require('./platforms/ks');
 const toutiao = require('./platforms/toutiao');
 const bilibili = require('./platforms/bilibili');
+const zhihu = require('./platforms/zhihu');
+const douban = require('./platforms/douban');
+const kugou = require('./platforms/kugou');
 
 const PLATFORMS = {
     weibo,
@@ -19,13 +22,9 @@ const PLATFORMS = {
     ks,
     toutiao,
     bilibili,
-    zhihu: {
-        name: '知乎',
-        url: '',
-        headers: {},
-        parser: null,
-        enabled: false
-    },
+    zhihu,
+    douban,
+    kugou,
     xiaohongshu: {
         name: '小红书',
         url: '',

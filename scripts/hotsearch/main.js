@@ -310,77 +310,88 @@ class HotSearchCrawler {
 
             // 检查命令行参数 --feishu
             if (process.argv.includes('--feishu')) {
-                let msg = '';
+                console.log(chalk.blue('📤 开始发送飞书消息...'));
+                // 遍历每个平台，单独推送
+                const platforms = [{
+                        key: 'weibo',
+                        label: '微博热搜',
+                        getTitle: item => item.title || '未知',
+                        getHot: item => item.hot || item.num || ''
+                    },
+                    {
+                        key: 'douyin',
+                        label: '抖音热搜',
+                        getTitle: item => item.title || '未知',
+                        getHot: item => item.hot || item.hotValue || ''
+                    },
+                    {
+                        key: 'ks',
+                        label: '快手热搜',
+                        getTitle: item => item.name || item.title || '未知',
+                        getHot: item => item.hot || item.hotValue || ''
+                    },
+                    {
+                        key: 'toutiao',
+                        label: '今日头条热搜',
+                        getTitle: item => item.title || '未知',
+                        getHot: item => item.hot || item.hotValue || ''
+                    },
+                    {
+                        key: 'bilibili',
+                        label: 'Bilibili热搜',
+                        getTitle: item => item.title || '未知',
+                        getHot: item => item.hot || ''
+                    },
+                    {
+                        key: 'zhihu',
+                        label: '知乎热搜',
+                        getTitle: item => item.title || '未知',
+                        getHot: item => item.hot || ''
+                    },
+                    {
+                        key: 'douban',
+                        label: '豆瓣热搜',
+                        getTitle: item => item.title || '未知',
+                        getHot: item => item.hot || ''
+                    },
+                    {
+                        key: 'kugou',
+                        label: '酷狗音乐榜',
+                        getTitle: item => item.title || '未知',
+                        getHot: item => item.hot || ''
+                    },
+                ];
 
-                // 推送微博热搜
-                const weibo = this.results.find(r => r.platform === 'weibo' && r.success);
-                if (weibo && Array.isArray(weibo.data)) {
-                    msg += '【微博热搜】\n';
-                    weibo.data.forEach((item, idx) => {
-                        const hot = item.hot || item.num || '';
-                        const hotText = hot ? ` (${hot})` : '';
-                        msg += `${idx + 1}. ${item.title}${hotText}\n`;
-                    });
-                    msg += '\n';
+                let successCount = 0;
+                let totalCount = 0;
+
+                for (const pf of platforms) {
+                    const result = this.results.find(r => r.platform === pf.key && r.success);
+                    if (result && Array.isArray(result.data) && result.data.length > 0) {
+                        totalCount++;
+                        let msg = `【${pf.label}】\n`;
+                        result.data.forEach((item, idx) => {
+                            const hot = pf.getHot(item);
+                            const hotText = hot ? ` (${hot})` : '';
+                            const title = pf.getTitle(item);
+                            msg += `${idx + 1}. ${title}${hotText}\n`;
+                        });
+
+                        console.log(chalk.blue(`📤 正在发送 ${pf.label}...`));
+                        try {
+                            await sendToFeishu(msg);
+                            console.log(chalk.green(`✅ ${pf.label} 发送成功`));
+                            successCount++;
+                        } catch (error) {
+                            console.log(chalk.red(`❌ ${pf.label} 发送失败: ${error.message}`));
+                        }
+                    } else {
+                        console.log(chalk.yellow(`⚠️  ${pf.label} 无数据，跳过发送`));
+                    }
                 }
 
-                // 推送抖音热搜
-                const douyin = this.results.find(r => r.platform === 'douyin' && r.success);
-                if (douyin && Array.isArray(douyin.data)) {
-                    msg += '【抖音热搜】\n';
-                    douyin.data.forEach((item, idx) => {
-                        const hot = item.hot || item.hotValue || '';
-                        const hotText = hot ? ` (${hot})` : '';
-                        msg += `${idx + 1}. ${item.title}${hotText}\n`;
-                    });
-                    msg += '\n';
-                }
-
-                // 推送快手热搜
-                const ks = this.results.find(r => r.platform === 'ks' && r.success);
-                if (ks && Array.isArray(ks.data)) {
-                    msg += '【快手热搜】\n';
-                    ks.data.forEach((item, idx) => {
-                        const hot = item.hot || item.hotValue || '';
-                        const hotText = hot ? ` (${hot})` : '';
-                        // 快手平台使用name字段
-                        const title = item.name || item.title || '未知';
-                        msg += `${idx + 1}. ${title}${hotText}\n`;
-                    });
-                    msg += '\n';
-                }
-
-                // 推送今日头条热搜
-                const toutiao = this.results.find(r => r.platform === 'toutiao' && r.success);
-                if (toutiao && Array.isArray(toutiao.data)) {
-                    msg += '【今日头条热搜】\n';
-                    toutiao.data.forEach((item, idx) => {
-                        const hot = item.hot || item.hotValue || '';
-                        const hotText = hot ? ` (${hot})` : '';
-                        const title = item.title || '未知';
-                        msg += `${idx + 1}. ${title}${hotText}\n`;
-                    });
-                    msg += '\n';
-                }
-
-                // 推送Bilibili热搜
-                const bilibili = this.results.find(r => r.platform === 'bilibili' && r.success);
-                if (bilibili && Array.isArray(bilibili.data)) {
-                    msg += '【Bilibili热搜】\n';
-                    bilibili.data.forEach((item, idx) => {
-                        const hot = item.hot || '';
-                        const hotText = hot ? ` (${hot})` : '';
-                        const title = item.title || '未知';
-                        msg += `${idx + 1}. ${title}${hotText}\n`;
-                    });
-                    msg += '\n';
-                }
-
-                if (msg) {
-                    await sendToFeishu(msg, 'text');
-                } else {
-                    await sendToFeishu('获取热搜数据失败或无数据', 'text');
-                }
+                console.log(chalk.blue(`📊 飞书发送统计: ${successCount}/${totalCount} 个平台发送成功`));
+                return;
             }
 
             console.log(chalk.green('\n✅ 热搜数据获取完成！'));
