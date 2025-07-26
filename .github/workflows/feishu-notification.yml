@@ -33,11 +33,11 @@ jobs:
           echo "actor=${{ github.actor }}" >> $GITHUB_OUTPUT
           echo "workflow=${{ github.workflow }}" >> $GITHUB_OUTPUT
           
-          # 获取提交信息
+          # 获取提交信息 - 使用GitHub环境变量
           if [ "${{ github.event_name }}" = "push" ]; then
-            echo "commit_message=$(git log --format=%B -n 1 ${{ github.sha }})" >> $GITHUB_OUTPUT
-            echo "commit_author=$(git log --format=%an -n 1 ${{ github.sha }})" >> $GITHUB_OUTPUT
-            echo "commit_date=$(git log --format=%cd -n 1 ${{ github.sha }})" >> $GITHUB_OUTPUT
+            echo "commit_message=${{ github.event.head_commit.message }}" >> $GITHUB_OUTPUT
+            echo "commit_author=${{ github.event.head_commit.author.name }}" >> $GITHUB_OUTPUT
+            echo "commit_date=${{ github.event.head_commit.timestamp }}" >> $GITHUB_OUTPUT
           fi
           
           # 获取PR信息
@@ -63,6 +63,17 @@ jobs:
               COMMIT_MSG="${{ steps.event_info.outputs.commit_message }}"
               COMMIT_AUTHOR="${{ steps.event_info.outputs.commit_author }}"
               COMMIT_DATE="${{ steps.event_info.outputs.commit_date }}"
+              
+              # 如果提交信息为空，使用备用方案
+              if [ -z "$COMMIT_MSG" ]; then
+                COMMIT_MSG="无提交信息"
+              fi
+              if [ -z "$COMMIT_AUTHOR" ]; then
+                COMMIT_AUTHOR="$ACTOR"
+              fi
+              if [ -z "$COMMIT_DATE" ]; then
+                COMMIT_DATE="未知时间"
+              fi
               
               MESSAGE="🚀 代码推送通知\n\n📁 项目: $PROJECT_NAME\n🌿 分支: $BRANCH\n👤 提交者: $ACTOR\n📝 提交信息: $COMMIT_MSG\n👨‍💻 作者: $COMMIT_AUTHOR\n📅 提交时间: $COMMIT_DATE\n🔗 仓库: https://github.com/$REPOSITORY\n🔗 提交链接: https://github.com/$REPOSITORY/commit/$SHA"
               ;;
