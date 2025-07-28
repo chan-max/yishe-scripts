@@ -62,7 +62,8 @@ module.exports = {
                 }
             });
 
-            return songs;
+            // 只返回前10条
+            return songs.slice(0, 10);
         } catch (error) {
             console.error('酷狗音乐解析失败:', error.message);
             return [];

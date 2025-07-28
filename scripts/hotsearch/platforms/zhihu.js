@@ -19,7 +19,7 @@ module.exports = {
     },
     parser: function(data) {
         if (!data || !data.recommend_queries || !Array.isArray(data.recommend_queries.queries)) return [];
-        return data.recommend_queries.queries.map((item, idx) => ({
+        return data.recommend_queries.queries.slice(0, 10).map((item, idx) => ({
             title: item.query_display || item.query || '未知',
             hot: item.label || '',
             rank: idx + 1,

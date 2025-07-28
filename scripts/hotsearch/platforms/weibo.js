@@ -4,7 +4,7 @@ module.exports = {
     headers: {},
     parser: function(data) {
         if (!data || !data.data || !Array.isArray(data.data.realtime)) return [];
-        return data.data.realtime.map(item => ({
+        return data.data.realtime.slice(0, 10).map(item => ({
             title: item.word,
             hot: item.num,
             note: item.note,

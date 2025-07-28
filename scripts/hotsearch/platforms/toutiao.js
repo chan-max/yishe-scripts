@@ -15,7 +15,7 @@ module.exports = {
     parser: function(data) {
         if (!data || !data.data || !Array.isArray(data.data)) return [];
 
-        return data.data.map((item, index) => ({
+        return data.data.slice(0, 10).map((item, index) => ({
             title: item.Title || '未知标题',
             hot: item.HotValue || '',
             rank: index + 1,

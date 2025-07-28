@@ -91,7 +91,8 @@ module.exports = {
 
         // 按rank排序
         items.sort((a, b) => a.rank - b.rank);
-        return items;
+        // 只返回前10条
+        return items.slice(0, 10);
     },
     enabled: true
 };

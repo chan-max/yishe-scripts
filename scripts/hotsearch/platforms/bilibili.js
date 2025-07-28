@@ -8,7 +8,7 @@ module.exports = {
     },
     parser: function(data) {
         if (!data || !data.data || !data.data.trending || !Array.isArray(data.data.trending.list)) return [];
-        return data.data.trending.list.map((item, idx) => ({
+        return data.data.trending.list.slice(0, 10).map((item, idx) => ({
             title: item.show_name || item.keyword || '未知',
             hot: item.heat_score || '',
             rank: idx + 1,

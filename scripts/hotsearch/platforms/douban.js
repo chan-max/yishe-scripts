@@ -11,7 +11,7 @@ module.exports = {
     },
     parser: function(data) {
         if (!data || !data.gallery_topics || !Array.isArray(data.gallery_topics)) return [];
-        return data.gallery_topics.map((item, idx) => ({
+        return data.gallery_topics.slice(0, 10).map((item, idx) => ({
             title: item.title || item.name || '未知',
             hot: item.read_count ? `${(item.read_count / 10000).toFixed(1)}万` : '',
             rank: idx + 1,
