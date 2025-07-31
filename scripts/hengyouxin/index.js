@@ -117,6 +117,7 @@ const CONFIG = loadConfig();
 
 // 日志文件路径
 const LOG_FILE = path.join(__dirname, 'crawl_log.json');
+const PROGRESS_FILE = path.join(__dirname, 'progress.json');
 const YESTERDAY_LOGS_DIR = path.join(__dirname, 'yesterday_logs');
 
 // 确保 yesterday_logs 目录存在
@@ -452,7 +453,7 @@ async function fetchMaterialList(pageNo = 1, pageSize = 20, startTime = null, en
 
 
 // 处理素材数据
-async function processMaterials(data, description = '') {
+async function processMaterials(data, description = '', progress = null) {
     // 🔄 检查响应数据中的401错误
     if (data && (data.code === 401 || data.status === 401 || data.error === 401)) {
         console.log('\n🔄 === 认证信息已过期 ===');
@@ -495,9 +496,23 @@ async function processMaterials(data, description = '') {
     let successCount = 0;
     let failCount = 0;
 
-    for (let i = 0; i < materials.length; i++) {
+    // 获取当前页面和索引
+    const currentPage = progress ? progress.currentPage : 1;
+    const currentIndex = progress ? progress.currentIndex : 0;
+    const uploadedMaterials = progress ? progress.uploadedMaterials : [];
+
+    console.log(`📊 从第 ${currentPage} 页第 ${currentIndex + 1} 个素材开始处理`);
+
+    for (let i = currentIndex; i < materials.length; i++) {
         const material = materials[i];
         const index = i + 1;
+        const materialId = material.id || material.ossObjectName; // 使用ID或URL作为唯一标识
+
+        // 检查是否已经上传过
+        if (uploadedMaterials.includes(materialId)) {
+            console.log(`⏭️  [${index}/${materials.length}] 跳过已上传素材: ${material.ossObjectName}`);
+            continue;
+        }
 
         try {
             console.log(`\n[${index}/${materials.length}] 处理素材: ${material.ossObjectName}`);
@@ -544,8 +559,18 @@ async function processMaterials(data, description = '') {
                 uploadStatus: 'success'
             });
 
+            // 添加到已上传列表
+            uploadedMaterials.push(materialId);
+
             successCount++;
             console.log(`✅ [${index}] 上传成功: ${extracted.materialName}`);
+
+            // 实时保存进度（每处理一个素材就保存）
+            if (progress) {
+                progress.currentIndex = i + 1;
+                progress.uploadedMaterials = uploadedMaterials;
+                saveProgress(progress);
+            }
 
         } catch (error) {
             failCount++;
@@ -553,8 +578,7 @@ async function processMaterials(data, description = '') {
 
             // 记录失败日志
             appendLog(FAIL_LOG, JSON.stringify({
-                index: index,
-                materialName: material.materialName || `hengyouxin_${Date.now()}_${index}`,
+                name: material.materialName || `hengyouxin_${Date.now()}_${index}`,
                 originalUrl: material.ossObjectName,
                 description: description,
                 timestamp: new Date().toISOString(),
@@ -568,20 +592,27 @@ async function processMaterials(data, description = '') {
                 imageFormat: material.imageFormat,
                 ossObjectName: material.ossObjectName,
                 materialName: material.materialName || `hengyouxin_${Date.now()}_${index}`,
-                description: description,
+                description: description || '恒优信素材',
                 uploadStatus: 'fail',
                 error: error.message
             });
-        }
 
-        // 添加延迟避免请求过快
-        if (i < materials.length - 1) {
-            console.log('等待 1 秒后继续...');
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            // 实时保存进度（即使失败也保存）
+            if (progress) {
+                progress.currentIndex = i + 1;
+                progress.uploadedMaterials = uploadedMaterials;
+                saveProgress(progress);
+            }
+
+            // 等待1秒后继续处理下一个
+            if (i < materials.length - 1) {
+                console.log('等待 1 秒后继续...');
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
         }
     }
 
-    console.log(`\n=== 处理完成 ===`);
+    console.log('\n=== 处理完成 ===');
     console.log(`成功上传: ${successCount} 个`);
     console.log(`上传失败: ${failCount} 个`);
     console.log(`总计处理: ${usefulData.length} 个素材`);
@@ -662,7 +693,9 @@ function readProgress() {
     }
     return {
         currentPage: 1,
+        currentIndex: 0, // 当前页面中的素材索引
         totalExtracted: 0,
+        uploadedMaterials: [], // 已上传的素材ID列表
         startTime: Date.now()
     };
 }
@@ -871,15 +904,23 @@ async function batchCrawl(startPage = 1, endPage = null) {
 
     const startTime = progress.startTime;
     let currentPage = progress.currentPage;
+    let currentIndex = progress.currentIndex;
     let totalExtracted = progress.totalExtracted;
+    let uploadedMaterials = progress.uploadedMaterials;
 
-    console.log(`\n开始从第 ${currentPage} 页爬取到第 ${endPage} 页...`);
+    console.log(`\n开始从第 ${currentPage} 页第 ${currentIndex + 1} 个素材爬取到第 ${endPage} 页...`);
 
     for (let page = currentPage; page <= endPage; page++) {
         try {
             console.log(`\n=== 正在处理第 ${page} 页 (${page}/${endPage}) ===`);
             const result = await fetchMaterialList(page, 20);
-            const usefulData = await processMaterials(result);
+
+            // 传递进度信息给processMaterials
+            const usefulData = await processMaterials(result, '恒优信素材', {
+                currentPage: page,
+                currentIndex: page === currentPage ? currentIndex : 0,
+                uploadedMaterials: uploadedMaterials
+            });
 
             // 添加到日志
             usefulData.forEach(material => {
@@ -894,10 +935,16 @@ async function batchCrawl(startPage = 1, endPage = null) {
             log.totalCount = totalExtracted;
             log.lastUpdate = new Date().toISOString();
 
+            // 更新进度信息
+            currentIndex = 0; // 下一页从第1个素材开始
+            uploadedMaterials = progress.uploadedMaterials; // 更新已上传列表
+
             // 保存进度和日志
             saveProgress({
                 currentPage: page + 1,
+                currentIndex: 0,
                 totalExtracted: totalExtracted,
+                uploadedMaterials: uploadedMaterials,
                 startTime: startTime
             });
             saveLog(log);
@@ -924,7 +971,9 @@ async function batchCrawl(startPage = 1, endPage = null) {
             // 保存当前进度，下次可以继续
             saveProgress({
                 currentPage: page,
+                currentIndex: currentIndex,
                 totalExtracted: totalExtracted,
+                uploadedMaterials: uploadedMaterials,
                 startTime: startTime
             });
             // 继续处理下一页
@@ -1347,7 +1396,7 @@ ${description ? `📝 描述: ${description}` : ''}`;
         if (error.isAuthError && error.status === 401) {
             console.error('\n🔄 === 时间范围爬取因认证错误退出 ===');
             console.error('💡 请更新认证信息后重新运行脚本');
-            console.error(`📊 已保存进度，共处理 ${totalExtracted} 个素材 (成功: ${totalSuccess}, 失败: ${totalFail})`);
+            console.error(`📊 已保存进度到第 ${currentPage} 页，共提取 ${totalExtracted} 个素材 (成功: ${totalSuccess}, 失败: ${totalFail})`);
 
             // 发送错误通知
             const errorMessage = `❌ 恒优信素材爬取失败

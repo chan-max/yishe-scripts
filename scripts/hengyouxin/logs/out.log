@@ -665,3 +665,2010 @@
 [17/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/4ad9c479-10ba-4132-b839-6169bc19c21f.jpg
 2025-07-31T23:22:20: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/4ad9c479-10ba-4132-b839-6169bc19c21f.jpg
 2025-07-31T23:22:21: [上传COS] hengyouxin_1753975340801_17
+2025-08-01T02:00:00: 📅 === 开始爬取前一天的素材 ===
+2025-08-01T02:00:00: 📅 前一天日期: 2025/7/31
+2025-08-01T02:00:00: 📅 时间范围: 2025/7/31 00:00:00 - 2025/7/31 23:59:59
+2025-08-01T02:00:00: 📅 时间戳: 1753891200000 - 1753977599999
+2025-08-01T02:00:00: === 开始按时间范围爬取素材 ===
+2025-08-01T02:00:00: 📅 时间范围描述: 前一天素材
+2025-08-01T02:00:00: 📅 开始时间: 2025/7/31 00:00:00
+2025-08-01T02:00:00: 📅 结束时间: 2025/7/31 23:59:59
+2025-08-01T02:00:00: 🔍 检查认证信息...
+2025-08-01T02:00:00: 正在获取第 1 页数据...
+2025-08-01T02:00:00: 
+🔄 === 检测到401错误，尝试自动刷新token ===
+2025-08-01T02:00:00: 🔄 正在使用refreshToken刷新访问令牌...
+2025-08-01T02:00:00: 🔄 正在刷新访问令牌...
+2025-08-01T02:00:01: 💾 新的token已保存到配置文件
+2025-08-01T02:00:01: ✅ 访问令牌刷新成功
+2025-08-01T02:00:01: 📅 新accessToken: c8755918b726454982d1...
+2025-08-01T02:00:01: 📅 新refreshToken: 21caf4bb57e145c390e2...
+2025-08-01T02:00:01: 🔄 重新尝试请求...
+2025-08-01T02:00:01: ✅ 认证信息有效，开始时间范围爬取...
+2025-08-01T02:00:01: 📄 使用单独日志文件: /Users/jackie/workspace/yishe-scripts/scripts/hengyouxin/yesterday_logs/yesterday_2025-07-31_18-00-01-211.json
+2025-08-01T02:00:01: 
+开始爬取时间范围内的所有素材...
+2025-08-01T02:00:01: 
+=== 正在处理第 1 页 ===
+2025-08-01T02:00:01: 正在获取第 1 页数据...
+2025-08-01T02:00:01: 📅 时间范围: 2025/7/31 00:00:00 - 2025/7/31 23:59:59
+2025-08-01T02:00:01: 
+=== 数据统计 ===
+2025-08-01T02:00:01: 当前页素材数量: 20
+2025-08-01T02:00:01: 总素材数量: 76
+2025-08-01T02:00:01: 当前页/总页数: 4 页
+2025-08-01T02:00:01: 
+=== 处理素材并上传 ===
+2025-08-01T02:00:01: 
+[1/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/09c294d1-0c9c-4e41-bbda-6d2eebe442b7.jpg
+2025-08-01T02:00:01: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/09c294d1-0c9c-4e41-bbda-6d2eebe442b7.jpg
+2025-08-01T02:00:07: [上传COS] hengyouxin_1753984801589_1
+2025-08-01T02:00:10: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984801589_1.jpg
+2025-08-01T02:00:11: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984801589_1.jpg',
+    name: 'hengyouxin_1753984801589_1',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'fff88cc00c00f1fe9ce40fa0ff0d4ae8ee18',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'f34d376b-c4fb-4c85-ba3b-229a7f64502c',
+    createTime: '2025-08-01 02:00:11',
+    updateTime: '2025-08-01 02:00:11'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:00:11: ✅ [1] 上传成功: hengyouxin_1753984801589_1
+2025-08-01T02:00:11: 等待 1 秒后继续...
+2025-08-01T02:00:12: 
+[2/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/5eb76540-885d-4847-8c89-642dcbd0992d.jpg
+2025-08-01T02:00:12: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/5eb76540-885d-4847-8c89-642dcbd0992d.jpg
+2025-08-01T02:00:21: [上传COS] hengyouxin_1753984812354_2
+2025-08-01T02:00:25: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984812354_2.jpg
+2025-08-01T02:00:26: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984812354_2.jpg',
+    name: 'hengyouxin_1753984812354_2',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '03ceae64e64ee4af0a782f869d25fe7f6000',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'f5fb9d98-e5d2-486a-8f4a-e3dff7557d87',
+    createTime: '2025-08-01 02:00:26',
+    updateTime: '2025-08-01 02:00:26'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:00:26: ✅ [2] 上传成功: hengyouxin_1753984812354_2
+2025-08-01T02:00:26: 等待 1 秒后继续...
+2025-08-01T02:00:27: 
+[3/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/23c28c51-3395-4e0b-bc5b-2636c9f804ef.jpg
+2025-08-01T02:00:27: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/23c28c51-3395-4e0b-bc5b-2636c9f804ef.jpg
+2025-08-01T02:00:28: [上传COS] hengyouxin_1753984827131_3
+2025-08-01T02:00:30: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984827131_3.jpg
+2025-08-01T02:00:31: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984827131_3.jpg',
+    name: 'hengyouxin_1753984827131_3',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '3f03f03f01f01b80ff00e38e7fc7fc1f8070',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'c257cd5c-0565-4271-a894-dbaa0022445d',
+    createTime: '2025-08-01 02:00:31',
+    updateTime: '2025-08-01 02:00:31'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:00:31: ✅ [3] 上传成功: hengyouxin_1753984827131_3
+2025-08-01T02:00:31: 等待 1 秒后继续...
+2025-08-01T02:00:32: 
+[4/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/27383efc-0cfb-4786-861d-6fd85940614f.jpg
+2025-08-01T02:00:32: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/27383efc-0cfb-4786-861d-6fd85940614f.jpg
+2025-08-01T02:00:35: [上传COS] hengyouxin_1753984832386_4
+2025-08-01T02:00:39: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984832386_4.jpg
+2025-08-01T02:00:40: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984832386_4.jpg',
+    name: 'hengyouxin_1753984832386_4',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '03c1fa3d63f42521f65d61d60ce7de7f0018',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '97e0c24c-b88d-474f-ab2d-581940b454b2',
+    createTime: '2025-08-01 02:00:40',
+    updateTime: '2025-08-01 02:00:40'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:00:40: ✅ [4] 上传成功: hengyouxin_1753984832386_4
+2025-08-01T02:00:40: 等待 1 秒后继续...
+2025-08-01T02:00:41: 
+[5/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/4b3d27d7-80f8-4b7e-9ed4-ab056c6de772.jpg
+2025-08-01T02:00:41: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/4b3d27d7-80f8-4b7e-9ed4-ab056c6de772.jpg
+2025-08-01T02:00:43: [上传COS] hengyouxin_1753984841263_5
+2025-08-01T02:00:46: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984841263_5.jpg
+2025-08-01T02:00:46: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984841263_5.jpg',
+    name: 'hengyouxin_1753984841263_5',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '0003fc7fe1f03f0df07dc33c3183de6fb100',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'c121f032-65d9-4aa1-8345-4e5e01123200',
+    createTime: '2025-08-01 02:00:46',
+    updateTime: '2025-08-01 02:00:46'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:00:46: ✅ [5] 上传成功: hengyouxin_1753984841263_5
+2025-08-01T02:00:46: 等待 1 秒后继续...
+2025-08-01T02:00:47: 
+[6/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/c746205c-3a27-4c4d-a1e2-abee4caa6c9f.jpg
+2025-08-01T02:00:47: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/c746205c-3a27-4c4d-a1e2-abee4caa6c9f.jpg
+2025-08-01T02:00:49: [上传COS] hengyouxin_1753984847817_6
+2025-08-01T02:00:51: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984847817_6.jpg
+2025-08-01T02:00:52: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984847817_6.jpg',
+    name: 'hengyouxin_1753984847817_6',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '0007fc7fc0700fe3fc3fc1f80f0000ffcbf4',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '4a7da693-9eca-4032-a756-4329a385645b',
+    createTime: '2025-08-01 02:00:52',
+    updateTime: '2025-08-01 02:00:52'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:00:52: ✅ [6] 上传成功: hengyouxin_1753984847817_6
+2025-08-01T02:00:52: 等待 1 秒后继续...
+2025-08-01T02:00:53: 
+[7/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/f6333972-dad5-4226-ae62-bcf1b7c53ff4.jpg
+2025-08-01T02:00:53: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/f6333972-dad5-4226-ae62-bcf1b7c53ff4.jpg
+2025-08-01T02:00:54: [上传COS] hengyouxin_1753984853049_7
+2025-08-01T02:00:57: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984853049_7.jpg
+2025-08-01T02:00:57: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984853049_7.jpg',
+    name: 'hengyouxin_1753984853049_7',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '0003fe3fe47f03f03c3fc1f81e03fe1f8070',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'a2691b26-7512-42c1-a37e-abb4233d1d52',
+    createTime: '2025-08-01 02:00:57',
+    updateTime: '2025-08-01 02:00:57'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:00:57: ✅ [7] 上传成功: hengyouxin_1753984853049_7
+2025-08-01T02:00:57: 等待 1 秒后继续...
+2025-08-01T02:00:58: 
+[8/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/209436cb-7f96-465d-8b12-6e56d74bf997.jpg
+2025-08-01T02:00:58: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/209436cb-7f96-465d-8b12-6e56d74bf997.jpg
+2025-08-01T02:01:00: [上传COS] hengyouxin_1753984858718_8
+2025-08-01T02:01:03: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984858718_8.jpg
+2025-08-01T02:01:04: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984858718_8.jpg',
+    name: 'hengyouxin_1753984858718_8',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '03f03f03f07f02f81f43e07e27c3ee0ee02e',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '538131ad-5815-451c-a1aa-f826c18afe86',
+    createTime: '2025-08-01 02:01:04',
+    updateTime: '2025-08-01 02:01:04'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:01:04: ✅ [8] 上传成功: hengyouxin_1753984858718_8
+2025-08-01T02:01:04: 等待 1 秒后继续...
+2025-08-01T02:01:05: 
+[9/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/5ce47e39-05e3-45fe-99c8-7bb50cbe7720.jpg
+2025-08-01T02:01:05: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/5ce47e39-05e3-45fe-99c8-7bb50cbe7720.jpg
+2025-08-01T02:01:06: [上传COS] hengyouxin_1753984865075_9
+2025-08-01T02:01:08: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984865075_9.jpg
+2025-08-01T02:01:08: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984865075_9.jpg',
+    name: 'hengyouxin_1753984865075_9',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '1780763f67046f63f01fc1fc0f06747461f2',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '7de9bdec-27fb-4033-9a61-6a75fb68a65b',
+    createTime: '2025-08-01 02:01:08',
+    updateTime: '2025-08-01 02:01:08'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:01:08: ✅ [9] 上传成功: hengyouxin_1753984865075_9
+2025-08-01T02:01:08: 等待 1 秒后继续...
+2025-08-01T02:01:09: 
+[10/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/34013940-62a5-4cca-8217-0863f2cbd44f.jpg
+2025-08-01T02:01:09: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/34013940-62a5-4cca-8217-0863f2cbd44f.jpg
+2025-08-01T02:01:11: [上传COS] hengyouxin_1753984869797_10
+2025-08-01T02:01:13: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984869797_10.jpg
+2025-08-01T02:01:14: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984869797_10.jpg',
+    name: 'hengyouxin_1753984869797_10',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '03f1ff0700f01f83fc3fc1f80f0ffe1f0060',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '3914feac-eed0-4c5a-8df9-fbed23b647fa',
+    createTime: '2025-08-01 02:01:14',
+    updateTime: '2025-08-01 02:01:14'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:01:14: ✅ [10] 上传成功: hengyouxin_1753984869797_10
+2025-08-01T02:01:14: 等待 1 秒后继续...
+2025-08-01T02:01:15: 
+[11/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/a4565622-adcd-4d75-b3ef-911a97b97506.jpg
+2025-08-01T02:01:15: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/a4565622-adcd-4d75-b3ef-911a97b97506.jpg
+2025-08-01T02:01:17: [上传COS] hengyouxin_1753984875468_11
+2025-08-01T02:01:19: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984875468_11.jpg
+2025-08-01T02:01:20: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984875468_11.jpg',
+    name: 'hengyouxin_1753984875468_11',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'fff03300369f60f00f98f707057873f8cf80',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'b261d18f-12ee-4e0e-851e-83c531008dc2',
+    createTime: '2025-08-01 02:01:20',
+    updateTime: '2025-08-01 02:01:20'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:01:20: ✅ [11] 上传成功: hengyouxin_1753984875468_11
+2025-08-01T02:01:20: 等待 1 秒后继续...
+2025-08-01T02:01:21: 
+[12/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/361e1d4b-2a26-4a98-a8d1-c2d8a9b3b3df.jpg
+2025-08-01T02:01:21: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/361e1d4b-2a26-4a98-a8d1-c2d8a9b3b3df.jpg
+2025-08-01T02:01:24: [上传COS] hengyouxin_1753984881606_12
+2025-08-01T02:01:28: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984881606_12.jpg
+2025-08-01T02:01:29: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984881606_12.jpg',
+    name: 'hengyouxin_1753984881606_12',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '0070df17f3ff7870017e73e0cc0c6360f1f8',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'bc25c685-ef14-40cd-8730-e907476a5ffd',
+    createTime: '2025-08-01 02:01:29',
+    updateTime: '2025-08-01 02:01:29'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:01:29: ✅ [12] 上传成功: hengyouxin_1753984881606_12
+2025-08-01T02:01:29: 等待 1 秒后继续...
+2025-08-01T02:01:30: 
+[13/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/9dad8bff-7fd3-494c-96f4-a6f07465bcb1.jpg
+2025-08-01T02:01:30: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/9dad8bff-7fd3-494c-96f4-a6f07465bcb1.jpg
+2025-08-01T02:01:33: [上传COS] hengyouxin_1753984890044_13
+2025-08-01T02:01:36: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984890044_13.jpg
+2025-08-01T02:01:36: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984890044_13.jpg',
+    name: 'hengyouxin_1753984890044_13',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '1981b8efc4047f07fc3fc7f0190ff73f8000',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '70394452-2784-476b-9a74-41f92fb94052',
+    createTime: '2025-08-01 02:01:36',
+    updateTime: '2025-08-01 02:01:36'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:01:36: ✅ [13] 上传成功: hengyouxin_1753984890044_13
+2025-08-01T02:01:36: 等待 1 秒后继续...
+2025-08-01T02:01:37: 
+[14/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/322ccfc5-5b5a-444e-8892-f4ab0aba1939.jpg
+2025-08-01T02:01:37: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/322ccfc5-5b5a-444e-8892-f4ab0aba1939.jpg
+2025-08-01T02:01:40: [上传COS] hengyouxin_1753984897586_14
+2025-08-01T02:01:43: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984897586_14.jpg
+2025-08-01T02:01:44: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984897586_14.jpg',
+    name: 'hengyouxin_1753984897586_14',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '1384962ff3fe0fe180c3f43873803ce37e07',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '63a74139-4872-47b9-8d1e-2d58d7718783',
+    createTime: '2025-08-01 02:01:44',
+    updateTime: '2025-08-01 02:01:44'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:01:44: ✅ [14] 上传成功: hengyouxin_1753984897586_14
+2025-08-01T02:01:44: 等待 1 秒后继续...
+2025-08-01T02:01:45: 
+[15/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/f544a499-767b-461d-911e-3a5712d26e0c.jpg
+2025-08-01T02:01:45: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/f544a499-767b-461d-911e-3a5712d26e0c.jpg
+2025-08-01T02:01:50: [上传COS] hengyouxin_1753984905369_15
+2025-08-01T02:01:53: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984905369_15.jpg
+2025-08-01T02:01:53: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984905369_15.jpg',
+    name: 'hengyouxin_1753984905369_15',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '3ff0e1033f83d839838e3c6780f80f89f03f',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'a72c963c-75df-493f-b61c-01038f6cd364',
+    createTime: '2025-08-01 02:01:53',
+    updateTime: '2025-08-01 02:01:53'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:01:53: ✅ [15] 上传成功: hengyouxin_1753984905369_15
+2025-08-01T02:01:53: 等待 1 秒后继续...
+2025-08-01T02:01:54: 
+[16/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/cccc2cff-6918-4e88-b1f1-0dc087fc9932.jpg
+2025-08-01T02:01:54: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/cccc2cff-6918-4e88-b1f1-0dc087fc9932.jpg
+2025-08-01T02:02:00: [上传COS] hengyouxin_1753984914896_16
+2025-08-01T02:02:02: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984914896_16.jpg
+2025-08-01T02:02:03: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984914896_16.jpg',
+    name: 'hengyouxin_1753984914896_16',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '180780fff3cf1887f03c61fe0787e0ffc00c',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'cbe3ab35-8a2c-422f-a820-d546b1a4cd6d',
+    createTime: '2025-08-01 02:02:03',
+    updateTime: '2025-08-01 02:02:03'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:02:03: ✅ [16] 上传成功: hengyouxin_1753984914896_16
+2025-08-01T02:02:03: 等待 1 秒后继续...
+2025-08-01T02:02:04: 
+[17/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/df174a8a-638e-438e-9a30-377fbd4a99b6.jpg
+2025-08-01T02:02:04: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/df174a8a-638e-438e-9a30-377fbd4a99b6.jpg
+2025-08-01T02:02:13: [上传COS] hengyouxin_1753984924625_17
+2025-08-01T02:02:17: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984924625_17.jpg
+2025-08-01T02:02:18: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984924625_17.jpg',
+    name: 'hengyouxin_1753984924625_17',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'cf0cfc86883647e69c09c3fc1f80fe5f80f0',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '2b5f55b2-1676-4e6a-a3fa-d50d92f82010',
+    createTime: '2025-08-01 02:02:18',
+    updateTime: '2025-08-01 02:02:18'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:02:18: ✅ [17] 上传成功: hengyouxin_1753984924625_17
+2025-08-01T02:02:18: 等待 1 秒后继续...
+2025-08-01T02:02:19: 
+[18/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/aa43fb42-6360-4877-a228-b1a39273aca6.jpg
+2025-08-01T02:02:19: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/aa43fb42-6360-4877-a228-b1a39273aca6.jpg
+2025-08-01T02:02:22: [上传COS] hengyouxin_1753984939267_18
+2025-08-01T02:02:25: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984939267_18.jpg
+2025-08-01T02:02:25: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984939267_18.jpg',
+    name: 'hengyouxin_1753984939267_18',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'f01c32c3f89f1fe2a00fb0bb6a1481e0ef1f',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '6efdeb8d-20a9-4069-a4d0-d58073620688',
+    createTime: '2025-08-01 02:02:26',
+    updateTime: '2025-08-01 02:02:26'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:02:25: ✅ [18] 上传成功: hengyouxin_1753984939267_18
+2025-08-01T02:02:25: 等待 1 秒后继续...
+2025-08-01T02:02:26: 
+[19/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/48645c65-cb00-4ab6-b739-779d5a097b6f.jpg
+2025-08-01T02:02:26: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/48645c65-cb00-4ab6-b739-779d5a097b6f.jpg
+2025-08-01T02:02:30: [上传COS] hengyouxin_1753984946946_19
+2025-08-01T02:02:32: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984946946_19.jpg
+2025-08-01T02:02:33: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984946946_19.jpg',
+    name: 'hengyouxin_1753984946946_19',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'e00f2c97e0f419c3fc1f84f2572fff198042',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '7f8c0506-9593-4301-8b49-1139ce0de315',
+    createTime: '2025-08-01 02:02:33',
+    updateTime: '2025-08-01 02:02:33'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:02:33: ✅ [19] 上传成功: hengyouxin_1753984946946_19
+2025-08-01T02:02:33: 等待 1 秒后继续...
+2025-08-01T02:02:34: 
+[20/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/d1d55fc6-d6ec-4d1e-a781-a8e0ec22d584.jpg
+2025-08-01T02:02:34: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/d1d55fc6-d6ec-4d1e-a781-a8e0ec22d584.jpg
+2025-08-01T02:02:37: [上传COS] hengyouxin_1753984954224_20
+2025-08-01T02:02:40: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984954224_20.jpg
+2025-08-01T02:02:40: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984954224_20.jpg',
+    name: 'hengyouxin_1753984954224_20',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '0f01f8ddc3ff09c03cfb33824e1e807fe00f',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'cc71f1a3-049d-46c7-80e5-37aa7bb3d844',
+    createTime: '2025-08-01 02:02:40',
+    updateTime: '2025-08-01 02:02:40'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:02:40: ✅ [20] 上传成功: hengyouxin_1753984954224_20
+2025-08-01T02:02:40: 
+=== 处理完成 ===
+2025-08-01T02:02:40: 成功上传: 20 个
+2025-08-01T02:02:40: 上传失败: 0 个
+2025-08-01T02:02:40: 总计处理: 20 个素材
+2025-08-01T02:02:40: 第 1 页完成，累计提取: 20 个素材 (成功: 20, 失败: 0)
+2025-08-01T02:02:40: 等待 2 秒后继续...
+2025-08-01T02:02:42: 
+=== 正在处理第 2 页 ===
+2025-08-01T02:02:42: 正在获取第 2 页数据...
+2025-08-01T02:02:42: 📅 时间范围: 2025/7/31 00:00:00 - 2025/7/31 23:59:59
+2025-08-01T02:02:43: 
+=== 数据统计 ===
+2025-08-01T02:02:43: 当前页素材数量: 20
+2025-08-01T02:02:43: 总素材数量: 76
+2025-08-01T02:02:43: 当前页/总页数: 4 页
+2025-08-01T02:02:43: 
+=== 处理素材并上传 ===
+2025-08-01T02:02:43: 
+[1/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/da389458-2e1f-46f1-b19b-726235970746.jpg
+2025-08-01T02:02:43: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/da389458-2e1f-46f1-b19b-726235970746.jpg
+2025-08-01T02:02:46: [上传COS] hengyouxin_1753984963873_1
+2025-08-01T02:02:51: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984963873_1.jpg
+2025-08-01T02:02:51: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984963873_1.jpg',
+    name: 'hengyouxin_1753984963873_1',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '0700f64ff01f05f0f70fe0f81f83fc7fc020',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '04831697-aeee-46ae-aabc-a4979794fbbb',
+    createTime: '2025-08-01 02:02:51',
+    updateTime: '2025-08-01 02:02:51'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:02:51: ✅ [1] 上传成功: hengyouxin_1753984963873_1
+2025-08-01T02:02:51: 等待 1 秒后继续...
+2025-08-01T02:02:52: 
+[2/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/82d12702-e94c-4baa-bb8a-183b15514c48.jpg
+2025-08-01T02:02:52: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/82d12702-e94c-4baa-bb8a-183b15514c48.jpg
+2025-08-01T02:02:54: [上传COS] hengyouxin_1753984972816_2
+2025-08-01T02:02:56: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984972816_2.jpg
+2025-08-01T02:02:56: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984972816_2.jpg',
+    name: 'hengyouxin_1753984972816_2',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'e0cf80f87f803f01be43e29d07d76007ff06',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '8614f360-3551-4d76-87ee-2161b9f09dc6',
+    createTime: '2025-08-01 02:02:56',
+    updateTime: '2025-08-01 02:02:56'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:02:56: ✅ [2] 上传成功: hengyouxin_1753984972816_2
+2025-08-01T02:02:56: 等待 1 秒后继续...
+2025-08-01T02:02:57: 
+[3/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/ffa95146-0ef0-43bf-9bec-d398f6093274.jpg
+2025-08-01T02:02:57: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/ffa95146-0ef0-43bf-9bec-d398f6093274.jpg
+2025-08-01T02:03:00: [上传COS] hengyouxin_1753984977628_3
+2025-08-01T02:03:03: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984977628_3.jpg
+2025-08-01T02:03:04: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984977628_3.jpg',
+    name: 'hengyouxin_1753984977628_3',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'd6ad7b01883c370bf8bf89f80d00888c1fff',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'bbfd24aa-40af-47b3-a199-0a631b3555df',
+    createTime: '2025-08-01 02:03:04',
+    updateTime: '2025-08-01 02:03:04'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:03:04: ✅ [3] 上传成功: hengyouxin_1753984977628_3
+2025-08-01T02:03:04: 等待 1 秒后继续...
+2025-08-01T02:03:05: 
+[4/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/64296de7-50e0-47b6-9211-83e739fd15b0.jpg
+2025-08-01T02:03:05: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/64296de7-50e0-47b6-9211-83e739fd15b0.jpg
+2025-08-01T02:03:07: [上传COS] hengyouxin_1753984985454_4
+2025-08-01T02:03:10: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984985454_4.jpg
+2025-08-01T02:03:11: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984985454_4.jpg',
+    name: 'hengyouxin_1753984985454_4',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '0785f43f82e60f41fc39ca021fffffcb8000',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'edb336cd-6e94-494e-be29-6197e9ad043d',
+    createTime: '2025-08-01 02:03:11',
+    updateTime: '2025-08-01 02:03:11'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:03:11: ✅ [4] 上传成功: hengyouxin_1753984985454_4
+2025-08-01T02:03:11: 等待 1 秒后继续...
+2025-08-01T02:03:12: 
+[5/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/90eca871-c718-4180-b4a0-ae9d981d627b.jpg
+2025-08-01T02:03:12: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/90eca871-c718-4180-b4a0-ae9d981d627b.jpg
+2025-08-01T02:03:16: [上传COS] hengyouxin_1753984992393_5
+2025-08-01T02:03:21: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984992393_5.jpg
+2025-08-01T02:03:22: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753984992393_5.jpg',
+    name: 'hengyouxin_1753984992393_5',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '91f14f08fc9709703f05f1cf3c17c1f81f81',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'f1450469-8126-4e22-9173-07a39882a089',
+    createTime: '2025-08-01 02:03:22',
+    updateTime: '2025-08-01 02:03:22'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:03:22: ✅ [5] 上传成功: hengyouxin_1753984992393_5
+2025-08-01T02:03:22: 等待 1 秒后继续...
+2025-08-01T02:03:23: 
+[6/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/e6e7c12d-15be-48fb-b4eb-d1c0302a8bfd.jpg
+2025-08-01T02:03:23: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/e6e7c12d-15be-48fb-b4eb-d1c0302a8bfd.jpg
+2025-08-01T02:03:25: [上传COS] hengyouxin_1753985003757_6
+2025-08-01T02:03:27: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985003757_6.jpg
+2025-08-01T02:03:27: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985003757_6.jpg',
+    name: 'hengyouxin_1753985003757_6',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'e6770f5803e47c2f03e19fdc700710f70e63',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '9ca4eb84-d2a4-4b64-bba4-a89f24e3a96a',
+    createTime: '2025-08-01 02:03:27',
+    updateTime: '2025-08-01 02:03:27'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:03:27: ✅ [6] 上传成功: hengyouxin_1753985003757_6
+2025-08-01T02:03:27: 等待 1 秒后继续...
+2025-08-01T02:03:28: 
+[7/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/9bd924d3-8492-4a99-b3db-33c6b0171d7b.jpg
+2025-08-01T02:03:28: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/9bd924d3-8492-4a99-b3db-33c6b0171d7b.jpg
+2025-08-01T02:03:29: [上传COS] hengyouxin_1753985008640_7
+2025-08-01T02:03:30: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985008640_7.jpg
+2025-08-01T02:03:30: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985008640_7.jpg',
+    name: 'hengyouxin_1753985008640_7',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '7007ce3d33c4f0ae717407d1d1ef1ef00fc0',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'c031c22c-ab48-4029-b550-d0a39bab43b3',
+    createTime: '2025-08-01 02:03:30',
+    updateTime: '2025-08-01 02:03:30'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:03:30: ✅ [7] 上传成功: hengyouxin_1753985008640_7
+2025-08-01T02:03:30: 等待 1 秒后继续...
+2025-08-01T02:03:31: 
+[8/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/5ba24148-5123-47ea-ab71-9795027ffa2a.jpg
+2025-08-01T02:03:31: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/5ba24148-5123-47ea-ab71-9795027ffa2a.jpg
+2025-08-01T02:03:33: [上传COS] hengyouxin_1753985011686_8
+2025-08-01T02:03:34: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985011686_8.jpg
+2025-08-01T02:03:35: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985011686_8.jpg',
+    name: 'hengyouxin_1753985011686_8',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '00c27e77e5668e48fcbd058659750e1de16b',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '6ca99a43-98a4-4333-9175-b88a7a1cd9fc',
+    createTime: '2025-08-01 02:03:35',
+    updateTime: '2025-08-01 02:03:35'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:03:35: ✅ [8] 上传成功: hengyouxin_1753985011686_8
+2025-08-01T02:03:35: 等待 1 秒后继续...
+2025-08-01T02:03:36: 
+[9/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/b3d4bed9-55cc-4a34-bfb5-8cbb38eb7bf2.jpg
+2025-08-01T02:03:36: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/b3d4bed9-55cc-4a34-bfb5-8cbb38eb7bf2.jpg
+2025-08-01T02:03:37: [上传COS] hengyouxin_1753985016207_9
+2025-08-01T02:03:38: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985016207_9.jpg
+2025-08-01T02:03:39: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985016207_9.jpg',
+    name: 'hengyouxin_1753985016207_9',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'f06e0ef06f07e07e03c03e07f0fe07706787',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '685cdbf8-9178-47f3-aac3-c99e7c24b0d7',
+    createTime: '2025-08-01 02:03:39',
+    updateTime: '2025-08-01 02:03:39'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:03:39: ✅ [9] 上传成功: hengyouxin_1753985016207_9
+2025-08-01T02:03:39: 等待 1 秒后继续...
+2025-08-01T02:03:40: 
+[10/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/abbccd9c-c35c-48c7-b716-1e650ab0e220.jpg
+2025-08-01T02:03:40: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/abbccd9c-c35c-48c7-b716-1e650ab0e220.jpg
+2025-08-01T02:03:43: [上传COS] hengyouxin_1753985020171_10
+2025-08-01T02:03:44: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985020171_10.jpg
+2025-08-01T02:03:45: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985020171_10.jpg',
+    name: 'hengyouxin_1753985020171_10',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '720e70f390ff00e49fb6331f1831d03fabe0',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'aeced200-2be4-45ae-a52f-6dcae9dfdb98',
+    createTime: '2025-08-01 02:03:45',
+    updateTime: '2025-08-01 02:03:45'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:03:45: ✅ [10] 上传成功: hengyouxin_1753985020171_10
+2025-08-01T02:03:45: 等待 1 秒后继续...
+2025-08-01T02:03:46: 
+[11/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/2a369836-2db1-4197-99d7-f0c3c31ac757.jpg
+2025-08-01T02:03:46: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/2a369836-2db1-4197-99d7-f0c3c31ac757.jpg
+2025-08-01T02:03:48: [上传COS] hengyouxin_1753985026161_11
+2025-08-01T02:03:49: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985026161_11.jpg
+2025-08-01T02:03:50: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985026161_11.jpg',
+    name: 'hengyouxin_1753985026161_11',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'de72a129c07dfcce01761cc1ce34e33f03e1',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '0c594820-26dd-4076-85e0-8a6588fbe76d',
+    createTime: '2025-08-01 02:03:50',
+    updateTime: '2025-08-01 02:03:50'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:03:50: ✅ [11] 上传成功: hengyouxin_1753985026161_11
+2025-08-01T02:03:50: 等待 1 秒后继续...
+2025-08-01T02:03:51: 
+[12/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/7675d377-c49c-41b0-ae32-a3afc7e4c155.jpg
+2025-08-01T02:03:51: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/7675d377-c49c-41b0-ae32-a3afc7e4c155.jpg
+2025-08-01T02:03:54: [上传COS] hengyouxin_1753985031128_12
+2025-08-01T02:03:55: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985031128_12.jpg
+2025-08-01T02:03:55: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985031128_12.jpg',
+    name: 'hengyouxin_1753985031128_12',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '7d7787003201f38fb9fe0fe0660efa6c6122',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '5283814f-7e08-4dd5-8b85-c28af370dcf6',
+    createTime: '2025-08-01 02:03:55',
+    updateTime: '2025-08-01 02:03:55'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:03:55: ✅ [12] 上传成功: hengyouxin_1753985031128_12
+2025-08-01T02:03:55: 等待 1 秒后继续...
+2025-08-01T02:03:56: 
+[13/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/f654d532-a5df-45ad-85ec-5295c9a7b7a9.jpg
+2025-08-01T02:03:56: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/f654d532-a5df-45ad-85ec-5295c9a7b7a9.jpg
+2025-08-01T02:03:59: [上传COS] hengyouxin_1753985036737_13
+2025-08-01T02:04:00: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985036737_13.jpg
+2025-08-01T02:04:01: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985036737_13.jpg',
+    name: 'hengyouxin_1753985036737_13',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '0603fc3be6c60f05fa1fb0f84e279e3fc060',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '3639949f-ab7a-4ca6-b55f-0c88a4b8f761',
+    createTime: '2025-08-01 02:04:01',
+    updateTime: '2025-08-01 02:04:01'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:04:01: ✅ [13] 上传成功: hengyouxin_1753985036737_13
+2025-08-01T02:04:01: 等待 1 秒后继续...
+2025-08-01T02:04:02: 
+[14/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/bf29d34c-142b-4c2d-8b6b-d0da3a58cd6d.jpg
+2025-08-01T02:04:02: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/bf29d34c-142b-4c2d-8b6b-d0da3a58cd6d.jpg
+2025-08-01T02:04:08: [上传COS] hengyouxin_1753985042081_14
+2025-08-01T02:04:10: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985042081_14.jpg
+2025-08-01T02:04:11: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985042081_14.jpg',
+    name: 'hengyouxin_1753985042081_14',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '0f813c27f07e02e47f0380fa3fe3fcbe0e08',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '2feb5d8d-f80f-437e-a665-dc03ff8ffb93',
+    createTime: '2025-08-01 02:04:11',
+    updateTime: '2025-08-01 02:04:11'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:04:11: ✅ [14] 上传成功: hengyouxin_1753985042081_14
+2025-08-01T02:04:11: 等待 1 秒后继续...
+2025-08-01T02:04:12: 
+[15/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/fc701941-15ce-4855-83f5-84f96b57932c.jpg
+2025-08-01T02:04:12: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/fc701941-15ce-4855-83f5-84f96b57932c.jpg
+2025-08-01T02:04:16: [上传COS] hengyouxin_1753985052325_15
+2025-08-01T02:04:18: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985052325_15.jpg
+2025-08-01T02:04:18: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985052325_15.jpg',
+    name: 'hengyouxin_1753985052325_15',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '0700de3fe7c9473c07a4486cfce7fc3b01e0',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'aca73a1b-4b99-4da2-b7ad-4138737061ac',
+    createTime: '2025-08-01 02:04:19',
+    updateTime: '2025-08-01 02:04:19'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:04:18: ✅ [15] 上传成功: hengyouxin_1753985052325_15
+2025-08-01T02:04:18: 等待 1 秒后继续...
+2025-08-01T02:04:19: 
+[16/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/944b3a52-9ed5-4b8e-b943-d10ad4fa9465.jpg
+2025-08-01T02:04:19: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/944b3a52-9ed5-4b8e-b943-d10ad4fa9465.jpg
+2025-08-01T02:04:24: [上传COS] hengyouxin_1753985059914_16
+2025-08-01T02:04:25: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985059914_16.jpg
+2025-08-01T02:04:26: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985059914_16.jpg',
+    name: 'hengyouxin_1753985059914_16',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'fa0fa0de0ff0e40b4cbf09e09f0fece60e80',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '370c67bf-1b4b-4a2f-b9e1-8675bfd7cd5f',
+    createTime: '2025-08-01 02:04:26',
+    updateTime: '2025-08-01 02:04:26'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:04:26: ✅ [16] 上传成功: hengyouxin_1753985059914_16
+2025-08-01T02:04:26: 等待 1 秒后继续...
+2025-08-01T02:04:27: 
+[17/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/468551e4-281d-440d-825c-ecbb61517ce3.jpg
+2025-08-01T02:04:27: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/468551e4-281d-440d-825c-ecbb61517ce3.jpg
+2025-08-01T02:04:32: [上传COS] hengyouxin_1753985067333_17
+2025-08-01T02:04:32: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985067333_17.jpg
+2025-08-01T02:04:33: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985067333_17.jpg',
+    name: 'hengyouxin_1753985067333_17',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'fc0fc0fc07b07e03f01f80f8cf8c68e2af70',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '118cfcb2-29b5-470b-af8c-db73edfb6b4f',
+    createTime: '2025-08-01 02:04:33',
+    updateTime: '2025-08-01 02:04:33'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:04:33: ✅ [17] 上传成功: hengyouxin_1753985067333_17
+2025-08-01T02:04:33: 等待 1 秒后继续...
+2025-08-01T02:04:34: 
+[18/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/c38fc31a-e04e-4abc-bf05-968f123fcce6.jpg
+2025-08-01T02:04:34: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/c38fc31a-e04e-4abc-bf05-968f123fcce6.jpg
+2025-08-01T02:04:36: [上传COS] hengyouxin_1753985074445_18
+2025-08-01T02:04:36: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985074445_18.jpg
+2025-08-01T02:04:36: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985074445_18.jpg',
+    name: 'hengyouxin_1753985074445_18',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '4fb4f3c02e06e07f0e77e71e00af9f18e421',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'ee670162-a8eb-493e-90ed-c8b9621f05a6',
+    createTime: '2025-08-01 02:04:36',
+    updateTime: '2025-08-01 02:04:36'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:04:36: ✅ [18] 上传成功: hengyouxin_1753985074445_18
+2025-08-01T02:04:36: 等待 1 秒后继续...
+2025-08-01T02:04:37: 
+[19/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/56a83b74-9740-44f6-baf5-c5e25b58766d.jpg
+2025-08-01T02:04:37: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/56a83b74-9740-44f6-baf5-c5e25b58766d.jpg
+2025-08-01T02:04:44: [上传COS] hengyouxin_1753985077785_19
+2025-08-01T02:04:46: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985077785_19.jpg
+2025-08-01T02:04:47: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985077785_19.jpg',
+    name: 'hengyouxin_1753985077785_19',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '01f03f0bf0870f63bd1fe37e00cfff07c020',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '1f5a22dd-c9c6-4e17-94a3-db77c9303a67',
+    createTime: '2025-08-01 02:04:47',
+    updateTime: '2025-08-01 02:04:47'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:04:47: ✅ [19] 上传成功: hengyouxin_1753985077785_19
+2025-08-01T02:04:47: 等待 1 秒后继续...
+2025-08-01T02:04:48: 
+[20/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/6cc22b3f-d81a-4e8d-9b16-ed3ebd39b39c.jpg
+2025-08-01T02:04:48: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/6cc22b3f-d81a-4e8d-9b16-ed3ebd39b39c.jpg
+2025-08-01T02:04:51: [上传COS] hengyouxin_1753985088443_20
+2025-08-01T02:04:52: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985088443_20.jpg
+2025-08-01T02:04:52: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985088443_20.jpg',
+    name: 'hengyouxin_1753985088443_20',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '1981f83fc3981f872e7ee3f80600f00f07fe',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '402ef93b-7875-4a38-96cb-cc19f41b1bf7',
+    createTime: '2025-08-01 02:04:53',
+    updateTime: '2025-08-01 02:04:53'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:04:52: ✅ [20] 上传成功: hengyouxin_1753985088443_20
+2025-08-01T02:04:52: 
+=== 处理完成 ===
+2025-08-01T02:04:52: 成功上传: 20 个
+2025-08-01T02:04:52: 上传失败: 0 个
+2025-08-01T02:04:52: 总计处理: 20 个素材
+2025-08-01T02:04:52: 第 2 页完成，累计提取: 40 个素材 (成功: 40, 失败: 0)
+2025-08-01T02:04:52: 等待 2 秒后继续...
+2025-08-01T02:04:54: 
+=== 正在处理第 3 页 ===
+2025-08-01T02:04:54: 正在获取第 3 页数据...
+2025-08-01T02:04:54: 📅 时间范围: 2025/7/31 00:00:00 - 2025/7/31 23:59:59
+2025-08-01T02:04:55: 
+=== 数据统计 ===
+2025-08-01T02:04:55: 当前页素材数量: 20
+2025-08-01T02:04:55: 总素材数量: 76
+2025-08-01T02:04:55: 当前页/总页数: 4 页
+2025-08-01T02:04:55: 
+=== 处理素材并上传 ===
+2025-08-01T02:04:55: 
+[1/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/adf1b119-18e6-4a38-a986-93003a1e6790.jpg
+2025-08-01T02:04:55: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/adf1b119-18e6-4a38-a986-93003a1e6790.jpg
+2025-08-01T02:04:58: [上传COS] hengyouxin_1753985095460_1
+2025-08-01T02:05:00: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985095460_1.jpg
+2025-08-01T02:05:00: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985095460_1.jpg',
+    name: 'hengyouxin_1753985095460_1',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'dc01df07c078778f86f86f8f0601f85f80f1',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'feb35581-d3cd-4017-a398-ac0de7f83375',
+    createTime: '2025-08-01 02:05:00',
+    updateTime: '2025-08-01 02:05:00'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:05:00: ✅ [1] 上传成功: hengyouxin_1753985095460_1
+2025-08-01T02:05:00: 等待 1 秒后继续...
+2025-08-01T02:05:01: 
+[2/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/8cb5e2e9-7e8b-4234-81e0-7d53ee1a5421.jpg
+2025-08-01T02:05:01: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/8cb5e2e9-7e8b-4234-81e0-7d53ee1a5421.jpg
+2025-08-01T02:05:02: [上传COS] hengyouxin_1753985101689_2
+2025-08-01T02:05:03: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985101689_2.jpg
+2025-08-01T02:05:03: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985101689_2.jpg',
+    name: 'hengyouxin_1753985101689_2',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '130c7c87f0ca37e3cc3c87f03f01f3077067',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '4da12935-181e-494e-9617-842553612cf5',
+    createTime: '2025-08-01 02:05:04',
+    updateTime: '2025-08-01 02:05:04'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:05:03: ✅ [2] 上传成功: hengyouxin_1753985101689_2
+2025-08-01T02:05:03: 等待 1 秒后继续...
+2025-08-01T02:05:04: 
+[3/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/f9ee8dc2-90e2-49f8-b698-53bb1326b9eb.jpg
+2025-08-01T02:05:04: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/f9ee8dc2-90e2-49f8-b698-53bb1326b9eb.jpg
+2025-08-01T02:05:05: [上传COS] hengyouxin_1753985104909_3
+2025-08-01T02:05:05: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985104909_3.jpg
+2025-08-01T02:05:05: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985104909_3.jpg',
+    name: 'hengyouxin_1753985104909_3',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '4f887c03f03fc3fc41e01d02efd7916213f6',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'fb2d47bc-5f96-42fa-a7ae-269d22fe170e',
+    createTime: '2025-08-01 02:05:06',
+    updateTime: '2025-08-01 02:05:06'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:05:05: ✅ [3] 上传成功: hengyouxin_1753985104909_3
+2025-08-01T02:05:05: 等待 1 秒后继续...
+2025-08-01T02:05:06: 
+[4/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/c7a3f168-8f4e-4850-8b5d-295065538429.jpg
+2025-08-01T02:05:06: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/c7a3f168-8f4e-4850-8b5d-295065538429.jpg
+2025-08-01T02:05:08: [上传COS] hengyouxin_1753985106984_4
+2025-08-01T02:05:10: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985106984_4.jpg
+2025-08-01T02:05:10: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985106984_4.jpg',
+    name: 'hengyouxin_1753985106984_4',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '38257dac6e1fb03f01f01f82727d08fde4e0',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '2cf46deb-525a-415e-917c-474d11c34ecf',
+    createTime: '2025-08-01 02:05:11',
+    updateTime: '2025-08-01 02:05:11'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:05:10: ✅ [4] 上传成功: hengyouxin_1753985106984_4
+2025-08-01T02:05:10: 等待 1 秒后继续...
+2025-08-01T02:05:11: 
+[5/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/24d98681-39ac-4e54-9d5b-e6a4eb543917.jpg
+2025-08-01T02:05:11: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/24d98681-39ac-4e54-9d5b-e6a4eb543917.jpg
+2025-08-01T02:05:12: [上传COS] hengyouxin_1753985111922_5
+2025-08-01T02:05:13: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985111922_5.jpg
+2025-08-01T02:05:13: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985111922_5.jpg',
+    name: 'hengyouxin_1753985111922_5',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'c00ff0fd8f90fe8e04e07e07e07c00fd8ff0',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'f10dee8a-2e11-4e27-8a20-58ce63ef7cb9',
+    createTime: '2025-08-01 02:05:13',
+    updateTime: '2025-08-01 02:05:13'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:05:13: ✅ [5] 上传成功: hengyouxin_1753985111922_5
+2025-08-01T02:05:13: 等待 1 秒后继续...
+2025-08-01T02:05:14: 
+[6/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/43751f05-8b2b-49cb-be07-c40782768986.jpg
+2025-08-01T02:05:14: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/43751f05-8b2b-49cb-be07-c40782768986.jpg
+2025-08-01T02:05:15: [上传COS] hengyouxin_1753985114583_6
+2025-08-01T02:05:16: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985114583_6.jpg
+2025-08-01T02:05:16: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985114583_6.jpg',
+    name: 'hengyouxin_1753985114583_6',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'f00e30ecff1d0780f60fc1fc07c07c0703ff',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '1d62838b-6ae9-423e-9a03-14ae6173410b',
+    createTime: '2025-08-01 02:05:16',
+    updateTime: '2025-08-01 02:05:16'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:05:16: ✅ [6] 上传成功: hengyouxin_1753985114583_6
+2025-08-01T02:05:16: 等待 1 秒后继续...
+2025-08-01T02:05:17: 
+[7/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/cb32d16c-9674-44b9-9945-078808d65fac.jpg
+2025-08-01T02:05:17: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/cb32d16c-9674-44b9-9945-078808d65fac.jpg
+2025-08-01T02:05:22: [上传COS] hengyouxin_1753985117348_7
+2025-08-01T02:05:23: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985117348_7.jpg
+2025-08-01T02:05:24: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985117348_7.jpg',
+    name: 'hengyouxin_1753985117348_7',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '1601f83fe19c0fc3f877e70c318e08e40ffc',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'e46d1a1f-ef6c-4f9b-b3da-d3e45e40cbdf',
+    createTime: '2025-08-01 02:05:24',
+    updateTime: '2025-08-01 02:05:24'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:05:24: ✅ [7] 上传成功: hengyouxin_1753985117348_7
+2025-08-01T02:05:24: 等待 1 秒后继续...
+2025-08-01T02:05:25: 
+[8/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/65326c11-19d0-4847-b1ac-60b9e17a2c69.jpg
+2025-08-01T02:05:25: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/65326c11-19d0-4847-b1ac-60b9e17a2c69.jpg
+2025-08-01T02:05:27: [上传COS] hengyouxin_1753985125014_8
+2025-08-01T02:05:28: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985125014_8.jpg
+2025-08-01T02:05:28: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985125014_8.jpg',
+    name: 'hengyouxin_1753985125014_8',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '264b0df0f9093fc2f4264f0df0b9083fc2fc',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'a1935961-bc6c-46b9-8927-4b3a54d620c9',
+    createTime: '2025-08-01 02:05:28',
+    updateTime: '2025-08-01 02:05:28'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:05:28: ✅ [8] 上传成功: hengyouxin_1753985125014_8
+2025-08-01T02:05:28: 等待 1 秒后继续...
+2025-08-01T02:05:29: 
+[9/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/a7e4344e-0789-48af-8cea-cd180cbacc92.jpg
+2025-08-01T02:05:29: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/a7e4344e-0789-48af-8cea-cd180cbacc92.jpg
+2025-08-01T02:05:31: [上传COS] hengyouxin_1753985129783_9
+2025-08-01T02:05:31: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985129783_9.jpg
+2025-08-01T02:05:32: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985129783_9.jpg',
+    name: 'hengyouxin_1753985129783_9',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '32431f25f0060fb4ff1d31c71ec1bc1fc2e1',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '0857edea-7aa1-441e-b2e6-d2bcd243fe93',
+    createTime: '2025-08-01 02:05:32',
+    updateTime: '2025-08-01 02:05:32'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:05:32: ✅ [9] 上传成功: hengyouxin_1753985129783_9
+2025-08-01T02:05:32: 等待 1 秒后继续...
+2025-08-01T02:05:33: 
+[10/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/bcdd41c2-c0f1-4bc4-9560-84742c5c2e6d.jpg
+2025-08-01T02:05:33: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/bcdd41c2-c0f1-4bc4-9560-84742c5c2e6d.jpg
+2025-08-01T02:05:33: [上传COS] hengyouxin_1753985133099_10
+2025-08-01T02:05:35: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985133099_10.jpg
+2025-08-01T02:05:35: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985133099_10.jpg',
+    name: 'hengyouxin_1753985133099_10',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '5ff0f4013e81fe1073801bc1bef0033cf2df',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'd50f2d6e-6368-42c1-a791-ebd6b280fd1a',
+    createTime: '2025-08-01 02:05:36',
+    updateTime: '2025-08-01 02:05:36'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:05:35: ✅ [10] 上传成功: hengyouxin_1753985133099_10
+2025-08-01T02:05:35: 等待 1 秒后继续...
+2025-08-01T02:05:36: 
+[11/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/0fdc3b52-92f9-486f-8152-41a3725333e3.jpg
+2025-08-01T02:05:36: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/0fdc3b52-92f9-486f-8152-41a3725333e3.jpg
+2025-08-01T02:05:41: [上传COS] hengyouxin_1753985136965_11
+2025-08-01T02:05:49: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985136965_11.jpg
+2025-08-01T02:05:50: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985136965_11.jpg',
+    name: 'hengyouxin_1753985136965_11',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'f04878be687ac3a03f07e5d61b2b3d863916',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'd4955644-5c3f-4bc2-841f-ac981bb53540',
+    createTime: '2025-08-01 02:05:50',
+    updateTime: '2025-08-01 02:05:50'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:05:50: ✅ [11] 上传成功: hengyouxin_1753985136965_11
+2025-08-01T02:05:50: 等待 1 秒后继续...
+2025-08-01T02:05:51: 
+[12/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/a8db8628-ef01-4b7b-b646-f5142d0a8842.jpg
+2025-08-01T02:05:51: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/a8db8628-ef01-4b7b-b646-f5142d0a8842.jpg
+2025-08-01T02:05:54: [上传COS] hengyouxin_1753985151144_12
+2025-08-01T02:05:59: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985151144_12.jpg
+2025-08-01T02:05:59: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985151144_12.jpg',
+    name: 'hengyouxin_1753985151144_12',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'b8f20f30710f39a3f83f83f80d82d923e0be',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '1537fe12-5632-456f-abe0-be982fa8c4f3',
+    createTime: '2025-08-01 02:05:59',
+    updateTime: '2025-08-01 02:05:59'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:05:59: ✅ [12] 上传成功: hengyouxin_1753985151144_12
+2025-08-01T02:05:59: 等待 1 秒后继续...
+2025-08-01T02:06:00: 
+[13/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/eeeff21a-f0d7-4803-92c5-c4f98c7747c2.jpg
+2025-08-01T02:06:00: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/eeeff21a-f0d7-4803-92c5-c4f98c7747c2.jpg
+2025-08-01T02:06:03: [上传COS] hengyouxin_1753985160682_13
+2025-08-01T02:06:08: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985160682_13.jpg
+2025-08-01T02:06:09: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985160682_13.jpg',
+    name: 'hengyouxin_1753985160682_13',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'eff632012c7603f03713693f03e01601fe7f',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'dcf236fd-1336-4a39-93ee-f925fad16886',
+    createTime: '2025-08-01 02:06:09',
+    updateTime: '2025-08-01 02:06:09'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:06:09: ✅ [13] 上传成功: hengyouxin_1753985160682_13
+2025-08-01T02:06:09: 等待 1 秒后继续...
+2025-08-01T02:06:10: 
+[14/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/c47d6fe7-2102-40f0-9a53-82887790a5f1.jpg
+2025-08-01T02:06:10: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/c47d6fe7-2102-40f0-9a53-82887790a5f1.jpg
+2025-08-01T02:06:12: [上传COS] hengyouxin_1753985170189_14
+2025-08-01T02:06:15: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985170189_14.jpg
+2025-08-01T02:06:16: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985170189_14.jpg',
+    name: 'hengyouxin_1753985170189_14',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '3f83e620723579c78c30cf1df88fec3ec240',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '13773b01-2bff-4dd5-9cdc-05da2805367d',
+    createTime: '2025-08-01 02:06:16',
+    updateTime: '2025-08-01 02:06:16'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:06:16: ✅ [14] 上传成功: hengyouxin_1753985170189_14
+2025-08-01T02:06:16: 等待 1 秒后继续...
+2025-08-01T02:06:17: 
+[15/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/5eec3b8b-f2ac-431b-9a95-3e4213dc7e10.jpg
+2025-08-01T02:06:17: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/5eec3b8b-f2ac-431b-9a95-3e4213dc7e10.jpg
+2025-08-01T02:06:19: [上传COS] hengyouxin_1753985177460_15
+2025-08-01T02:06:24: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985177460_15.jpg
+2025-08-01T02:06:25: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985177460_15.jpg',
+    name: 'hengyouxin_1753985177460_15',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '10618f1ff11f33f0470674ff00f8e18e9e0f',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'ad93599f-2df1-4b68-b168-795b2d8fe4a9',
+    createTime: '2025-08-01 02:06:25',
+    updateTime: '2025-08-01 02:06:25'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:06:25: ✅ [15] 上传成功: hengyouxin_1753985177460_15
+2025-08-01T02:06:25: 等待 1 秒后继续...
+2025-08-01T02:06:26: 
+[16/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/255b078a-d435-4200-be1e-c39d63204f03.jpg
+2025-08-01T02:06:26: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/255b078a-d435-4200-be1e-c39d63204f03.jpg
+2025-08-01T02:06:28: [上传COS] hengyouxin_1753985186590_16
+2025-08-01T02:06:33: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985186590_16.jpg
+2025-08-01T02:06:33: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985186590_16.jpg',
+    name: 'hengyouxin_1753985186590_16',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '7cdd01f81f01fa1fa0ff5df0800c0fe1c1d5',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'bc871eeb-3203-42d9-8fd0-6848123720fb',
+    createTime: '2025-08-01 02:06:33',
+    updateTime: '2025-08-01 02:06:33'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:06:33: ✅ [16] 上传成功: hengyouxin_1753985186590_16
+2025-08-01T02:06:33: 等待 1 秒后继续...
+2025-08-01T02:06:34: 
+[17/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/7c16e38a-e3e6-426d-8a90-c41f071a9907.jpg
+2025-08-01T02:06:34: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/7c16e38a-e3e6-426d-8a90-c41f071a9907.jpg
+2025-08-01T02:06:38: [上传COS] hengyouxin_1753985194746_17
+2025-08-01T02:06:42: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985194746_17.jpg
+2025-08-01T02:06:43: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985194746_17.jpg',
+    name: 'hengyouxin_1753985194746_17',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'ffcf00870ff81d1548e63e03e07e1730f14e',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '7410812d-6811-470c-976f-4fdc7187f85e',
+    createTime: '2025-08-01 02:06:43',
+    updateTime: '2025-08-01 02:06:43'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:06:43: ✅ [17] 上传成功: hengyouxin_1753985194746_17
+2025-08-01T02:06:43: 等待 1 秒后继续...
+2025-08-01T02:06:44: 
+[18/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/87aa15ee-9229-4a66-9312-3e5c3c8a4cce.jpg
+2025-08-01T02:06:44: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/87aa15ee-9229-4a66-9312-3e5c3c8a4cce.jpg
+2025-08-01T02:06:46: [上传COS] hengyouxin_1753985204334_18
+2025-08-01T02:06:50: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985204334_18.jpg
+2025-08-01T02:06:51: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985204334_18.jpg',
+    name: 'hengyouxin_1753985204334_18',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '8212f2ef62f60f24f20f06762f63bc37c0f0',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'f081ac09-9df3-4510-9944-9b98e1d0c236',
+    createTime: '2025-08-01 02:06:51',
+    updateTime: '2025-08-01 02:06:51'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:06:51: ✅ [18] 上传成功: hengyouxin_1753985204334_18
+2025-08-01T02:06:51: 等待 1 秒后继续...
+2025-08-01T02:06:52: 
+[19/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/990e5240-0858-4438-8950-62baf267ac0c.jpg
+2025-08-01T02:06:52: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/990e5240-0858-4438-8950-62baf267ac0c.jpg
+2025-08-01T02:07:01: [上传COS] hengyouxin_1753985212247_19
+2025-08-01T02:07:06: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985212247_19.jpg
+2025-08-01T02:07:06: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985212247_19.jpg',
+    name: 'hengyouxin_1753985212247_19',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '0e25ba5ba1991ea1fc97817a19e106807fbf',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '203bf764-e3e1-4042-b293-d8327b1408be',
+    createTime: '2025-08-01 02:07:06',
+    updateTime: '2025-08-01 02:07:06'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:07:06: ✅ [19] 上传成功: hengyouxin_1753985212247_19
+2025-08-01T02:07:06: 等待 1 秒后继续...
+2025-08-01T02:07:07: 
+[20/20] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/649e5a09-c995-4c0c-b74f-56ee84c18aba.jpg
+2025-08-01T02:07:07: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/649e5a09-c995-4c0c-b74f-56ee84c18aba.jpg
+2025-08-01T02:07:11: [上传COS] hengyouxin_1753985227796_20
+2025-08-01T02:07:18: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985227796_20.jpg
+2025-08-01T02:07:19: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985227796_20.jpg',
+    name: 'hengyouxin_1753985227796_20',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '7f8fe0700fe0d42fc015adff500c0061f3df',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '77a33a99-b05a-41fa-8e67-685c5887dad1',
+    createTime: '2025-08-01 02:07:19',
+    updateTime: '2025-08-01 02:07:19'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:07:19: ✅ [20] 上传成功: hengyouxin_1753985227796_20
+2025-08-01T02:07:19: 
+=== 处理完成 ===
+2025-08-01T02:07:19: 成功上传: 20 个
+2025-08-01T02:07:19: 上传失败: 0 个
+2025-08-01T02:07:19: 总计处理: 20 个素材
+2025-08-01T02:07:19: 第 3 页完成，累计提取: 60 个素材 (成功: 60, 失败: 0)
+2025-08-01T02:07:19: 等待 2 秒后继续...
+2025-08-01T02:07:21: 
+=== 正在处理第 4 页 ===
+2025-08-01T02:07:21: 正在获取第 4 页数据...
+2025-08-01T02:07:21: 📅 时间范围: 2025/7/31 00:00:00 - 2025/7/31 23:59:59
+2025-08-01T02:07:21: 
+=== 数据统计 ===
+2025-08-01T02:07:21: 当前页素材数量: 16
+2025-08-01T02:07:21: 总素材数量: 76
+2025-08-01T02:07:21: 当前页/总页数: 4 页
+2025-08-01T02:07:21: 
+=== 处理素材并上传 ===
+2025-08-01T02:07:21: 
+[1/16] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/a173c2a0-cf9c-4941-93a3-40087120832d.jpg
+2025-08-01T02:07:21: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/a173c2a0-cf9c-4941-93a3-40087120832d.jpg
+2025-08-01T02:07:23: [上传COS] hengyouxin_1753985241537_1
+2025-08-01T02:07:28: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985241537_1.jpg
+2025-08-01T02:07:28: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985241537_1.jpg',
+    name: 'hengyouxin_1753985241537_1',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '0f107b83f21fb1f0870e705f03f00147f1ff',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '07b0a471-32f5-4a00-bfc6-caa7261e8322',
+    createTime: '2025-08-01 02:07:29',
+    updateTime: '2025-08-01 02:07:29'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:07:28: ✅ [1] 上传成功: hengyouxin_1753985241537_1
+2025-08-01T02:07:28: 等待 1 秒后继续...
+2025-08-01T02:07:29: 
+[2/16] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/fea85c51-b593-4c17-95e7-ca74dfa9c52c.jpg
+2025-08-01T02:07:29: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/fea85c51-b593-4c17-95e7-ca74dfa9c52c.jpg
+2025-08-01T02:07:31: [上传COS] hengyouxin_1753985249826_2
+2025-08-01T02:07:36: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985249826_2.jpg
+2025-08-01T02:07:37: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985249826_2.jpg',
+    name: 'hengyouxin_1753985249826_2',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'f9ee03c03801bfd1f88f98e9863863c03f8f',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '613bc55c-39b2-41f1-bf3a-541f2ffd12e1',
+    createTime: '2025-08-01 02:07:37',
+    updateTime: '2025-08-01 02:07:37'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:07:37: ✅ [2] 上传成功: hengyouxin_1753985249826_2
+2025-08-01T02:07:37: 等待 1 秒后继续...
+2025-08-01T02:07:38: 
+[3/16] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/ecc9ef52-3f01-4365-bbff-e5169228a206.jpg
+2025-08-01T02:07:38: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/ecc9ef52-3f01-4365-bbff-e5169228a206.jpg
+2025-08-01T02:07:39: [上传COS] hengyouxin_1753985258464_3
+2025-08-01T02:07:41: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985258464_3.jpg
+2025-08-01T02:07:41: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985258464_3.jpg',
+    name: 'hengyouxin_1753985258464_3',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'fe07e02d829cb8f307f03f02b1ef1af8b888',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '93f6399b-e920-4df6-9911-efaa90a4f259',
+    createTime: '2025-08-01 02:07:41',
+    updateTime: '2025-08-01 02:07:41'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:07:41: ✅ [3] 上传成功: hengyouxin_1753985258464_3
+2025-08-01T02:07:41: 等待 1 秒后继续...
+2025-08-01T02:07:42: 
+[4/16] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/f0ad1a0a-4d79-4a44-8bc6-96e06aeb68a1.jpg
+2025-08-01T02:07:42: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/f0ad1a0a-4d79-4a44-8bc6-96e06aeb68a1.jpg
+2025-08-01T02:07:47: [上传COS] hengyouxin_1753985262966_4
+2025-08-01T02:07:53: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985262966_4.jpg
+2025-08-01T02:07:54: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985262966_4.jpg',
+    name: 'hengyouxin_1753985262966_4',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '0001fcffe0fc0fe07c6608fc0fe7fe3fc000',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '188b43cd-a639-4d5f-965d-3489b3f404e0',
+    createTime: '2025-08-01 02:07:54',
+    updateTime: '2025-08-01 02:07:54'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:07:54: ✅ [4] 上传成功: hengyouxin_1753985262966_4
+2025-08-01T02:07:54: 等待 1 秒后继续...
+2025-08-01T02:07:55: 
+[5/16] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/ebe1ea11-e2e9-41ec-a664-d5b7460ca1be.jpg
+2025-08-01T02:07:55: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/ebe1ea11-e2e9-41ec-a664-d5b7460ca1be.jpg
+2025-08-01T02:07:58: [上传COS] hengyouxin_1753985275154_5
+2025-08-01T02:08:03: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985275154_5.jpg
+2025-08-01T02:08:04: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985275154_5.jpg',
+    name: 'hengyouxin_1753985275154_5',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '879877c5845cc3ce71c25e1f41d55c7e1aa1',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '040d7c67-e0bf-4875-b198-02465ad9e583',
+    createTime: '2025-08-01 02:08:04',
+    updateTime: '2025-08-01 02:08:04'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:08:04: ✅ [5] 上传成功: hengyouxin_1753985275154_5
+2025-08-01T02:08:04: 等待 1 秒后继续...
+2025-08-01T02:08:05: 
+[6/16] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/97cc22c3-0c4b-4a1d-89c0-e97ca814106d.jpg
+2025-08-01T02:08:05: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/97cc22c3-0c4b-4a1d-89c0-e97ca814106d.jpg
+2025-08-01T02:08:13: [上传COS] hengyouxin_1753985285701_6
+2025-08-01T02:08:17: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985285701_6.jpg
+2025-08-01T02:08:17: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985285701_6.jpg',
+    name: 'hengyouxin_1753985285701_6',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'f887c0e0f00701f3ff1f43f03f0ff87f0600',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '56dcbe0e-e401-471a-b243-f78ae09ae307',
+    createTime: '2025-08-01 02:08:18',
+    updateTime: '2025-08-01 02:08:18'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:08:17: ✅ [6] 上传成功: hengyouxin_1753985285701_6
+2025-08-01T02:08:17: 等待 1 秒后继续...
+2025-08-01T02:08:18: 
+[7/16] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/848fa597-c81b-47ba-99a8-5efad976be42.jpg
+2025-08-01T02:08:18: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/848fa597-c81b-47ba-99a8-5efad976be42.jpg
+2025-08-01T02:08:23: [上传COS] hengyouxin_1753985298906_7
+2025-08-01T02:08:27: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985298906_7.jpg
+2025-08-01T02:08:27: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985298906_7.jpg',
+    name: 'hengyouxin_1753985298906_7',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '1d82926fd0ec1c87cf7c03ca6f23fc1fc070',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'c79a4bd7-2104-41ed-aca3-4173be4a258a',
+    createTime: '2025-08-01 02:08:28',
+    updateTime: '2025-08-01 02:08:28'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:08:27: ✅ [7] 上传成功: hengyouxin_1753985298906_7
+2025-08-01T02:08:27: 等待 1 秒后继续...
+2025-08-01T02:08:28: 
+[8/16] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/13d6ce6b-fee2-4f48-abca-b7540c773c47.jpg
+2025-08-01T02:08:28: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/13d6ce6b-fee2-4f48-abca-b7540c773c47.jpg
+2025-08-01T02:08:31: [上传COS] hengyouxin_1753985308964_8
+2025-08-01T02:08:36: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985308964_8.jpg
+2025-08-01T02:08:36: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985308964_8.jpg',
+    name: 'hengyouxin_1753985308964_8',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'f1fe05e40e0bc0fc0f807383f8ff8ff03301',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'f45fab30-a052-4e75-a4f8-416cf4a3cf80',
+    createTime: '2025-08-01 02:08:37',
+    updateTime: '2025-08-01 02:08:37'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:08:36: ✅ [8] 上传成功: hengyouxin_1753985308964_8
+2025-08-01T02:08:36: 等待 1 秒后继续...
+2025-08-01T02:08:37: 
+[9/16] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/4caae40c-355d-466e-86d9-43f43f4f328b.jpg
+2025-08-01T02:08:37: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/4caae40c-355d-466e-86d9-43f43f4f328b.jpg
+2025-08-01T02:08:40: [上传COS] hengyouxin_1753985317996_9
+2025-08-01T02:08:43: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985317996_9.jpg
+2025-08-01T02:08:44: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985317996_9.jpg',
+    name: 'hengyouxin_1753985317996_9',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '0701fc3fc33826cef476076c31e7fe0fe010',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'e6effa40-dacc-4167-9c42-2de652aae91a',
+    createTime: '2025-08-01 02:08:44',
+    updateTime: '2025-08-01 02:08:44'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:08:44: ✅ [9] 上传成功: hengyouxin_1753985317996_9
+2025-08-01T02:08:44: 等待 1 秒后继续...
+2025-08-01T02:08:45: 
+[10/16] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/80cf3205-2c0f-4907-8f95-35012182e372.jpg
+2025-08-01T02:08:45: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/80cf3205-2c0f-4907-8f95-35012182e372.jpg
+2025-08-01T02:08:49: [上传COS] hengyouxin_1753985325027_10
+2025-08-01T02:08:55: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985325027_10.jpg
+2025-08-01T02:08:56: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985325027_10.jpg',
+    name: 'hengyouxin_1753985325027_10',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'fb0b1281f8f927907985b8124ff0f78b7807',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '8fde520b-4b03-470c-8043-783df38f3164',
+    createTime: '2025-08-01 02:08:56',
+    updateTime: '2025-08-01 02:08:56'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:08:56: ✅ [10] 上传成功: hengyouxin_1753985325027_10
+2025-08-01T02:08:56: 等待 1 秒后继续...
+2025-08-01T02:08:57: 
+[11/16] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/b9a858db-8866-4b9a-92f4-7f8ef65d0ac2.jpg
+2025-08-01T02:08:57: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/b9a858db-8866-4b9a-92f4-7f8ef65d0ac2.jpg
+2025-08-01T02:08:59: [上传COS] hengyouxin_1753985337192_11
+2025-08-01T02:09:03: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985337192_11.jpg
+2025-08-01T02:09:03: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985337192_11.jpg',
+    name: 'hengyouxin_1753985337192_11',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'ff7c03803c07c27e47e67c03c63c01c1bfc7',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '803f06e7-3c5a-451f-9217-fc8812e42974',
+    createTime: '2025-08-01 02:09:03',
+    updateTime: '2025-08-01 02:09:03'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:09:03: ✅ [11] 上传成功: hengyouxin_1753985337192_11
+2025-08-01T02:09:03: 等待 1 秒后继续...
+2025-08-01T02:09:04: 
+[12/16] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/bb7e0f51-a7de-4920-bd2b-1b76ba51a535.jpg
+2025-08-01T02:09:04: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/bb7e0f51-a7de-4920-bd2b-1b76ba51a535.jpg
+2025-08-01T02:09:06: [上传COS] hengyouxin_1753985344556_12
+2025-08-01T02:09:11: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985344556_12.jpg
+2025-08-01T02:09:12: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985344556_12.jpg',
+    name: 'hengyouxin_1753985344556_12',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '5fe8009dd3df083f037f40f807ce7d83cb40',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '5305c1dc-bd59-4ae2-9ebf-03ae928b071d',
+    createTime: '2025-08-01 02:09:12',
+    updateTime: '2025-08-01 02:09:12'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:09:12: ✅ [12] 上传成功: hengyouxin_1753985344556_12
+2025-08-01T02:09:12: 等待 1 秒后继续...
+2025-08-01T02:09:13: 
+[13/16] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/ffe4df30-6afb-46b1-88fd-33125621a03d.jpg
+2025-08-01T02:09:13: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/ffe4df30-6afb-46b1-88fd-33125621a03d.jpg
+2025-08-01T02:09:15: [上传COS] hengyouxin_1753985353391_13
+2025-08-01T02:09:24: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985353391_13.jpg
+2025-08-01T02:09:25: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985353391_13.jpg',
+    name: 'hengyouxin_1753985353391_13',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'f80fc0fe0fe0fc0ec0dc0df8dc09ec9f08f0',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '76c80673-e745-4e98-9549-caffb821b13e',
+    createTime: '2025-08-01 02:09:25',
+    updateTime: '2025-08-01 02:09:25'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:09:25: ✅ [13] 上传成功: hengyouxin_1753985353391_13
+2025-08-01T02:09:25: 等待 1 秒后继续...
+2025-08-01T02:09:26: 
+[14/16] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/ceb3ff28-3b84-40e7-a336-b7f10afce2f8.jpg
+2025-08-01T02:09:26: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/ceb3ff28-3b84-40e7-a336-b7f10afce2f8.jpg
+2025-08-01T02:09:33: [上传COS] hengyouxin_1753985366106_14
+2025-08-01T02:09:47: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985366106_14.jpg
+2025-08-01T02:09:48: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985366106_14.jpg',
+    name: 'hengyouxin_1753985366106_14',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'bc107c4f369f71f108b08f0ef92fb037c03c',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '72f24548-e778-4ef1-a8cf-b97b7c3e949c',
+    createTime: '2025-08-01 02:09:48',
+    updateTime: '2025-08-01 02:09:48'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:09:48: ✅ [14] 上传成功: hengyouxin_1753985366106_14
+2025-08-01T02:09:48: 等待 1 秒后继续...
+2025-08-01T02:09:49: 
+[15/16] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/ca37ba40-51ff-47b3-a8b3-2ea007e0a373.jpg
+2025-08-01T02:09:49: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/ca37ba40-51ff-47b3-a8b3-2ea007e0a373.jpg
+2025-08-01T02:10:03: [上传COS] hengyouxin_1753985389436_15
+2025-08-01T02:10:12: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985389436_15.jpg
+2025-08-01T02:10:13: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985389436_15.jpg',
+    name: 'hengyouxin_1753985389436_15',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: '0702733f71d01fc8bd0f931e3176c07fcf10',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: 'c2d3249e-30dd-44cb-813b-d5deda40cb56',
+    createTime: '2025-08-01 02:10:13',
+    updateTime: '2025-08-01 02:10:13'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:10:13: ✅ [15] 上传成功: hengyouxin_1753985389436_15
+2025-08-01T02:10:13: 等待 1 秒后继续...
+2025-08-01T02:10:14: 
+[16/16] 处理素材: https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/ff4518be-0fde-4530-bb7b-9c8874f67f4b.jpg
+2025-08-01T02:10:14: [下载] https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/ff4518be-0fde-4530-bb7b-9c8874f67f4b.jpg
+2025-08-01T02:10:19: [上传COS] hengyouxin_1753985414713_16
+2025-08-01T02:10:26: [COS上传成功] https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985414713_16.jpg
+2025-08-01T02:10:27: [design-server返回] {
+  data: {
+    url: 'https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1753985414713_16.jpg',
+    name: 'hengyouxin_1753985414713_16',
+    suffix: 'jpg',
+    source: 'hengyouxin',
+    phash: 'deb3f3400cb1df186121b83fc8740491beef',
+    keywords: '',
+    description: '',
+    uploaderId: null,
+    meta: null,
+    id: '04707b4d-8f3a-4d52-9726-6f67a287fcaf',
+    createTime: '2025-08-01 02:10:27',
+    updateTime: '2025-08-01 02:10:27'
+  },
+  code: 0,
+  status: true
+}
+2025-08-01T02:10:27: ✅ [16] 上传成功: hengyouxin_1753985414713_16
+2025-08-01T02:10:27: 
+=== 处理完成 ===
+2025-08-01T02:10:27: 成功上传: 16 个
+2025-08-01T02:10:27: 上传失败: 0 个
+2025-08-01T02:10:27: 总计处理: 16 个素材
+2025-08-01T02:10:27: 第 4 页完成，累计提取: 76 个素材 (成功: 76, 失败: 0)
+2025-08-01T02:10:27: 📄 已到达最后一页，爬取完成
+2025-08-01T02:10:27: 
+=== 时间范围爬取完成！===
+2025-08-01T02:10:27: 📅 时间范围: 2025/7/31 00:00:00 - 2025/7/31 23:59:59
+2025-08-01T02:10:27: 📊 总共处理: 76 个素材
+2025-08-01T02:10:27: ✅ 成功上传: 76 个
+2025-08-01T02:10:27: ❌ 上传失败: 0 个
+2025-08-01T02:10:27: ⏱️  总耗时: 626 秒
+2025-08-01T02:10:27: 📄 日志文件: /Users/jackie/workspace/yishe-scripts/scripts/hengyouxin/yesterday_logs/yesterday_2025-07-31_18-00-01-211.json
+2025-08-01T02:10:28: 飞书消息发送成功: {
+  StatusCode: 0,
+  StatusMessage: 'success',
+  code: 0,
+  data: {},
+  msg: 'success'
+}
+2025-08-01T02:10:28: 📱 飞书通知已发送
