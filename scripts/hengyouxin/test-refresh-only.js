@@ -9,10 +9,6 @@ const path = require('path');
 
 async function refreshAccessToken(refreshToken) {
     try {
-        console.log('🔄 正在调用刷新token接口...');
-        console.log(`📡 请求地址: https://www.erp.iuufu.com/api/admin-api/system/auth/refresh-token`);
-        console.log(`🔑 使用的refreshToken: ${refreshToken}`);
-        
         // 使用与主脚本相同的请求头
         const headers = {
             'Accept': 'application/json, text/plain, */*',
@@ -35,12 +31,8 @@ async function refreshAccessToken(refreshToken) {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0'
         };
         
-        console.log('📤 请求头:', JSON.stringify(headers, null, 2));
-        
         // 尝试通过查询字符串传递参数
         const url = `https://www.erp.iuufu.com/api/admin-api/system/auth/refresh-token?refreshToken=${refreshToken}`;
-        
-        console.log('📤 请求URL:', url);
         
         const response = await axios.post(
             url,
@@ -48,40 +40,16 @@ async function refreshAccessToken(refreshToken) {
             { headers }
         );
         
-        console.log('✅ 请求成功！');
-        console.log('📄 完整响应数据：');
-        console.log(JSON.stringify(response.data, null, 2));
-        
         // 解析返回的数据
         const { code, data, msg } = response.data;
         
         if (code === 0 && data) {
-            console.log('\n🎯 解析结果：');
-            console.log(`✅ 状态码: ${code}`);
-            console.log(`👤 用户ID: ${data.userId}`);
-            console.log(`🔑 新的accessToken: ${data.accessToken}`);
-            console.log(`🔄 新的refreshToken: ${data.refreshToken}`);
-            console.log(`⏰ 过期时间: ${new Date(data.expiresTime).toLocaleString()}`);
-            console.log(`📝 消息: ${msg}`);
-            
             return response.data;
         } else {
-            console.log('❌ 响应格式异常：');
-            console.log(`状态码: ${code}`);
-            console.log(`消息: ${msg}`);
             return response.data;
         }
         
     } catch (error) {
-        console.error('❌ 请求失败：');
-        if (error.response) {
-            console.error(`HTTP状态码: ${error.response.status}`);
-            console.error('响应数据:', JSON.stringify(error.response.data, null, 2));
-        } else if (error.request) {
-            console.error('网络错误，无法连接到服务器');
-        } else {
-            console.error('请求配置错误:', error.message);
-        }
         throw error;
     }
 }
@@ -94,10 +62,10 @@ async function testRefreshToken() {
     
     try {
         const result = await refreshAccessToken(testRefreshToken);
-        console.log('\n✅ 测试完成！');
+        console.log('✅ 测试成功！');
         return result;
     } catch (error) {
-        console.log('\n❌ 测试失败！');
+        console.log('❌ 测试失败！');
         return null;
     }
 }
