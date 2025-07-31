@@ -260,7 +260,7 @@ async function fetchMaterialList(pageNo = 1, pageSize = 20, startTime = null, en
             }
         );
 
-        console.log('请求成功:', response.status);
+
         
         // 🔄 检查API响应数据中的401错误
         const responseData = response.data;
@@ -284,7 +284,6 @@ async function fetchMaterialList(pageNo = 1, pageSize = 20, startTime = null, en
                         }
                     );
                     
-                    console.log('✅ 刷新token后请求成功:', retryResponse.status);
                     return retryResponse.data;
                     
                 } catch (refreshError) {
@@ -301,8 +300,6 @@ async function fetchMaterialList(pageNo = 1, pageSize = 20, startTime = null, en
                     console.log('\n📋 当前认证信息：');
                     console.log(`   Authorization: ${CONFIG.headers.Authorization ? CONFIG.headers.Authorization.substring(0, 30) + '...' : '未设置'}`);
                     console.log(`   Cookie: ${CONFIG.headers.Cookie ? CONFIG.headers.Cookie.substring(0, 50) + '...' : '未设置'}`);
-                    console.log('\n📄 API响应数据：');
-                    console.log(JSON.stringify(responseData, null, 2));
                     console.log('\n❌ 程序将退出，请更新认证信息后重新运行');
                     
                     // 创建401错误对象
@@ -325,8 +322,6 @@ async function fetchMaterialList(pageNo = 1, pageSize = 20, startTime = null, en
                 console.log('\n📋 当前认证信息：');
                 console.log(`   Authorization: ${CONFIG.headers.Authorization ? CONFIG.headers.Authorization.substring(0, 30) + '...' : '未设置'}`);
                 console.log(`   Cookie: ${CONFIG.headers.Cookie ? CONFIG.headers.Cookie.substring(0, 50) + '...' : '未设置'}`);
-                console.log('\n📄 API响应数据：');
-                console.log(JSON.stringify(responseData, null, 2));
                 console.log('\n❌ 程序将退出，请更新认证信息后重新运行');
                 
                 // 创建401错误对象
@@ -348,8 +343,6 @@ async function fetchMaterialList(pageNo = 1, pageSize = 20, startTime = null, en
         }
         
         if (error.response) {
-            console.error('响应状态:', error.response.status);
-            console.error('响应数据:', error.response.data);
             
             // 🔄 HTTP状态码401错误处理（备用）
             if (error.response.status === 401) {
@@ -372,7 +365,6 @@ async function fetchMaterialList(pageNo = 1, pageSize = 20, startTime = null, en
                             }
                         );
                         
-                        console.log('✅ 刷新token后请求成功:', retryResponse.status);
                         return retryResponse.data;
                         
                     } catch (refreshError) {
@@ -430,8 +422,7 @@ async function fetchMaterialList(pageNo = 1, pageSize = 20, startTime = null, en
 
 // 处理素材数据
 async function processMaterials(data) {
-    console.log('\n=== API 返回的完整数据 ===');
-    console.log(JSON.stringify(data, null, 2));
+
     
     // 🔄 检查响应数据中的401错误
     if (data && (data.code === 401 || data.status === 401 || data.error === 401)) {
@@ -447,8 +438,6 @@ async function processMaterials(data) {
         console.log('\n📋 当前认证信息：');
         console.log(`   Authorization: ${CONFIG.headers.Authorization ? CONFIG.headers.Authorization.substring(0, 30) + '...' : '未设置'}`);
         console.log(`   Cookie: ${CONFIG.headers.Cookie ? CONFIG.headers.Cookie.substring(0, 50) + '...' : '未设置'}`);
-        console.log('\n📄 API响应数据：');
-        console.log(JSON.stringify(data, null, 2));
         console.log('\n❌ 程序将退出，请更新认证信息后重新运行');
         
         // 创建401错误对象
@@ -480,8 +469,8 @@ async function processMaterials(data) {
             ossObjectName: material.ossObjectName  // 图片URL地址
         };
         
-        console.log(`\n素材 ${index + 1}:`);
-        console.log(JSON.stringify(extracted, null, 2));
+        // console.log(`\n素材 ${index + 1}:`);
+        // console.log(JSON.stringify(extracted, null, 2));
         
         return extracted;
     });
@@ -509,9 +498,7 @@ async function main() {
         const result = await fetchMaterialList(1, 20);
         console.log('请求成功，开始处理数据...');
         
-        // 调试：打印完整的响应结构
-        console.log('\n=== 调试信息 ===');
-        console.log('API响应结构:', JSON.stringify(result, null, 2));
+
         
         // 处理素材数据
         const usefulData = await processMaterials(result);
@@ -530,8 +517,6 @@ async function main() {
         }
         
         if (error.response) {
-            console.error('响应状态:', error.response.status);
-            console.error('响应数据:', error.response.data);
         }
     }
 }
@@ -614,19 +599,18 @@ async function batchCrawl(startPage = 1, endPage = null) {
             console.log('获取总页数...');
             const result = await fetchMaterialList(1, 20);
             
-            // 调试：打印完整的响应结构
-            console.log('API响应结构:', JSON.stringify(result, null, 2));
+
             
             if (!result || !result.data) {
                 console.error('API响应格式错误: result.data 为空');
-                console.log('完整响应:', result);
+    
                 return;
             }
             
             const totalCount = result.data.total;
             if (totalCount === undefined || totalCount === null) {
                 console.error('无法获取总素材数量，API返回的total字段为空');
-                console.log('data字段内容:', result.data);
+
                 return;
             }
             
@@ -1045,8 +1029,6 @@ async function crawlByTimeRange(startTime, endTime, description = '') {
         }
         
         if (error.response) {
-            console.error('响应状态:', error.response.status);
-            console.error('响应数据:', error.response.data);
         }
     }
 }
