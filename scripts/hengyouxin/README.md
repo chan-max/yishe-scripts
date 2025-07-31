@@ -1,9 +1,43 @@
 # 恒优信素材爬取脚本
 
+## 🔄 自动Token刷新机制
+
+### 概述
+脚本已实现自动刷新访问令牌的功能，当检测到401未授权错误时，会自动使用refreshToken刷新访问令牌，无需手动更新认证信息。
+
+### 功能特性
+
+#### 1. 自动Token刷新
+- 检测到401错误时自动尝试刷新token
+- 支持API响应数据和HTTP状态码双重检测
+- 刷新成功后自动重试请求
+- 新的token自动保存到配置文件
+
+#### 2. 初始Token配置
+- 预设初始accessToken和refreshToken
+- 支持从config.json文件读取token配置
+- 自动保存刷新后的新token
+
+#### 3. 刷新Token API
+- 使用POST方法请求刷新接口
+- 接口地址：`/api/admin-api/system/auth/refresh-token`
+- 返回新的accessToken和refreshToken
+
+### 刷新流程
+```
+1. 检测到401错误
+2. 检查是否有refreshToken
+3. 调用刷新接口获取新token
+4. 更新配置中的token
+5. 保存新token到配置文件
+6. 重新尝试原始请求
+7. 如果刷新失败，提示手动更新
+```
+
 ## 🚨 401错误处理机制
 
 ### 概述
-脚本已完善401未授权错误的处理机制，支持检测API响应数据中的401错误，当遇到认证错误时会自动退出程序并提供详细的更新指导。
+脚本已完善401未授权错误的处理机制，支持检测API响应数据中的401错误，当遇到认证错误时会自动尝试刷新token，如果刷新失败则退出程序并提供详细的更新指导。
 
 ### 功能特性
 
@@ -74,6 +108,11 @@ npm run hengyouxin:test-401
 #### 模拟401错误测试
 ```bash
 npm run hengyouxin:test-401-mock
+```
+
+#### 测试自动刷新token功能
+```bash
+npm run hengyouxin:test-token-refresh
 ```
 
 #### 爬取前一天的素材

@@ -37,6 +37,8 @@
         "hengyouxin:test-401": "node scripts/hengyouxin/test-401.js",
         "hengyouxin:test-401-mock": "node scripts/hengyouxin/test-401-mock.js",
         "hengyouxin:test-time-range": "node scripts/hengyouxin/test-time-range.js",
+        "hengyouxin:test-token-refresh": "node scripts/hengyouxin/test-token-refresh.js",
+        "hengyouxin:test-refresh-only": "node scripts/hengyouxin/test-refresh-only.js",
         "hengyouxin:yesterday": "node scripts/hengyouxin/index.js yesterday",
         "hengyouxin:timerange": "node scripts/hengyouxin/index.js timerange"
     },

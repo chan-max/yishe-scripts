@@ -48,7 +48,8 @@ function loadConfig() {
             return {
                 baseURL: 'https://www.erp.iuufu.com',
                 endpoint: '/api/admin-api/asset/material-management/page',
-                headers: headers
+                headers: headers,
+                refreshToken: config.auth?.refreshToken || null
             };
         }
     } catch (error) {
@@ -80,22 +81,115 @@ function loadConfig() {
             'Tenant-Id': '163',
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0',
             
-                         // ===== 🔄 易变认证信息（需要定期更新）=====
-             // 更新日期: 2025-01-31
-             // 旧值: Bearer f371a314422941149fc4e5c6ab5b1576
-             // 当前值: Bearer 9246e01d22f2418aa1fe25d264c1f80f (已过期)
-             'Authorization': 'Bearer 492cfde11140468fadb5d6f67d50439e',  // 🔄 需要更新
+            // ===== 🔄 易变认证信息（需要定期更新）=====
+            // 更新日期: 2025-01-31
+            // 旧值: Bearer f371a314422941149fc4e5c6ab5b1576
+            // 当前值: Bearer 9246e01d22f2418aa1fe25d264c1f80f (已过期)
+            'Authorization': 'Bearer 492cfde11140468fadb5d6f67d50439e',  // 🔄 需要更新
             
             // 更新日期: 2025-01-31  
             // 旧值: ...Hm_lpvt_a1ff8825baa73c3a78eb96aa40325abc=1753937977...
 
             // 'Cookie': '_ga=GA1.1.884180217.1752652946; _ga_MRBW1BE7X4=GS2.1.s1752656046$o2$g0$t1752656046$j60$l0$h0; Hm_lvt_a1ff8825baa73c3a78eb96aa40325abc=1751534604,1753927964,1753937977; HMACCOUNT=0C80E26C5FDA120B; Hm_lpvt_a1ff8825baa73c3a78eb96aa40325abc=1753943040'  // 🔄 需要更新
-        }
+        },
+        refreshToken: '21caf4bb57e145c390e228164e71bbb4'  // 🔄 初始refreshToken
     };
 }
 
 // 配置信息
 const CONFIG = loadConfig();
+
+/**
+ * 刷新访问令牌
+ * @param {string} refreshToken 刷新令牌
+ * @returns {Promise<Object>} 新的token信息
+ */
+async function refreshAccessToken(refreshToken) {
+    try {
+        console.log('🔄 正在刷新访问令牌...');
+        
+        const response = await axios.post(
+            `${CONFIG.baseURL}/api/admin-api/system/auth/refresh-token?refreshToken=${refreshToken}`,
+            {},
+            {
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Accept-Encoding': 'gzip, deflate, br, zstd',
+                    'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6',
+                    'Cache-Control': 'no-cache',
+                    'Connection': 'keep-alive',
+                    'Content-Type': 'application/json',
+                    'Host': 'www.erp.iuufu.com',
+                    'Origin': 'https://www.erp.iuufu.com',
+                    'Pragma': 'no-cache',
+                    'Referer': 'https://www.erp.iuufu.com/',
+                    'Sec-Ch-Ua': '"Not)A;Brand";v="8", "Chromium";v="138", "Microsoft Edge";v="138"',
+                    'Sec-Ch-Ua-Mobile': '?0',
+                    'Sec-Ch-Ua-Platform': '"Windows"',
+                    'Sec-Fetch-Dest': 'empty',
+                    'Sec-Fetch-Mode': 'cors',
+                    'Sec-Fetch-Site': 'same-origin',
+                    'Tenant-Id': '163',
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0'
+                }
+            }
+        );
+
+        if (response.data.code === 0) {
+            const { accessToken, refreshToken: newRefreshToken } = response.data.data;
+            
+            // 更新配置中的token
+            CONFIG.headers.Authorization = `Bearer ${accessToken}`;
+            CONFIG.refreshToken = newRefreshToken;
+            
+            // 保存到配置文件
+            saveTokensToConfig(accessToken, newRefreshToken);
+            
+            console.log('✅ 访问令牌刷新成功');
+            console.log(`📅 新accessToken: ${accessToken.substring(0, 20)}...`);
+            console.log(`📅 新refreshToken: ${newRefreshToken.substring(0, 20)}...`);
+            
+            return response.data.data;
+        } else {
+            throw new Error(`刷新令牌失败: ${response.data.msg}`);
+        }
+    } catch (error) {
+        console.error('❌ 刷新访问令牌失败:', error.message);
+        throw error;
+    }
+}
+
+/**
+ * 保存新的token到配置文件
+ * @param {string} accessToken 新的访问令牌
+ * @param {string} refreshToken 新的刷新令牌
+ */
+function saveTokensToConfig(accessToken, refreshToken) {
+    try {
+        const configPath = path.join(__dirname, 'config.json');
+        let config = {};
+        
+        if (fs.existsSync(configPath)) {
+            const configData = fs.readFileSync(configPath, 'utf8');
+            config = JSON.parse(configData);
+        }
+        
+        // 确保auth对象存在
+        if (!config.auth) {
+            config.auth = {};
+        }
+        
+        // 更新token
+        config.auth.authorization = `Bearer ${accessToken}`;
+        config.auth.refreshToken = refreshToken;
+        
+        // 保存到文件
+        fs.writeFileSync(configPath, JSON.stringify(config, null, 2), 'utf8');
+        console.log('💾 新的token已保存到配置文件');
+    } catch (error) {
+        console.error('❌ 保存token到配置文件失败:', error.message);
+    }
+}
 
 /**
  * 检查认证信息是否有效
@@ -171,28 +265,77 @@ async function fetchMaterialList(pageNo = 1, pageSize = 20, startTime = null, en
         // 🔄 检查API响应数据中的401错误
         const responseData = response.data;
         if (responseData && (responseData.code === 401 || responseData.status === 401 || responseData.error === 401)) {
-            console.log('\n🔄 === 认证信息已过期 ===');
-            console.log('💡 需要更新认证信息，请按以下步骤操作：');
-            console.log('   1. 在浏览器中重新登录网站');
-            console.log('   2. 打开开发者工具 (F12)');
-            console.log('   3. 在 Network 标签页中找到API请求');
-            console.log('   4. 复制 Authorization 和 Cookie 头的值');
-            console.log('   5. 使用以下命令更新认证信息：');
-            console.log('      npm run hengyouxin:update');
-            console.log('   6. 或者直接编辑 config.json 文件');
-            console.log('\n📋 当前认证信息：');
-            console.log(`   Authorization: ${CONFIG.headers.Authorization ? CONFIG.headers.Authorization.substring(0, 30) + '...' : '未设置'}`);
-            console.log(`   Cookie: ${CONFIG.headers.Cookie ? CONFIG.headers.Cookie.substring(0, 50) + '...' : '未设置'}`);
-            console.log('\n📄 API响应数据：');
-            console.log(JSON.stringify(responseData, null, 2));
-            console.log('\n❌ 程序将退出，请更新认证信息后重新运行');
+            console.log('\n🔄 === 检测到401错误，尝试自动刷新token ===');
             
-            // 创建401错误对象
-            const authError = new Error('401 Unauthorized - 认证信息已过期');
-            authError.status = 401;
-            authError.isAuthError = true;
-            authError.responseData = responseData;
-            throw authError;
+            // 如果有refreshToken，尝试刷新
+            if (CONFIG.refreshToken) {
+                try {
+                    console.log('🔄 正在使用refreshToken刷新访问令牌...');
+                    await refreshAccessToken(CONFIG.refreshToken);
+                    
+                    // 刷新成功后，重新尝试请求
+                    console.log('🔄 重新尝试请求...');
+                    const retryResponse = await axios.post(
+                        CONFIG.baseURL + CONFIG.endpoint,
+                        requestData,
+                        {
+                            headers: CONFIG.headers,
+                            timeout: 30000
+                        }
+                    );
+                    
+                    console.log('✅ 刷新token后请求成功:', retryResponse.status);
+                    return retryResponse.data;
+                    
+                } catch (refreshError) {
+                    console.error('❌ 刷新token失败:', refreshError.message);
+                    console.log('\n🔄 === 认证信息已过期 ===');
+                    console.log('💡 需要更新认证信息，请按以下步骤操作：');
+                    console.log('   1. 在浏览器中重新登录网站');
+                    console.log('   2. 打开开发者工具 (F12)');
+                    console.log('   3. 在 Network 标签页中找到API请求');
+                    console.log('   4. 复制 Authorization 和 Cookie 头的值');
+                    console.log('   5. 使用以下命令更新认证信息：');
+                    console.log('      npm run hengyouxin:update');
+                    console.log('   6. 或者直接编辑 config.json 文件');
+                    console.log('\n📋 当前认证信息：');
+                    console.log(`   Authorization: ${CONFIG.headers.Authorization ? CONFIG.headers.Authorization.substring(0, 30) + '...' : '未设置'}`);
+                    console.log(`   Cookie: ${CONFIG.headers.Cookie ? CONFIG.headers.Cookie.substring(0, 50) + '...' : '未设置'}`);
+                    console.log('\n📄 API响应数据：');
+                    console.log(JSON.stringify(responseData, null, 2));
+                    console.log('\n❌ 程序将退出，请更新认证信息后重新运行');
+                    
+                    // 创建401错误对象
+                    const authError = new Error('401 Unauthorized - 认证信息已过期');
+                    authError.status = 401;
+                    authError.isAuthError = true;
+                    authError.responseData = responseData;
+                    throw authError;
+                }
+            } else {
+                console.log('\n🔄 === 认证信息已过期 ===');
+                console.log('💡 需要更新认证信息，请按以下步骤操作：');
+                console.log('   1. 在浏览器中重新登录网站');
+                console.log('   2. 打开开发者工具 (F12)');
+                console.log('   3. 在 Network 标签页中找到API请求');
+                console.log('   4. 复制 Authorization 和 Cookie 头的值');
+                console.log('   5. 使用以下命令更新认证信息：');
+                console.log('      npm run hengyouxin:update');
+                console.log('   6. 或者直接编辑 config.json 文件');
+                console.log('\n📋 当前认证信息：');
+                console.log(`   Authorization: ${CONFIG.headers.Authorization ? CONFIG.headers.Authorization.substring(0, 30) + '...' : '未设置'}`);
+                console.log(`   Cookie: ${CONFIG.headers.Cookie ? CONFIG.headers.Cookie.substring(0, 50) + '...' : '未设置'}`);
+                console.log('\n📄 API响应数据：');
+                console.log(JSON.stringify(responseData, null, 2));
+                console.log('\n❌ 程序将退出，请更新认证信息后重新运行');
+                
+                // 创建401错误对象
+                const authError = new Error('401 Unauthorized - 认证信息已过期');
+                authError.status = 401;
+                authError.isAuthError = true;
+                authError.responseData = responseData;
+                throw authError;
+            }
         }
         
         return responseData;
@@ -210,26 +353,73 @@ async function fetchMaterialList(pageNo = 1, pageSize = 20, startTime = null, en
             
             // 🔄 HTTP状态码401错误处理（备用）
             if (error.response.status === 401) {
-                console.log('\n🔄 === 认证信息已过期 (HTTP状态码) ===');
-                console.log('💡 需要更新认证信息，请按以下步骤操作：');
-                console.log('   1. 在浏览器中重新登录网站');
-                console.log('   2. 打开开发者工具 (F12)');
-                console.log('   3. 在 Network 标签页中找到API请求');
-                console.log('   4. 复制 Authorization 和 Cookie 头的值');
-                console.log('   5. 使用以下命令更新认证信息：');
-                console.log('      npm run hengyouxin:update');
-                console.log('   6. 或者直接编辑 config.json 文件');
-                console.log('\n📋 当前认证信息：');
-                console.log(`   Authorization: ${CONFIG.headers.Authorization ? CONFIG.headers.Authorization.substring(0, 30) + '...' : '未设置'}`);
-                console.log(`   Cookie: ${CONFIG.headers.Cookie ? CONFIG.headers.Cookie.substring(0, 50) + '...' : '未设置'}`);
-                console.log('\n❌ 程序将退出，请更新认证信息后重新运行');
+                console.log('\n🔄 === 检测到401错误 (HTTP状态码)，尝试自动刷新token ===');
                 
-                // 创建401错误对象
-                const authError = new Error('401 Unauthorized - 认证信息已过期');
-                authError.status = 401;
-                authError.isAuthError = true;
-                authError.responseData = error.response.data;
-                throw authError;
+                // 如果有refreshToken，尝试刷新
+                if (CONFIG.refreshToken) {
+                    try {
+                        console.log('🔄 正在使用refreshToken刷新访问令牌...');
+                        await refreshAccessToken(CONFIG.refreshToken);
+                        
+                        // 刷新成功后，重新尝试请求
+                        console.log('🔄 重新尝试请求...');
+                        const retryResponse = await axios.post(
+                            CONFIG.baseURL + CONFIG.endpoint,
+                            requestData,
+                            {
+                                headers: CONFIG.headers,
+                                timeout: 30000
+                            }
+                        );
+                        
+                        console.log('✅ 刷新token后请求成功:', retryResponse.status);
+                        return retryResponse.data;
+                        
+                    } catch (refreshError) {
+                        console.error('❌ 刷新token失败:', refreshError.message);
+                        console.log('\n🔄 === 认证信息已过期 (HTTP状态码) ===');
+                        console.log('💡 需要更新认证信息，请按以下步骤操作：');
+                        console.log('   1. 在浏览器中重新登录网站');
+                        console.log('   2. 打开开发者工具 (F12)');
+                        console.log('   3. 在 Network 标签页中找到API请求');
+                        console.log('   4. 复制 Authorization 和 Cookie 头的值');
+                        console.log('   5. 使用以下命令更新认证信息：');
+                        console.log('      npm run hengyouxin:update');
+                        console.log('   6. 或者直接编辑 config.json 文件');
+                        console.log('\n📋 当前认证信息：');
+                        console.log(`   Authorization: ${CONFIG.headers.Authorization ? CONFIG.headers.Authorization.substring(0, 30) + '...' : '未设置'}`);
+                        console.log(`   Cookie: ${CONFIG.headers.Cookie ? CONFIG.headers.Cookie.substring(0, 50) + '...' : '未设置'}`);
+                        console.log('\n❌ 程序将退出，请更新认证信息后重新运行');
+                        
+                        // 创建401错误对象
+                        const authError = new Error('401 Unauthorized - 认证信息已过期');
+                        authError.status = 401;
+                        authError.isAuthError = true;
+                        authError.responseData = error.response.data;
+                        throw authError;
+                    }
+                } else {
+                    console.log('\n🔄 === 认证信息已过期 (HTTP状态码) ===');
+                    console.log('💡 需要更新认证信息，请按以下步骤操作：');
+                    console.log('   1. 在浏览器中重新登录网站');
+                    console.log('   2. 打开开发者工具 (F12)');
+                    console.log('   3. 在 Network 标签页中找到API请求');
+                    console.log('   4. 复制 Authorization 和 Cookie 头的值');
+                    console.log('   5. 使用以下命令更新认证信息：');
+                    console.log('      npm run hengyouxin:update');
+                    console.log('   6. 或者直接编辑 config.json 文件');
+                    console.log('\n📋 当前认证信息：');
+                    console.log(`   Authorization: ${CONFIG.headers.Authorization ? CONFIG.headers.Authorization.substring(0, 30) + '...' : '未设置'}`);
+                    console.log(`   Cookie: ${CONFIG.headers.Cookie ? CONFIG.headers.Cookie.substring(0, 50) + '...' : '未设置'}`);
+                    console.log('\n❌ 程序将退出，请更新认证信息后重新运行');
+                    
+                    // 创建401错误对象
+                    const authError = new Error('401 Unauthorized - 认证信息已过期');
+                    authError.status = 401;
+                    authError.isAuthError = true;
+                    authError.responseData = error.response.data;
+                    throw authError;
+                }
             }
         }
         throw error;
@@ -929,6 +1119,8 @@ module.exports = {
     interactiveUpdateAuth,
     crawlByTimeRange,
     crawlYesterday,
+    refreshAccessToken,
+    saveTokensToConfig,
     main
 };
 
