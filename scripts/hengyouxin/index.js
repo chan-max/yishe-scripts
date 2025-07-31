@@ -139,17 +139,27 @@ const requestParams = {
 };
 
 // 发送请求获取素材列表
-async function fetchMaterialList(pageNo = 1, pageSize = 20) {
+async function fetchMaterialList(pageNo = 1, pageSize = 20, startTime = null, endTime = null) {
     try {
         console.log(`正在获取第 ${pageNo} 页数据...`);
         
+        // 构建请求参数
+        const requestData = {
+            ...requestParams,
+            pageNo,
+            pageSize
+        };
+        
+        // 如果提供了时间范围，添加到请求参数中
+        if (startTime && endTime) {
+            requestData.startTime = startTime;
+            requestData.endTime = endTime;
+            console.log(`📅 时间范围: ${new Date(startTime).toLocaleString()} - ${new Date(endTime).toLocaleString()}`);
+        }
+        
         const response = await axios.post(
             CONFIG.baseURL + CONFIG.endpoint,
-            {
-                ...requestParams,
-                pageNo,
-                pageSize
-            },
+            requestData,
             {
                 headers: CONFIG.headers,
                 timeout: 30000
@@ -721,6 +731,170 @@ function interactiveUpdateAuth() {
     });
 }
 
+/**
+ * 按时间范围爬取素材
+ * 
+ * 📅 功能：
+ * - 爬取指定时间范围内的所有素材
+ * - 支持自定义开始和结束时间戳
+ * - 自动分页处理所有数据
+ * - 保存进度和日志
+ * 
+ * @param {number} startTime - 开始时间戳（毫秒）
+ * @param {number} endTime - 结束时间戳（毫秒）
+ * @param {string} description - 时间范围描述（可选）
+ */
+async function crawlByTimeRange(startTime, endTime, description = '') {
+    console.log('=== 开始按时间范围爬取素材 ===');
+    
+    if (description) {
+        console.log(`📅 时间范围描述: ${description}`);
+    }
+    console.log(`📅 开始时间: ${new Date(startTime).toLocaleString()}`);
+    console.log(`📅 结束时间: ${new Date(endTime).toLocaleString()}`);
+    
+    // 🔍 首先检查认证信息
+    try {
+        const isAuthValid = await checkAuth();
+        if (!isAuthValid) {
+            console.error('\n🔄 === 时间范围爬取因认证错误退出 ===');
+            console.error('💡 请更新认证信息后重新运行脚本');
+            process.exit(1);
+        }
+        console.log('✅ 认证信息有效，开始时间范围爬取...');
+    } catch (error) {
+        console.error('认证检查失败:', error.message);
+        process.exit(1);
+    }
+    
+    // 读取日志
+    const log = readLog();
+    let totalExtracted = 0;
+    let currentPage = 1;
+    const startTimeMs = Date.now();
+    
+    console.log(`\n开始爬取时间范围内的所有素材...`);
+    
+    try {
+        while (true) {
+            console.log(`\n=== 正在处理第 ${currentPage} 页 ===`);
+            
+            const result = await fetchMaterialList(currentPage, 20, startTime, endTime);
+            
+            // 检查是否有数据
+            if (!result || !result.data || !result.data.list || result.data.list.length === 0) {
+                console.log('📄 没有更多数据，爬取完成');
+                break;
+            }
+            
+            const usefulData = await processMaterials(result);
+            
+            if (!usefulData || usefulData.length === 0) {
+                console.log('📄 当前页没有有效数据，继续下一页');
+                currentPage++;
+                continue;
+            }
+            
+            // 添加到日志
+            usefulData.forEach(material => {
+                log.materials.push({
+                    ...material,
+                    page: currentPage,
+                    crawlTime: new Date().toISOString(),
+                    timeRange: {
+                        startTime: startTime,
+                        endTime: endTime,
+                        description: description
+                    }
+                });
+            });
+            
+            totalExtracted += usefulData.length;
+            log.totalCount = totalExtracted;
+            log.lastUpdate = new Date().toISOString();
+            
+            // 保存日志
+            saveLog(log);
+            
+            console.log(`第 ${currentPage} 页完成，累计提取: ${totalExtracted} 个素材`);
+            
+            // 检查是否还有更多页
+            const totalCount = result.data.total;
+            const totalPages = Math.ceil(totalCount / 20);
+            
+            if (currentPage >= totalPages) {
+                console.log('📄 已到达最后一页，爬取完成');
+                break;
+            }
+            
+            currentPage++;
+            
+            // 添加延迟避免请求过快
+            console.log('等待 2 秒后继续...');
+            await new Promise(resolve => setTimeout(resolve, 2000));
+        }
+        
+        const endTimeMs = Date.now();
+        const duration = Math.round((endTimeMs - startTimeMs) / 1000);
+        
+        console.log('\n=== 时间范围爬取完成！===');
+        console.log(`📅 时间范围: ${new Date(startTime).toLocaleString()} - ${new Date(endTime).toLocaleString()}`);
+        console.log(`📊 总共提取了 ${totalExtracted} 个素材的有用信息`);
+        console.log(`⏱️  总耗时: ${duration} 秒`);
+        console.log(`📄 日志文件: ${LOG_FILE}`);
+        
+    } catch (error) {
+        console.error(`时间范围爬取失败:`, error.message);
+        
+        // 🔄 401认证错误处理
+        if (error.isAuthError && error.status === 401) {
+            console.error('\n🔄 === 时间范围爬取因认证错误退出 ===');
+            console.error('💡 请更新认证信息后重新运行脚本');
+            console.error(`📊 已保存进度，共提取 ${totalExtracted} 个素材`);
+            process.exit(1);
+        }
+        
+        if (error.response) {
+            console.error('响应状态:', error.response.status);
+            console.error('响应数据:', error.response.data);
+        }
+    }
+}
+
+/**
+ * 爬取前一天的素材
+ * 
+ * 📅 功能：
+ * - 自动计算前一天的开始和结束时间
+ * - 爬取前一天创建的所有素材
+ * - 使用时间戳格式
+ */
+async function crawlYesterday() {
+    console.log('📅 === 开始爬取前一天的素材 ===');
+    
+    // 计算前一天的开始和结束时间
+    const now = new Date();
+    const yesterday = new Date(now);
+    yesterday.setDate(yesterday.getDate() - 1);
+    
+    // 设置前一天的开始时间（00:00:00）
+    const startTime = new Date(yesterday);
+    startTime.setHours(0, 0, 0, 0);
+    
+    // 设置前一天的结束时间（23:59:59）
+    const endTime = new Date(yesterday);
+    endTime.setHours(23, 59, 59, 999);
+    
+    const startTimeMs = startTime.getTime();
+    const endTimeMs = endTime.getTime();
+    
+    console.log(`📅 前一天日期: ${yesterday.toLocaleDateString()}`);
+    console.log(`📅 时间范围: ${startTime.toLocaleString()} - ${endTime.toLocaleString()}`);
+    console.log(`📅 时间戳: ${startTimeMs} - ${endTimeMs}`);
+    
+    await crawlByTimeRange(startTimeMs, endTimeMs, '前一天素材');
+}
+
 // 更新认证信息并测试
 async function updateAuthAndTest(authorization, cookie, rl) {
     try {
@@ -753,6 +927,8 @@ module.exports = {
     updateAuth,
     checkAuth,
     interactiveUpdateAuth,
+    crawlByTimeRange,
+    crawlYesterday,
     main
 };
 
@@ -773,6 +949,24 @@ if (require.main === module) {
             break;
         case 'log':
             viewLog();
+            break;
+        case 'yesterday':
+            crawlYesterday();
+            break;
+        case 'timerange':
+            // 时间范围爬取: node index.js timerange <startTime> <endTime> [description]
+            const startTime = parseInt(args[1]);
+            const endTime = parseInt(args[2]);
+            const description = args[3] || '';
+            
+            if (!startTime || !endTime) {
+                console.log('❌ 使用方法: node index.js timerange <startTime> <endTime> [description]');
+                console.log('💡 示例: node index.js timerange 1704067200000 1704153599999 "2024年1月1日"');
+                console.log('💡 时间戳格式: 毫秒级时间戳');
+                process.exit(1);
+            }
+            
+            crawlByTimeRange(startTime, endTime, description);
             break;
         default:
             main();

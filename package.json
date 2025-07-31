@@ -35,7 +35,10 @@
         "hengyouxin:test": "node scripts/hengyouxin/index.js test",
         "hengyouxin:update": "node scripts/hengyouxin/index.js update",
         "hengyouxin:test-401": "node scripts/hengyouxin/test-401.js",
-        "hengyouxin:test-401-mock": "node scripts/hengyouxin/test-401-mock.js"
+        "hengyouxin:test-401-mock": "node scripts/hengyouxin/test-401-mock.js",
+        "hengyouxin:test-time-range": "node scripts/hengyouxin/test-time-range.js",
+        "hengyouxin:yesterday": "node scripts/hengyouxin/index.js yesterday",
+        "hengyouxin:timerange": "node scripts/hengyouxin/index.js timerange"
     },
     "dependencies": {
         "axios": "^1.6.0",
