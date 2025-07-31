@@ -8,59 +8,29 @@
  */
 module.exports = {
     apps: [{
-            name: 'hengyouxin-yesterday',
-            script: 'index.js',
-            args: 'yesterday',
-            cwd: __dirname,
-            instances: 1,
-            autorestart: false,
-            watch: false,
-            max_memory_restart: '1G',
-            env: {
-                NODE_ENV: 'production'
-            },
-            error_file: './logs/err.log',
-            out_file: './logs/out.log',
-            log_file: './logs/combined.log',
-            time: true,
-            // 每天凌晨 2 点执行
-            cron_restart: '0 2 * * *',
-            // 日志轮转配置
-            log_date_format: 'YYYY-MM-DD HH:mm:ss Z',
-            merge_logs: true,
-            // 进程管理
-            kill_timeout: 5000,
-            wait_ready: true,
-            listen_timeout: 3000,
-            // 错误处理
-            max_restarts: 3,
-            min_uptime: '10s'
+        name: 'hengyouxin-scheduler',
+        script: 'scheduler.js',
+        cwd: __dirname,
+        instances: 1,
+        autorestart: true,
+        watch: false,
+        max_memory_restart: '1G',
+        env: {
+            NODE_ENV: 'production'
         },
-        {
-            name: 'hengyouxin-yesterday-test',
-            script: 'index.js',
-            args: 'yesterday',
-            cwd: __dirname,
-            instances: 1,
-            autorestart: false,
-            watch: false,
-            max_memory_restart: '1G',
-            env: {
-                NODE_ENV: 'development'
-            },
-            error_file: './logs/test-err.log',
-            out_file: './logs/test-out.log',
-            log_file: './logs/test-combined.log',
-            time: true,
-            // 测试用：每5分钟执行一次
-            cron_restart: '*/5 * * * *',
-            log_date_format: 'YYYY-MM-DD HH:mm:ss Z',
-            merge_logs: true,
-            kill_timeout: 5000,
-            wait_ready: true,
-            listen_timeout: 3000,
-            max_restarts: 3,
-            min_uptime: '10s'
-        }
-    ]
+        error_file: './logs/scheduler-err.log',
+        out_file: './logs/scheduler-out.log',
+        log_file: './logs/scheduler-combined.log',
+        time: true,
+        // 日志轮转配置
+        log_date_format: 'YYYY-MM-DD HH:mm:ss Z',
+        merge_logs: true,
+        // 进程管理
+        kill_timeout: 5000,
+        wait_ready: true,
+        listen_timeout: 3000,
+        // 错误处理
+        max_restarts: 3,
+        min_uptime: '10s'
+    }]
 };
