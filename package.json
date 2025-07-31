@@ -41,7 +41,16 @@
         "hengyouxin:test-token-refresh": "node scripts/hengyouxin/test-token-refresh.js",
         "hengyouxin:test-refresh-only": "node scripts/hengyouxin/test-refresh-only.js",
         "hengyouxin:yesterday": "node scripts/hengyouxin/index.js yesterday",
-        "hengyouxin:timerange": "node scripts/hengyouxin/index.js timerange"
+        "hengyouxin:timerange": "node scripts/hengyouxin/index.js timerange",
+        "hengyouxin:test-upload": "node scripts/hengyouxin/test-upload.js",
+        "hengyouxin:test-full-upload": "node scripts/hengyouxin/test-full-upload.js",
+        "hengyouxin:pm2-start": "cd scripts/hengyouxin && ./start-pm2.sh start-prod",
+        "hengyouxin:pm2-start-test": "cd scripts/hengyouxin && ./start-pm2.sh start-test",
+        "hengyouxin:pm2-stop": "cd scripts/hengyouxin && ./start-pm2.sh stop",
+        "hengyouxin:pm2-restart": "cd scripts/hengyouxin && ./start-pm2.sh restart",
+        "hengyouxin:pm2-status": "cd scripts/hengyouxin && ./start-pm2.sh status",
+        "hengyouxin:pm2-logs": "cd scripts/hengyouxin && ./start-pm2.sh logs",
+        "hengyouxin:upload-logs": "cd scripts/hengyouxin && echo '=== 上传日志 ===' && echo 'COS上传日志:' && tail -20 cos-upload.log 2>/dev/null || echo '暂无COS上传日志' && echo '' && echo '服务器上传日志:' && tail -20 server-upload.log 2>/dev/null || echo '暂无服务器上传日志' && echo '' && echo '失败日志:' && tail -20 fail.log 2>/dev/null || echo '暂无失败日志'"
     },
     "dependencies": {
         "axios": "^1.6.0",

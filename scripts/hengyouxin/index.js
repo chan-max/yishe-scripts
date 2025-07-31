@@ -26,9 +26,25 @@
  * - 提供详细的错误提示和更新指导
  */
 
+// 跳过 SSL 证书验证
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
+const {
+    uploadLocalFileToCOS,
+    sendToFeishu
+} = require('../utils');
+
+// 服务器上传配置
+const DESIGN_SERVER_API = 'https://1s.design:1520/api/crawler/material/add';
+
+// 日志文件配置
+const SUCCESS_LOG = path.join(__dirname, 'success.log');
+const FAIL_LOG = path.join(__dirname, 'fail.log');
+const COS_LOG = path.join(__dirname, 'cos-upload.log');
+const SERVER_LOG = path.join(__dirname, 'server-upload.log');
 
 // 读取配置文件
 function loadConfig() {
@@ -436,9 +452,7 @@ async function fetchMaterialList(pageNo = 1, pageSize = 20, startTime = null, en
 
 
 // 处理素材数据
-async function processMaterials(data) {
-
-
+async function processMaterials(data, description = '') {
     // 🔄 检查响应数据中的401错误
     if (data && (data.code === 401 || data.status === 401 || data.error === 401)) {
         console.log('\n🔄 === 认证信息已过期 ===');
@@ -465,7 +479,7 @@ async function processMaterials(data) {
 
     if (!data || !data.data || !Array.isArray(data.data.list)) {
         console.log('\n没有找到素材数据或数据格式不正确');
-        return;
+        return [];
     }
 
     const materials = data.data.list;
@@ -476,21 +490,101 @@ async function processMaterials(data) {
     console.log(`总素材数量: ${totalCount}`);
     console.log(`当前页/总页数: ${Math.ceil(totalCount / 20)} 页`);
 
-    console.log('\n=== 提取的有用信息 ===');
-    const usefulData = materials.map((material, index) => {
-        const extracted = {
-            index: index + 1,
-            imageFormat: material.imageFormat, // 图片后缀
-            ossObjectName: material.ossObjectName // 图片URL地址
-        };
+    console.log('\n=== 处理素材并上传 ===');
+    const usefulData = [];
+    let successCount = 0;
+    let failCount = 0;
 
-        // console.log(`\n素材 ${index + 1}:`);
-        // console.log(JSON.stringify(extracted, null, 2));
+    for (let i = 0; i < materials.length; i++) {
+        const material = materials[i];
+        const index = i + 1;
 
-        return extracted;
-    });
+        try {
+            console.log(`\n[${index}/${materials.length}] 处理素材: ${material.ossObjectName}`);
 
-    console.log(`\n=== 总计提取了 ${usefulData.length} 个素材的有用信息 ===`);
+            // 提取有用信息
+            const extracted = {
+                index: index,
+                imageFormat: material.imageFormat, // 图片后缀
+                ossObjectName: material.ossObjectName, // 图片URL地址
+                materialName: material.materialName || `hengyouxin_${Date.now()}_${index}`, // 素材名称
+                description: description || '恒优信素材'
+            };
+
+            // 下载并上传到COS
+            const cosUrl = await downloadAndUploadToCOS(
+                material.ossObjectName,
+                extracted.materialName,
+                description
+            );
+
+            // 保存到服务器
+            await saveToServer({
+                url: cosUrl,
+                name: extracted.materialName,
+                desc: description || '恒优信素材',
+                source: 'hengyouxin',
+                suffix: extracted.imageFormat || 'jpg'
+            });
+
+            // 记录成功日志
+            appendLog(SERVER_LOG, JSON.stringify({
+                name: extracted.materialName,
+                cosUrl: cosUrl,
+                originalUrl: material.ossObjectName,
+                description: description,
+                timestamp: new Date().toISOString(),
+                status: 'server_upload_success'
+            }));
+
+            // 添加到结果数组
+            usefulData.push({
+                ...extracted,
+                cosUrl: cosUrl,
+                uploadStatus: 'success'
+            });
+
+            successCount++;
+            console.log(`✅ [${index}] 上传成功: ${extracted.materialName}`);
+
+        } catch (error) {
+            failCount++;
+            console.error(`❌ [${index}] 上传失败: ${error.message}`);
+
+            // 记录失败日志
+            appendLog(FAIL_LOG, JSON.stringify({
+                index: index,
+                materialName: material.materialName || `hengyouxin_${Date.now()}_${index}`,
+                originalUrl: material.ossObjectName,
+                description: description,
+                timestamp: new Date().toISOString(),
+                status: 'upload_fail',
+                error: error.message
+            }));
+
+            // 添加到结果数组（失败状态）
+            usefulData.push({
+                index: index,
+                imageFormat: material.imageFormat,
+                ossObjectName: material.ossObjectName,
+                materialName: material.materialName || `hengyouxin_${Date.now()}_${index}`,
+                description: description,
+                uploadStatus: 'fail',
+                error: error.message
+            });
+        }
+
+        // 添加延迟避免请求过快
+        if (i < materials.length - 1) {
+            console.log('等待 1 秒后继续...');
+            await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+    }
+
+    console.log(`\n=== 处理完成 ===`);
+    console.log(`成功上传: ${successCount} 个`);
+    console.log(`上传失败: ${failCount} 个`);
+    console.log(`总计处理: ${usefulData.length} 个素材`);
 
     return usefulData;
 }
@@ -513,13 +607,28 @@ async function main() {
         const result = await fetchMaterialList(1, 20);
         console.log('请求成功，开始处理数据...');
 
-
-
         // 处理素材数据
-        const usefulData = await processMaterials(result);
+        const usefulData = await processMaterials(result, '恒优信素材');
+
+        // 统计结果
+        const successCount = usefulData.filter(item => item.uploadStatus === 'success').length;
+        const failCount = usefulData.filter(item => item.uploadStatus === 'fail').length;
 
         console.log('\n=== 爬取完成！===');
-        console.log(`成功提取了 ${usefulData.length} 个素材的有用信息`);
+        console.log(`成功上传: ${successCount} 个`);
+        console.log(`上传失败: ${failCount} 个`);
+        console.log(`总计处理: ${usefulData.length} 个素材`);
+
+        // 发送飞书通知
+        const feishuMessage = `🎯 恒优信素材爬取完成
+
+📊 总共处理: ${usefulData.length} 个素材
+✅ 成功上传: ${successCount} 个
+❌ 上传失败: ${failCount} 个
+📄 日志文件: crawl_log.json`;
+
+        await sendToFeishu(feishuMessage);
+        console.log('📱 飞书通知已发送');
 
     } catch (error) {
         console.error('程序执行失败:', error.message);
@@ -528,8 +637,14 @@ async function main() {
         if (error.isAuthError && error.status === 401) {
             console.error('\n🔄 === 程序因认证错误退出 ===');
             console.error('💡 请更新认证信息后重新运行脚本');
+
+            // 发送错误通知
+            await sendToFeishu('❌ 恒优信素材爬取失败\n\n❌ 错误原因: 认证信息已过期\n💡 请更新认证信息后重新运行');
             process.exit(1); // 退出程序
         }
+
+        // 发送一般错误通知
+        await sendToFeishu(`❌ 恒优信素材爬取失败\n\n❌ 错误原因: ${error.message}`);
 
         if (error.response) {}
     }
@@ -610,6 +725,82 @@ function saveYesterdayLog(logData, logFileName) {
         fs.writeFileSync(logFileName, JSON.stringify(logData, null, 2));
     } catch (error) {
         console.error('保存昨天日志文件失败:', error.message);
+    }
+}
+
+// 追加日志记录
+function appendLog(file, data) {
+    try {
+        fs.appendFileSync(file, data + '\n');
+    } catch (error) {
+        console.error('追加日志失败:', error.message);
+    }
+}
+
+// 保存到服务器
+async function saveToServer({
+    url,
+    name,
+    desc,
+    source,
+    suffix
+}) {
+    try {
+        const res = await axios.post(DESIGN_SERVER_API, {
+            url,
+            name,
+            desc,
+            source,
+            suffix
+        });
+        console.log(`[design-server返回]`, res.data);
+        return res.data;
+    } catch (err) {
+        console.error('[保存到design-server失败]', err.message);
+        throw err;
+    }
+}
+
+// 下载并上传到COS
+async function downloadAndUploadToCOS(imgUrl, name, description = '') {
+    try {
+        console.log(`[下载] ${imgUrl}`);
+        const res = await axios.get(imgUrl, {
+            responseType: 'arraybuffer'
+        });
+        const tempPath = path.join(__dirname, `${name}.jpg`);
+        fs.writeFileSync(tempPath, res.data);
+
+        console.log(`[上传COS] ${name}`);
+        const cosResult = await uploadLocalFileToCOS(tempPath, `hengyouxin/${name}.jpg`);
+
+        // 清理临时文件
+        fs.unlinkSync(tempPath);
+
+        // 记录COS上传日志
+        appendLog(COS_LOG, JSON.stringify({
+            name,
+            originalUrl: imgUrl,
+            cosUrl: cosResult.url,
+            cosKey: cosResult.key,
+            description,
+            timestamp: new Date().toISOString(),
+            status: 'cos_upload_success'
+        }));
+
+        console.log(`[COS上传成功] ${cosResult.url}`);
+        return cosResult.url;
+    } catch (err) {
+        // 记录失败日志
+        appendLog(COS_LOG, JSON.stringify({
+            name,
+            originalUrl: imgUrl,
+            description,
+            timestamp: new Date().toISOString(),
+            status: 'cos_upload_fail',
+            error: err.message
+        }));
+        throw new Error('下载或上传COS失败: ' + err.message);
     }
 }
 
@@ -1049,6 +1240,8 @@ async function crawlByTimeRange(startTime, endTime, description = '', useSeparat
     let totalExtracted = 0;
     let currentPage = 1;
     const startTimeMs = Date.now();
+    let totalSuccess = 0;
+    let totalFail = 0;
 
     console.log(`\n开始爬取时间范围内的所有素材...`);
 
@@ -1064,13 +1257,19 @@ async function crawlByTimeRange(startTime, endTime, description = '', useSeparat
                 break;
             }
 
-            const usefulData = await processMaterials(result);
+            const usefulData = await processMaterials(result, description);
 
             if (!usefulData || usefulData.length === 0) {
                 console.log('📄 当前页没有有效数据，继续下一页');
                 currentPage++;
                 continue;
             }
+
+            // 统计成功和失败数量
+            const pageSuccess = usefulData.filter(item => item.uploadStatus === 'success').length;
+            const pageFail = usefulData.filter(item => item.uploadStatus === 'fail').length;
+            totalSuccess += pageSuccess;
+            totalFail += pageFail;
 
             // 添加到日志
             usefulData.forEach(material => {
@@ -1097,7 +1296,7 @@ async function crawlByTimeRange(startTime, endTime, description = '', useSeparat
                 saveLog(log);
             }
 
-            console.log(`第 ${currentPage} 页完成，累计提取: ${totalExtracted} 个素材`);
+            console.log(`第 ${currentPage} 页完成，累计提取: ${totalExtracted} 个素材 (成功: ${totalSuccess}, 失败: ${totalFail})`);
 
             // 检查是否还有更多页
             const totalCount = result.data.total;
@@ -1120,9 +1319,26 @@ async function crawlByTimeRange(startTime, endTime, description = '', useSeparat
 
         console.log('\n=== 时间范围爬取完成！===');
         console.log(`📅 时间范围: ${new Date(startTime).toLocaleString()} - ${new Date(endTime).toLocaleString()}`);
-        console.log(`📊 总共提取了 ${totalExtracted} 个素材的有用信息`);
+        console.log(`📊 总共处理: ${totalExtracted} 个素材`);
+        console.log(`✅ 成功上传: ${totalSuccess} 个`);
+        console.log(`❌ 上传失败: ${totalFail} 个`);
         console.log(`⏱️  总耗时: ${duration} 秒`);
         console.log(`📄 日志文件: ${logFileName}`);
+
+        // 发送飞书通知（只在最后发送一次）
+        const feishuMessage = `🎯 恒优信素材爬取完成
+
+📅 时间范围: ${new Date(startTime).toLocaleString()} - ${new Date(endTime).toLocaleString()}
+📊 总共处理: ${totalExtracted} 个素材
+✅ 成功上传: ${totalSuccess} 个
+❌ 上传失败: ${totalFail} 个
+⏱️ 总耗时: ${duration} 秒
+📄 日志文件: ${path.basename(logFileName)}
+
+${description ? `📝 描述: ${description}` : ''}`;
+
+        await sendToFeishu(feishuMessage);
+        console.log('📱 飞书通知已发送');
 
     } catch (error) {
         console.error(`时间范围爬取失败:`, error.message);
@@ -1131,9 +1347,28 @@ async function crawlByTimeRange(startTime, endTime, description = '', useSeparat
         if (error.isAuthError && error.status === 401) {
             console.error('\n🔄 === 时间范围爬取因认证错误退出 ===');
             console.error('💡 请更新认证信息后重新运行脚本');
-            console.error(`📊 已保存进度，共提取 ${totalExtracted} 个素材`);
+            console.error(`📊 已保存进度，共处理 ${totalExtracted} 个素材 (成功: ${totalSuccess}, 失败: ${totalFail})`);
+
+            // 发送错误通知
+            const errorMessage = `❌ 恒优信素材爬取失败
+
+📅 时间范围: ${new Date(startTime).toLocaleString()} - ${new Date(endTime).toLocaleString()}
+📊 已处理: ${totalExtracted} 个素材 (成功: ${totalSuccess}, 失败: ${totalFail})
+❌ 错误原因: 认证信息已过期
+💡 请更新认证信息后重新运行`;
+
+            await sendToFeishu(errorMessage);
             process.exit(1);
         }
+
+        // 发送一般错误通知
+        const errorMessage = `❌ 恒优信素材爬取失败
+
+📅 时间范围: ${new Date(startTime).toLocaleString()} - ${new Date(endTime).toLocaleString()}
+📊 已处理: ${totalExtracted} 个素材 (成功: ${totalSuccess}, 失败: ${totalFail})
+❌ 错误原因: ${error.message}`;
+
+        await sendToFeishu(errorMessage);
 
         if (error.response) {}
     }
