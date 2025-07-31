@@ -32,6 +32,7 @@
         "hengyouxin": "node scripts/hengyouxin/index.js",
         "hengyouxin:batch": "node scripts/hengyouxin/index.js batch",
         "hengyouxin:log": "node scripts/hengyouxin/index.js log",
+        "hengyouxin:yesterday-log": "node scripts/hengyouxin/index.js yesterday-log",
         "hengyouxin:test": "node scripts/hengyouxin/index.js test",
         "hengyouxin:update": "node scripts/hengyouxin/index.js update",
         "hengyouxin:test-401": "node scripts/hengyouxin/test-401.js",
