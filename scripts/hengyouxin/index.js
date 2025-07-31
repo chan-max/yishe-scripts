@@ -13,6 +13,17 @@
  * 
  * 当前更新日期：2025-01-31
  * 上次更新：Bearer f371a314422941149fc4e5c6ab5b1576 → Bearer 9509c0fdf01c4eb19e0285b919190f87
+ * 当前状态：认证信息已过期，需要更新
+ * 
+ * 🚨 401错误处理机制：
+ * - 支持检测API响应数据中的401错误（code/status/error字段）
+ * - 同时支持HTTP状态码401错误检测（备用机制）
+ * - 当遇到401未授权错误时，脚本会自动退出
+ * - 提供详细的更新指导和当前认证信息
+ * - 使用 process.exit(1) 优雅退出
+ * - 脚本会在开始前自动检查认证信息
+ * - 批量爬取时会保存进度，下次可继续
+ * - 提供详细的错误提示和更新指导
  */
 
 const axios = require('axios');
@@ -30,8 +41,8 @@ function loadConfig() {
             // 合并认证信息和固定头部
             const headers = {
                 ...config.headers,
-                'Authorization': config.auth.authorization,
-                'Cookie': config.auth.cookie
+                'Authorization': config.auth?.authorization || null,
+                'Cookie': config.auth?.cookie || null
             };
             
             return {
@@ -69,20 +80,47 @@ function loadConfig() {
             'Tenant-Id': '163',
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0',
             
-            // ===== 🔄 易变认证信息（需要定期更新）=====
-            // 更新日期: 2025-01-31
-            // 旧值: Bearer f371a314422941149fc4e5c6ab5b1576
-            'Authorization': 'Bearer 9509c0fdf01c4eb19e0285b919190f87',  // 🔄 需要更新
+                         // ===== 🔄 易变认证信息（需要定期更新）=====
+             // 更新日期: 2025-01-31
+             // 旧值: Bearer f371a314422941149fc4e5c6ab5b1576
+             // 当前值: Bearer 9246e01d22f2418aa1fe25d264c1f80f (已过期)
+             'Authorization': 'Bearer 492cfde11140468fadb5d6f67d50439e',  // 🔄 需要更新
             
             // 更新日期: 2025-01-31  
             // 旧值: ...Hm_lpvt_a1ff8825baa73c3a78eb96aa40325abc=1753937977...
-            'Cookie': '_ga=GA1.1.884180217.1752652946; _ga_MRBW1BE7X4=GS2.1.s1752656046$o2$g0$t1752656046$j60$l0$h0; Hm_lvt_a1ff8825baa73c3a78eb96aa40325abc=1751534604,1753927964,1753937977; HMACCOUNT=0C80E26C5FDA120B; Hm_lpvt_a1ff8825baa73c3a78eb96aa40325abc=1753941047'  // 🔄 需要更新
+
+            // 'Cookie': '_ga=GA1.1.884180217.1752652946; _ga_MRBW1BE7X4=GS2.1.s1752656046$o2$g0$t1752656046$j60$l0$h0; Hm_lvt_a1ff8825baa73c3a78eb96aa40325abc=1751534604,1753927964,1753937977; HMACCOUNT=0C80E26C5FDA120B; Hm_lpvt_a1ff8825baa73c3a78eb96aa40325abc=1753943040'  // 🔄 需要更新
         }
     };
 }
 
 // 配置信息
 const CONFIG = loadConfig();
+
+/**
+ * 检查认证信息是否有效
+ * @returns {Promise<boolean>} 认证是否有效
+ */
+async function checkAuth() {
+    try {
+        console.log('🔍 检查认证信息...');
+        const result = await fetchMaterialList(1, 1); // 只请求1条数据来测试
+        
+        // 🔄 额外检查响应数据中的401错误
+        if (result && (result.code === 401 || result.status === 401 || result.error === 401)) {
+            console.error('❌ 认证信息无效 (响应数据中检测到401)');
+            return false;
+        }
+        
+        return true;
+    } catch (error) {
+        if (error.isAuthError && error.status === 401) {
+            console.error('❌ 认证信息无效');
+            return false;
+        }
+        throw error;
+    }
+}
 
 // 请求参数
 const requestParams = {
@@ -119,12 +157,70 @@ async function fetchMaterialList(pageNo = 1, pageSize = 20) {
         );
 
         console.log('请求成功:', response.status);
-        return response.data;
+        
+        // 🔄 检查API响应数据中的401错误
+        const responseData = response.data;
+        if (responseData && (responseData.code === 401 || responseData.status === 401 || responseData.error === 401)) {
+            console.log('\n🔄 === 认证信息已过期 ===');
+            console.log('💡 需要更新认证信息，请按以下步骤操作：');
+            console.log('   1. 在浏览器中重新登录网站');
+            console.log('   2. 打开开发者工具 (F12)');
+            console.log('   3. 在 Network 标签页中找到API请求');
+            console.log('   4. 复制 Authorization 和 Cookie 头的值');
+            console.log('   5. 使用以下命令更新认证信息：');
+            console.log('      npm run hengyouxin:update');
+            console.log('   6. 或者直接编辑 config.json 文件');
+            console.log('\n📋 当前认证信息：');
+            console.log(`   Authorization: ${CONFIG.headers.Authorization ? CONFIG.headers.Authorization.substring(0, 30) + '...' : '未设置'}`);
+            console.log(`   Cookie: ${CONFIG.headers.Cookie ? CONFIG.headers.Cookie.substring(0, 50) + '...' : '未设置'}`);
+            console.log('\n📄 API响应数据：');
+            console.log(JSON.stringify(responseData, null, 2));
+            console.log('\n❌ 程序将退出，请更新认证信息后重新运行');
+            
+            // 创建401错误对象
+            const authError = new Error('401 Unauthorized - 认证信息已过期');
+            authError.status = 401;
+            authError.isAuthError = true;
+            authError.responseData = responseData;
+            throw authError;
+        }
+        
+        return responseData;
     } catch (error) {
         console.error('请求失败:', error.message);
+        
+        // 如果已经是401错误，直接抛出
+        if (error.isAuthError && error.status === 401) {
+            throw error;
+        }
+        
         if (error.response) {
             console.error('响应状态:', error.response.status);
             console.error('响应数据:', error.response.data);
+            
+            // 🔄 HTTP状态码401错误处理（备用）
+            if (error.response.status === 401) {
+                console.log('\n🔄 === 认证信息已过期 (HTTP状态码) ===');
+                console.log('💡 需要更新认证信息，请按以下步骤操作：');
+                console.log('   1. 在浏览器中重新登录网站');
+                console.log('   2. 打开开发者工具 (F12)');
+                console.log('   3. 在 Network 标签页中找到API请求');
+                console.log('   4. 复制 Authorization 和 Cookie 头的值');
+                console.log('   5. 使用以下命令更新认证信息：');
+                console.log('      npm run hengyouxin:update');
+                console.log('   6. 或者直接编辑 config.json 文件');
+                console.log('\n📋 当前认证信息：');
+                console.log(`   Authorization: ${CONFIG.headers.Authorization ? CONFIG.headers.Authorization.substring(0, 30) + '...' : '未设置'}`);
+                console.log(`   Cookie: ${CONFIG.headers.Cookie ? CONFIG.headers.Cookie.substring(0, 50) + '...' : '未设置'}`);
+                console.log('\n❌ 程序将退出，请更新认证信息后重新运行');
+                
+                // 创建401错误对象
+                const authError = new Error('401 Unauthorized - 认证信息已过期');
+                authError.status = 401;
+                authError.isAuthError = true;
+                authError.responseData = error.response.data;
+                throw authError;
+            }
         }
         throw error;
     }
@@ -136,6 +232,32 @@ async function fetchMaterialList(pageNo = 1, pageSize = 20) {
 async function processMaterials(data) {
     console.log('\n=== API 返回的完整数据 ===');
     console.log(JSON.stringify(data, null, 2));
+    
+    // 🔄 检查响应数据中的401错误
+    if (data && (data.code === 401 || data.status === 401 || data.error === 401)) {
+        console.log('\n🔄 === 认证信息已过期 ===');
+        console.log('💡 需要更新认证信息，请按以下步骤操作：');
+        console.log('   1. 在浏览器中重新登录网站');
+        console.log('   2. 打开开发者工具 (F12)');
+        console.log('   3. 在 Network 标签页中找到API请求');
+        console.log('   4. 复制 Authorization 和 Cookie 头的值');
+        console.log('   5. 使用以下命令更新认证信息：');
+        console.log('      npm run hengyouxin:update');
+        console.log('   6. 或者直接编辑 config.json 文件');
+        console.log('\n📋 当前认证信息：');
+        console.log(`   Authorization: ${CONFIG.headers.Authorization ? CONFIG.headers.Authorization.substring(0, 30) + '...' : '未设置'}`);
+        console.log(`   Cookie: ${CONFIG.headers.Cookie ? CONFIG.headers.Cookie.substring(0, 50) + '...' : '未设置'}`);
+        console.log('\n📄 API响应数据：');
+        console.log(JSON.stringify(data, null, 2));
+        console.log('\n❌ 程序将退出，请更新认证信息后重新运行');
+        
+        // 创建401错误对象
+        const authError = new Error('401 Unauthorized - 认证信息已过期');
+        authError.status = 401;
+        authError.isAuthError = true;
+        authError.responseData = data;
+        throw authError;
+    }
     
     if (!data || !data.data || !Array.isArray(data.data.list)) {
         console.log('\n没有找到素材数据或数据格式不正确');
@@ -174,6 +296,15 @@ async function main() {
     try {
         console.log('开始爬取素材...');
         
+        // 🔍 首先检查认证信息
+        const isAuthValid = await checkAuth();
+        if (!isAuthValid) {
+            console.error('\n🔄 === 程序因认证错误退出 ===');
+            console.error('💡 请更新认证信息后重新运行脚本');
+            process.exit(1);
+        }
+        console.log('✅ 认证信息有效，开始爬取...');
+        
         // 获取第一页数据
         const result = await fetchMaterialList(1, 20);
         console.log('请求成功，开始处理数据...');
@@ -190,6 +321,14 @@ async function main() {
         
     } catch (error) {
         console.error('程序执行失败:', error.message);
+        
+        // 🔄 401认证错误处理
+        if (error.isAuthError && error.status === 401) {
+            console.error('\n🔄 === 程序因认证错误退出 ===');
+            console.error('💡 请更新认证信息后重新运行脚本');
+            process.exit(1); // 退出程序
+        }
+        
         if (error.response) {
             console.error('响应状态:', error.response.status);
             console.error('响应数据:', error.response.data);
@@ -249,6 +388,20 @@ function saveLog(logData) {
 async function batchCrawl(startPage = 1, endPage = null) {
     console.log('=== 开始批量爬取（支持断点续传）===');
     
+    // 🔍 首先检查认证信息
+    try {
+        const isAuthValid = await checkAuth();
+        if (!isAuthValid) {
+            console.error('\n🔄 === 批量爬取因认证错误退出 ===');
+            console.error('💡 请更新认证信息后重新运行脚本');
+            process.exit(1);
+        }
+        console.log('✅ 认证信息有效，开始批量爬取...');
+    } catch (error) {
+        console.error('认证检查失败:', error.message);
+        process.exit(1);
+    }
+    
     // 读取进度
     const progress = readProgress();
     const log = readLog();
@@ -281,6 +434,14 @@ async function batchCrawl(startPage = 1, endPage = null) {
             console.log(`总素材数量: ${totalCount}，总页数: ${endPage}`);
         } catch (error) {
             console.error('获取总页数失败:', error.message);
+            
+            // 🔄 401认证错误处理
+            if (error.isAuthError && error.status === 401) {
+                console.error('\n🔄 === 批量爬取因认证错误退出 ===');
+                console.error('💡 请更新认证信息后重新运行脚本');
+                process.exit(1); // 退出程序
+            }
+            
             if (error.response) {
                 console.error('响应状态:', error.response.status);
                 console.error('响应数据:', error.response.data);
@@ -332,6 +493,15 @@ async function batchCrawl(startPage = 1, endPage = null) {
             
         } catch (error) {
             console.error(`第 ${page} 页处理失败:`, error.message);
+            
+            // 🔄 401认证错误处理
+            if (error.isAuthError && error.status === 401) {
+                console.error('\n🔄 === 批量爬取因认证错误退出 ===');
+                console.error('💡 请更新认证信息后重新运行脚本');
+                console.error(`📊 已保存进度到第 ${page} 页，共提取 ${totalExtracted} 个素材`);
+                process.exit(1); // 退出程序
+            }
+            
             // 保存当前进度，下次可以继续
             saveProgress({
                 currentPage: page,
@@ -377,8 +547,8 @@ async function testConnection() {
         const auth = CONFIG.headers.Authorization;
         const cookie = CONFIG.headers.Cookie;
         console.log('🔑 当前认证信息:');
-        console.log(`   Authorization: ${auth.substring(0, 20)}...`);
-        console.log(`   Cookie: ${cookie.substring(0, 50)}...`);
+        console.log(`   Authorization: ${auth ? auth.substring(0, 20) + '...' : '未设置'}`);
+        console.log(`   Cookie: ${cookie ? cookie.substring(0, 50) + '...' : '未设置'}`);
         
         const result = await fetchMaterialList(1, 20);
         console.log('\n✅ === API连接成功 ===');
@@ -399,6 +569,13 @@ async function testConnection() {
     } catch (error) {
         console.error('❌ === API连接失败 ===');
         console.error('💥 错误信息:', error.message);
+        
+        // 🔄 401认证错误处理
+        if (error.isAuthError && error.status === 401) {
+            console.error('\n🔄 === 测试连接因认证错误退出 ===');
+            console.error('💡 请更新认证信息后重新运行测试');
+            process.exit(1); // 退出程序
+        }
         
         if (error.response) {
             console.error('📊 响应状态:', error.response.status);
@@ -459,7 +636,7 @@ function updateAuth(authorization, cookie) {
         console.log('✅ 认证信息已更新到 config.json');
         console.log('📝 更新内容:');
         console.log(`   Authorization: ${authorization}`);
-        console.log(`   Cookie: ${cookie.substring(0, 50)}...`);
+        console.log(`   Cookie: ${cookie ? cookie.substring(0, 50) + '...' : '未设置'}`);
         
         // 重新加载配置
         Object.assign(CONFIG, loadConfig());
@@ -487,6 +664,85 @@ function viewLog() {
     }
 }
 
+/**
+ * 交互式更新认证信息
+ * 
+ * 🔄 功能：
+ * - 引导用户输入新的认证信息
+ * - 验证输入格式
+ * - 自动更新配置文件
+ * - 测试新认证信息
+ */
+function interactiveUpdateAuth() {
+    const readline = require('readline');
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+    
+    console.log('🔄 === 交互式更新认证信息 ===');
+    console.log('💡 请按照以下步骤获取新的认证信息：');
+    console.log('   1. 在浏览器中重新登录网站');
+    console.log('   2. 打开开发者工具 (F12)');
+    console.log('   3. 在 Network 标签页中找到API请求');
+    console.log('   4. 复制 Authorization 和 Cookie 头的值');
+    console.log('');
+    
+    rl.question('请输入新的 Authorization (Bearer token): ', (authorization) => {
+        if (!authorization.trim()) {
+            console.log('❌ Authorization 不能为空');
+            rl.close();
+            return;
+        }
+        
+        rl.question('请输入新的 Cookie: ', (cookie) => {
+            if (!cookie.trim()) {
+                console.log('❌ Cookie 不能为空');
+                rl.close();
+                return;
+            }
+            
+            // 验证格式
+            if (!authorization.startsWith('Bearer ')) {
+                console.log('⚠️  警告: Authorization 应该以 "Bearer " 开头');
+                console.log('   当前输入:', authorization);
+                rl.question('是否继续? (y/n): ', (confirm) => {
+                    if (confirm.toLowerCase() !== 'y') {
+                        console.log('❌ 更新已取消');
+                        rl.close();
+                        return;
+                    }
+                    updateAuthAndTest(authorization, cookie, rl);
+                });
+            } else {
+                updateAuthAndTest(authorization, cookie, rl);
+            }
+        });
+    });
+}
+
+// 更新认证信息并测试
+async function updateAuthAndTest(authorization, cookie, rl) {
+    try {
+        console.log('\n🔄 正在更新认证信息...');
+        updateAuth(authorization, cookie);
+        
+        console.log('\n🧪 正在测试新的认证信息...');
+        await testConnection();
+        
+        console.log('\n✅ 认证信息更新成功！');
+        console.log('💡 现在可以运行以下命令开始爬取：');
+        console.log('   npm run hengyouxin');
+        console.log('   npm run hengyouxin:batch');
+        
+    } catch (error) {
+        console.log('\n❌ 认证信息更新失败或测试失败');
+        console.log('💡 请检查输入的认证信息是否正确');
+    } finally {
+        rl.close();
+    }
+}
+
 // 导出函数供其他模块使用
 module.exports = {
     fetchMaterialList,
@@ -495,10 +751,31 @@ module.exports = {
     viewLog,
     testConnection,
     updateAuth,
+    checkAuth,
+    interactiveUpdateAuth,
     main
 };
 
 // 如果直接运行此文件
 if (require.main === module) {
-    main();
+    const args = process.argv.slice(2);
+    const command = args[0];
+    
+    switch (command) {
+        case 'test':
+            testConnection();
+            break;
+        case 'update':
+            interactiveUpdateAuth();
+            break;
+        case 'batch':
+            batchCrawl();
+            break;
+        case 'log':
+            viewLog();
+            break;
+        default:
+            main();
+            break;
+    }
 }
