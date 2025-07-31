@@ -28,7 +28,11 @@
         "hot-search:advanced:feishu": "node scripts/hot-search-advanced.js --feishu",
         "hot-search:scheduler": "node scripts/hot-search-scheduler.js",
         "hot-search:scheduler:feishu": "node scripts/hot-search-scheduler.js --feishu",
-        "hot-search:scheduler:basic": "node scripts/hot-search-scheduler.js --script-type basic"
+        "hot-search:scheduler:basic": "node scripts/hot-search-scheduler.js --script-type basic",
+        "hengyouxin": "node scripts/hengyouxin/index.js",
+        "hengyouxin:batch": "node -e \"require('./scripts/hengyouxin/index.js').batchCrawl()\"",
+        "hengyouxin:log": "node -e \"require('./scripts/hengyouxin/index.js').viewLog()\"",
+        "hengyouxin:test": "node -e \"require('./scripts/hengyouxin/index.js').testConnection()\""
     },
     "dependencies": {
         "axios": "^1.6.0",
