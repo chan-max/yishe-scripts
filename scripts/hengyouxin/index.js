@@ -659,7 +659,7 @@ async function main() {
         console.log(`总计处理: ${usefulData.length} 个素材`);
 
         // 发送飞书通知
-        const feishuMessage = `🎯 恒优信素材爬取完成
+        const feishuMessage = `🎯 素材爬取完成
 
 📊 总共处理: ${usefulData.length} 个素材
 ✅ 成功上传: ${successCount} 个
@@ -1383,7 +1383,7 @@ async function crawlByTimeRange(startTime, endTime, description = '', useSeparat
         console.log(`📄 日志文件: ${logFileName}`);
 
         // 发送飞书通知（只在最后发送一次）
-        const feishuMessage = `🎯 恒优信素材爬取完成
+        const feishuMessage = `🎯 素材爬取完成
 
 📅 时间范围: ${new Date(startTime).toLocaleString()} - ${new Date(endTime).toLocaleString()}
 📊 总共处理: ${totalExtracted} 个素材
