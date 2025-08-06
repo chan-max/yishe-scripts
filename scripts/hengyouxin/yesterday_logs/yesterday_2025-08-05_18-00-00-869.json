@@ -1,0 +1,1702 @@
+{
+  "materials": [
+    {
+      "index": 1,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/33a363e8-166c-4853-b3b7-024a310e5f60.jpg",
+      "materialName": "hengyouxin_1754416801251_1",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416801251_1.jpg",
+      "uploadStatus": "success",
+      "page": 1,
+      "crawlTime": "2025-08-05T18:02:08.760Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 2,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/f6a6cc8c-bcd3-462d-8bc2-eefb9b3f6f0e.jpg",
+      "materialName": "hengyouxin_1754416808033_2",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416808033_2.jpg",
+      "uploadStatus": "success",
+      "page": 1,
+      "crawlTime": "2025-08-05T18:02:08.760Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 3,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/9bbc0cdc-cbdb-4b36-842d-0019dca7b449.jpg",
+      "materialName": "hengyouxin_1754416814929_3",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416814929_3.jpg",
+      "uploadStatus": "success",
+      "page": 1,
+      "crawlTime": "2025-08-05T18:02:08.760Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 4,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/cbe83af6-3099-4906-aaa3-d33de406cafe.jpg",
+      "materialName": "hengyouxin_1754416818651_4",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416818651_4.jpg",
+      "uploadStatus": "success",
+      "page": 1,
+      "crawlTime": "2025-08-05T18:02:08.760Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 5,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/5cded47a-07c1-4112-95e2-5b31388fc001.jpg",
+      "materialName": "hengyouxin_1754416821602_5",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416821602_5.jpg",
+      "uploadStatus": "success",
+      "page": 1,
+      "crawlTime": "2025-08-05T18:02:08.760Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 6,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/537533e0-54f0-4141-bcca-722dd3bb3160.jpg",
+      "materialName": "hengyouxin_1754416824941_6",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416824941_6.jpg",
+      "uploadStatus": "success",
+      "page": 1,
+      "crawlTime": "2025-08-05T18:02:08.760Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 7,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/8d645e87-de4b-4c1b-a1b8-a303397bf387.jpg",
+      "materialName": "hengyouxin_1754416830320_7",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416830320_7.jpg",
+      "uploadStatus": "success",
+      "page": 1,
+      "crawlTime": "2025-08-05T18:02:08.760Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 8,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/2221e56f-a887-45fc-a9a7-ee9996cad969.jpg",
+      "materialName": "hengyouxin_1754416834120_8",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416834120_8.jpg",
+      "uploadStatus": "success",
+      "page": 1,
+      "crawlTime": "2025-08-05T18:02:08.760Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 9,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/ce826707-3691-42e8-a981-a20eeda6727a.jpg",
+      "materialName": "hengyouxin_1754416843292_9",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416843292_9.jpg",
+      "uploadStatus": "success",
+      "page": 1,
+      "crawlTime": "2025-08-05T18:02:08.760Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 10,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/c3e4d2a5-dd7f-4b79-9f57-0241a1a14ff3.jpg",
+      "materialName": "hengyouxin_1754416852256_10",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416852256_10.jpg",
+      "uploadStatus": "success",
+      "page": 1,
+      "crawlTime": "2025-08-05T18:02:08.760Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 11,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/626d69bd-7a93-4438-9448-b6b1c280f671.jpg",
+      "materialName": "hengyouxin_1754416860887_11",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416860887_11.jpg",
+      "uploadStatus": "success",
+      "page": 1,
+      "crawlTime": "2025-08-05T18:02:08.760Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 12,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/86b18da8-92d9-47e1-b2ad-afb722f6aea7.jpg",
+      "materialName": "hengyouxin_1754416863766_12",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416863766_12.jpg",
+      "uploadStatus": "success",
+      "page": 1,
+      "crawlTime": "2025-08-05T18:02:08.760Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 13,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/77eee5c2-a849-4e49-a088-6bf3165737cc.jpg",
+      "materialName": "hengyouxin_1754416869691_13",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416869691_13.jpg",
+      "uploadStatus": "success",
+      "page": 1,
+      "crawlTime": "2025-08-05T18:02:08.760Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 14,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/d0eaa301-5289-41b9-90d5-e91b389baee6.jpg",
+      "materialName": "hengyouxin_1754416877862_14",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416877862_14.jpg",
+      "uploadStatus": "success",
+      "page": 1,
+      "crawlTime": "2025-08-05T18:02:08.760Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 15,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/0339dcb3-dc14-47a2-a3c0-a8d98dcb5d23.jpg",
+      "materialName": "hengyouxin_1754416882097_15",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416882097_15.jpg",
+      "uploadStatus": "success",
+      "page": 1,
+      "crawlTime": "2025-08-05T18:02:08.760Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 16,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/e2dd6f6c-8df0-45c1-821c-7775edb9eb72.jpg",
+      "materialName": "hengyouxin_1754416888067_16",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416888067_16.jpg",
+      "uploadStatus": "success",
+      "page": 1,
+      "crawlTime": "2025-08-05T18:02:08.760Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 17,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/a397434e-b567-4ba5-9227-71cc3ea6cf60.jpg",
+      "materialName": "hengyouxin_1754416894573_17",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416894573_17.jpg",
+      "uploadStatus": "success",
+      "page": 1,
+      "crawlTime": "2025-08-05T18:02:08.760Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 18,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/fd8caee8-a700-429f-aec2-b0314350d2b3.jpg",
+      "materialName": "hengyouxin_1754416904573_18",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416904573_18.jpg",
+      "uploadStatus": "success",
+      "page": 1,
+      "crawlTime": "2025-08-05T18:02:08.760Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 19,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/c5a3d461-0994-4112-978a-ee240ec36ae5.jpg",
+      "materialName": "hengyouxin_1754416917959_19",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416917959_19.jpg",
+      "uploadStatus": "success",
+      "page": 1,
+      "crawlTime": "2025-08-05T18:02:08.760Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 20,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/873af201-8d59-401b-8572-126f2ee4d810.jpg",
+      "materialName": "hengyouxin_1754416924122_20",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416924122_20.jpg",
+      "uploadStatus": "success",
+      "page": 1,
+      "crawlTime": "2025-08-05T18:02:08.760Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 1,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/3bc83484-c56f-4115-9e95-e2ca0bc4c245.jpg",
+      "materialName": "hengyouxin_1754416931142_1",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416931142_1.jpg",
+      "uploadStatus": "success",
+      "page": 2,
+      "crawlTime": "2025-08-05T18:05:30.356Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 2,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/76ff7c64-0bb6-4c4c-9c80-309177c1dd0e.jpg",
+      "materialName": "hengyouxin_1754416935891_2",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416935891_2.jpg",
+      "uploadStatus": "success",
+      "page": 2,
+      "crawlTime": "2025-08-05T18:05:30.356Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 3,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/745e4d32-3903-40c6-add9-25038539aff1.jpg",
+      "materialName": "hengyouxin_1754416940429_3",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416940429_3.jpg",
+      "uploadStatus": "success",
+      "page": 2,
+      "crawlTime": "2025-08-05T18:05:30.356Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 4,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/3dc91704-bfe8-44c9-9254-7e9921ef4cc8.jpg",
+      "materialName": "hengyouxin_1754416948546_4",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416948546_4.jpg",
+      "uploadStatus": "success",
+      "page": 2,
+      "crawlTime": "2025-08-05T18:05:30.356Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 5,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/88c5287b-902a-46ac-8626-9a92fdcdcc25.jpg",
+      "materialName": "hengyouxin_1754416951525_5",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416951525_5.jpg",
+      "uploadStatus": "success",
+      "page": 2,
+      "crawlTime": "2025-08-05T18:05:30.356Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 6,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/452163cc-9414-4bd3-90f5-940425807d22.jpg",
+      "materialName": "hengyouxin_1754416959582_6",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416959582_6.jpg",
+      "uploadStatus": "success",
+      "page": 2,
+      "crawlTime": "2025-08-05T18:05:30.356Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 7,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/d2696b73-c6e2-44b9-80fa-06f331df6625.jpg",
+      "materialName": "hengyouxin_1754416967302_7",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416967302_7.jpg",
+      "uploadStatus": "success",
+      "page": 2,
+      "crawlTime": "2025-08-05T18:05:30.356Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 8,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/91deecf0-740d-4994-b6b0-1b47083f4e9a.jpg",
+      "materialName": "hengyouxin_1754416970549_8",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416970549_8.jpg",
+      "uploadStatus": "success",
+      "page": 2,
+      "crawlTime": "2025-08-05T18:05:30.356Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 9,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/d7349bb3-e028-4d27-bf8a-e1dd54062b33.jpg",
+      "materialName": "hengyouxin_1754416984272_9",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416984272_9.jpg",
+      "uploadStatus": "success",
+      "page": 2,
+      "crawlTime": "2025-08-05T18:05:30.356Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 10,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/55847036-9c1c-49e1-b1b4-4d49d954c578.jpg",
+      "materialName": "hengyouxin_1754416988377_10",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754416988377_10.jpg",
+      "uploadStatus": "success",
+      "page": 2,
+      "crawlTime": "2025-08-05T18:05:30.356Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 11,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/3118bed7-f90c-427f-95c5-e3ef6bbbfaa2.jpg",
+      "materialName": "hengyouxin_1754417005482_11",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417005482_11.jpg",
+      "uploadStatus": "success",
+      "page": 2,
+      "crawlTime": "2025-08-05T18:05:30.356Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 12,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/1e8bbe52-186d-4c7e-947f-134ad37c7904.jpg",
+      "materialName": "hengyouxin_1754417019252_12",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417019252_12.jpg",
+      "uploadStatus": "success",
+      "page": 2,
+      "crawlTime": "2025-08-05T18:05:30.356Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 13,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/ed893ff4-6d98-4492-ac96-0567d46a4951.jpg",
+      "materialName": "hengyouxin_1754417032688_13",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417032688_13.jpg",
+      "uploadStatus": "success",
+      "page": 2,
+      "crawlTime": "2025-08-05T18:05:30.356Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 14,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/dfb46f2f-01c7-4e17-b7b6-47191e6d9ae9.jpg",
+      "materialName": "hengyouxin_1754417050031_14",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417050031_14.jpg",
+      "uploadStatus": "success",
+      "page": 2,
+      "crawlTime": "2025-08-05T18:05:30.356Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 15,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/247bbb60-e24f-4e7c-a082-bd7fddbbc76e.jpg",
+      "materialName": "hengyouxin_1754417061227_15",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417061227_15.jpg",
+      "uploadStatus": "success",
+      "page": 2,
+      "crawlTime": "2025-08-05T18:05:30.356Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 16,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/d55dca91-dc83-48ec-950f-7170bb6065fc.jpg",
+      "materialName": "hengyouxin_1754417073976_16",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417073976_16.jpg",
+      "uploadStatus": "success",
+      "page": 2,
+      "crawlTime": "2025-08-05T18:05:30.356Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 17,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/bdfceee9-c9fe-45cc-a1ee-fb15bb246e91.jpg",
+      "materialName": "hengyouxin_1754417084026_17",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417084026_17.jpg",
+      "uploadStatus": "success",
+      "page": 2,
+      "crawlTime": "2025-08-05T18:05:30.356Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 18,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/6c14abee-df94-4f43-b94e-3983b5c47236.jpg",
+      "materialName": "hengyouxin_1754417102353_18",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417102353_18.jpg",
+      "uploadStatus": "success",
+      "page": 2,
+      "crawlTime": "2025-08-05T18:05:30.356Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 19,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/bdfffd02-dc0e-4ece-9871-156725385214.jpg",
+      "materialName": "hengyouxin_1754417114459_19",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417114459_19.jpg",
+      "uploadStatus": "success",
+      "page": 2,
+      "crawlTime": "2025-08-05T18:05:30.356Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 20,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/27967e05-03ce-4ced-ab2c-8a3c14be7122.jpg",
+      "materialName": "hengyouxin_1754417127812_20",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417127812_20.jpg",
+      "uploadStatus": "success",
+      "page": 2,
+      "crawlTime": "2025-08-05T18:05:30.356Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 1,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/adc8f83a-f592-4d8f-bfa3-0be86525de2e.jpg",
+      "materialName": "hengyouxin_1754417132800_1",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417132800_1.jpg",
+      "uploadStatus": "success",
+      "page": 3,
+      "crawlTime": "2025-08-05T18:12:01.789Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 2,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/bc4fba19-7a19-469e-83fe-1b602169648b.jpg",
+      "materialName": "hengyouxin_1754417143531_2",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417143531_2.jpg",
+      "uploadStatus": "success",
+      "page": 3,
+      "crawlTime": "2025-08-05T18:12:01.789Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 3,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/7e3eae87-7fbf-4f3f-acbf-4ece592cf5ee.jpg",
+      "materialName": "hengyouxin_1754417156538_3",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417156538_3.jpg",
+      "uploadStatus": "success",
+      "page": 3,
+      "crawlTime": "2025-08-05T18:12:01.789Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 4,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/b873c7b6-3a9e-4189-be30-63aa26e34a99.jpg",
+      "materialName": "hengyouxin_1754417166600_4",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417166600_4.jpg",
+      "uploadStatus": "success",
+      "page": 3,
+      "crawlTime": "2025-08-05T18:12:01.789Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 5,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/20c9a6b3-f470-4867-aa30-a1000c462841.jpg",
+      "materialName": "hengyouxin_1754417182165_5",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417182165_5.jpg",
+      "uploadStatus": "success",
+      "page": 3,
+      "crawlTime": "2025-08-05T18:12:01.789Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 6,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/264e3c99-1491-4ff1-a2bd-a8649c1c5a18.jpg",
+      "materialName": "hengyouxin_1754417191822_6",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417191822_6.jpg",
+      "uploadStatus": "success",
+      "page": 3,
+      "crawlTime": "2025-08-05T18:12:01.789Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 7,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/dffaa5e0-d47d-48ba-9841-00c145a36342.jpg",
+      "materialName": "hengyouxin_1754417207934_7",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417207934_7.jpg",
+      "uploadStatus": "success",
+      "page": 3,
+      "crawlTime": "2025-08-05T18:12:01.789Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 8,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/fa2dfde2-c4df-4034-a7ed-4a855a86daf5.jpg",
+      "materialName": "hengyouxin_1754417238573_8",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417238573_8.jpg",
+      "uploadStatus": "success",
+      "page": 3,
+      "crawlTime": "2025-08-05T18:12:01.789Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 9,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/08bbbb2e-ec2b-45ad-bf66-4c9f89e8b78b.jpg",
+      "materialName": "hengyouxin_1754417272320_9",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417272320_9.jpg",
+      "uploadStatus": "success",
+      "page": 3,
+      "crawlTime": "2025-08-05T18:12:01.789Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 10,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/87f1b4b2-8589-4bff-8661-df7ba547ee1e.jpg",
+      "materialName": "hengyouxin_1754417296352_10",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417296352_10.jpg",
+      "uploadStatus": "success",
+      "page": 3,
+      "crawlTime": "2025-08-05T18:12:01.789Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 11,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/22790a6d-65c8-44b1-9986-67a5622d48fd.jpg",
+      "materialName": "hengyouxin_1754417334083_11",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417334083_11.jpg",
+      "uploadStatus": "success",
+      "page": 3,
+      "crawlTime": "2025-08-05T18:12:01.789Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 12,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/7aaaaf0b-68a0-4e47-9aae-34b764bd78c1.jpg",
+      "materialName": "hengyouxin_1754417349235_12",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417349235_12.jpg",
+      "uploadStatus": "success",
+      "page": 3,
+      "crawlTime": "2025-08-05T18:12:01.789Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 13,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/c880229e-4e35-47d2-8afa-a7b9e8246f80.jpg",
+      "materialName": "hengyouxin_1754417364416_13",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417364416_13.jpg",
+      "uploadStatus": "success",
+      "page": 3,
+      "crawlTime": "2025-08-05T18:12:01.789Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 14,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/54aec804-c9c0-4462-83fb-8c81b337a25b.jpg",
+      "materialName": "hengyouxin_1754417392827_14",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417392827_14.jpg",
+      "uploadStatus": "success",
+      "page": 3,
+      "crawlTime": "2025-08-05T18:12:01.789Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 15,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/5deea7b2-f1d5-4659-8542-11ae66d0879d.jpg",
+      "materialName": "hengyouxin_1754417412827_15",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417412827_15.jpg",
+      "uploadStatus": "success",
+      "page": 3,
+      "crawlTime": "2025-08-05T18:12:01.789Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 16,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/be28466a-cc6b-4a04-bd1b-36c281c35878.jpg",
+      "materialName": "hengyouxin_1754417418264_16",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417418264_16.jpg",
+      "uploadStatus": "success",
+      "page": 3,
+      "crawlTime": "2025-08-05T18:12:01.789Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 17,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/3dec48c1-3343-43a7-9f98-28a7b4313c6f.jpg",
+      "materialName": "hengyouxin_1754417431509_17",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417431509_17.jpg",
+      "uploadStatus": "success",
+      "page": 3,
+      "crawlTime": "2025-08-05T18:12:01.789Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 18,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/62b1ded4-3f7a-487b-a626-2c263c8db9cc.jpg",
+      "materialName": "hengyouxin_1754417449207_18",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417449207_18.jpg",
+      "uploadStatus": "success",
+      "page": 3,
+      "crawlTime": "2025-08-05T18:12:01.789Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 19,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/046322d8-0b42-40e5-89fb-7aee8fc45055.jpg",
+      "materialName": "hengyouxin_1754417460601_19",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417460601_19.jpg",
+      "uploadStatus": "success",
+      "page": 3,
+      "crawlTime": "2025-08-05T18:12:01.789Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 20,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/242edbd0-0785-40ca-a0b3-69b6f32d7d4c.jpg",
+      "materialName": "hengyouxin_1754417504878_20",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417504878_20.jpg",
+      "uploadStatus": "success",
+      "page": 3,
+      "crawlTime": "2025-08-05T18:12:01.789Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 1,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/ab13c72e-4d75-45b1-8fb9-7012666266d3.jpg",
+      "materialName": "hengyouxin_1754417524185_1",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417524185_1.jpg",
+      "uploadStatus": "success",
+      "page": 4,
+      "crawlTime": "2025-08-05T18:15:43.957Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 2,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/ce601457-964f-4ac6-956e-db91771f4807.jpg",
+      "materialName": "hengyouxin_1754417543168_2",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417543168_2.jpg",
+      "uploadStatus": "success",
+      "page": 4,
+      "crawlTime": "2025-08-05T18:15:43.957Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 3,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/181efab2-9642-43bf-8bd9-c0f4626e7932.jpg",
+      "materialName": "hengyouxin_1754417552297_3",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417552297_3.jpg",
+      "uploadStatus": "success",
+      "page": 4,
+      "crawlTime": "2025-08-05T18:15:43.957Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 4,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/e3555785-c3e1-4889-87f3-efe12e98b830.jpg",
+      "materialName": "hengyouxin_1754417568099_4",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417568099_4.jpg",
+      "uploadStatus": "success",
+      "page": 4,
+      "crawlTime": "2025-08-05T18:15:43.957Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 5,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/2558bd5f-9853-467b-927c-10e3410dedaa.jpg",
+      "materialName": "hengyouxin_1754417583836_5",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417583836_5.jpg",
+      "uploadStatus": "success",
+      "page": 4,
+      "crawlTime": "2025-08-05T18:15:43.957Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 6,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/0d7359ea-1bec-4ca2-82a0-31c1842f4b28.jpg",
+      "materialName": "hengyouxin_1754417602350_6",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417602350_6.jpg",
+      "uploadStatus": "success",
+      "page": 4,
+      "crawlTime": "2025-08-05T18:15:43.957Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 7,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/6a01299e-f118-46a7-8697-0872beba199a.jpg",
+      "materialName": "hengyouxin_1754417609858_7",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417609858_7.jpg",
+      "uploadStatus": "success",
+      "page": 4,
+      "crawlTime": "2025-08-05T18:15:43.957Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 8,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/96db7a41-f6f6-4f2b-aeef-181e0cedbb7b.jpg",
+      "materialName": "hengyouxin_1754417614901_8",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417614901_8.jpg",
+      "uploadStatus": "success",
+      "page": 4,
+      "crawlTime": "2025-08-05T18:15:43.957Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 9,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/a703d386-1466-45ed-8734-d572c3c685d8.jpg",
+      "materialName": "hengyouxin_1754417620414_9",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417620414_9.jpg",
+      "uploadStatus": "success",
+      "page": 4,
+      "crawlTime": "2025-08-05T18:15:43.957Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 10,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/cc4009c4-0431-448c-b76f-af655f3c03b6.jpg",
+      "materialName": "hengyouxin_1754417638297_10",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417638297_10.jpg",
+      "uploadStatus": "success",
+      "page": 4,
+      "crawlTime": "2025-08-05T18:15:43.957Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 11,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/1ec88843-d2c9-488c-b2eb-bd816f544610.jpg",
+      "materialName": "hengyouxin_1754417653518_11",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417653518_11.jpg",
+      "uploadStatus": "success",
+      "page": 4,
+      "crawlTime": "2025-08-05T18:15:43.957Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 12,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/3f6280e2-5430-46f6-8c77-f0972045a34c.jpg",
+      "materialName": "hengyouxin_1754417662492_12",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417662492_12.jpg",
+      "uploadStatus": "success",
+      "page": 4,
+      "crawlTime": "2025-08-05T18:15:43.957Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 13,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/d6effc0e-458c-4045-b304-4b292bef647b.jpg",
+      "materialName": "hengyouxin_1754417672409_13",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417672409_13.jpg",
+      "uploadStatus": "success",
+      "page": 4,
+      "crawlTime": "2025-08-05T18:15:43.957Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 14,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/919094bb-fc5c-4b1e-917c-0116953b73a0.jpg",
+      "materialName": "hengyouxin_1754417683444_14",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417683444_14.jpg",
+      "uploadStatus": "success",
+      "page": 4,
+      "crawlTime": "2025-08-05T18:15:43.957Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 15,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/50f223b5-4354-4b51-bb33-c3a564dc8bbb.jpg",
+      "materialName": "hengyouxin_1754417697499_15",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417697499_15.jpg",
+      "uploadStatus": "success",
+      "page": 4,
+      "crawlTime": "2025-08-05T18:15:43.957Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 16,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/55dd5a38-a4b3-4ed5-b5bb-ad6667f621c8.jpg",
+      "materialName": "hengyouxin_1754417717720_16",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417717720_16.jpg",
+      "uploadStatus": "success",
+      "page": 4,
+      "crawlTime": "2025-08-05T18:15:43.957Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 17,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/fb1da45b-bb7a-453e-a391-5d7f6a0db1e6.jpg",
+      "materialName": "hengyouxin_1754417724708_17",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417724708_17.jpg",
+      "uploadStatus": "success",
+      "page": 4,
+      "crawlTime": "2025-08-05T18:15:43.957Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 18,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/1b609d51-3ace-406b-9ec5-73c699a369cf.jpg",
+      "materialName": "hengyouxin_1754417728702_18",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417728702_18.jpg",
+      "uploadStatus": "success",
+      "page": 4,
+      "crawlTime": "2025-08-05T18:15:43.957Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 19,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/b76b3aa5-5c6f-40fd-a7bb-cb8e4a6df36a.jpg",
+      "materialName": "hengyouxin_1754417734882_19",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417734882_19.jpg",
+      "uploadStatus": "success",
+      "page": 4,
+      "crawlTime": "2025-08-05T18:15:43.957Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 20,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/3917ac73-9366-4cd4-81e6-65ff1baec952.jpg",
+      "materialName": "hengyouxin_1754417736501_20",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417736501_20.jpg",
+      "uploadStatus": "success",
+      "page": 4,
+      "crawlTime": "2025-08-05T18:15:43.957Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 1,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/507f7c38-d263-48f9-9a43-2ff1eb1b5c2a.jpg",
+      "materialName": "hengyouxin_1754417746331_1",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417746331_1.jpg",
+      "uploadStatus": "success",
+      "page": 5,
+      "crawlTime": "2025-08-05T18:18:36.517Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 2,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/fe4e2f5c-2f63-40e7-90ed-5b9486670a10.jpg",
+      "materialName": "hengyouxin_1754417749715_2",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417749715_2.jpg",
+      "uploadStatus": "success",
+      "page": 5,
+      "crawlTime": "2025-08-05T18:18:36.517Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 3,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/30f8ff78-68d4-4575-bbc5-2477f910e034.jpg",
+      "materialName": "hengyouxin_1754417753232_3",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417753232_3.jpg",
+      "uploadStatus": "success",
+      "page": 5,
+      "crawlTime": "2025-08-05T18:18:36.517Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 4,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/f42da4d1-7cc4-4f31-880e-a40492231e75.jpg",
+      "materialName": "hengyouxin_1754417760555_4",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417760555_4.jpg",
+      "uploadStatus": "success",
+      "page": 5,
+      "crawlTime": "2025-08-05T18:18:36.517Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 5,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/61c6aff1-1fac-4d53-a90c-6cee411dabb2.jpg",
+      "materialName": "hengyouxin_1754417764453_5",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417764453_5.jpg",
+      "uploadStatus": "success",
+      "page": 5,
+      "crawlTime": "2025-08-05T18:18:36.517Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 6,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/562536d4-11b0-4f1e-b98a-8cd187e8c634.jpg",
+      "materialName": "hengyouxin_1754417768365_6",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417768365_6.jpg",
+      "uploadStatus": "success",
+      "page": 5,
+      "crawlTime": "2025-08-05T18:18:36.517Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 7,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/cffc32ef-fd09-444c-acca-75953086940f.jpg",
+      "materialName": "hengyouxin_1754417770995_7",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417770995_7.jpg",
+      "uploadStatus": "success",
+      "page": 5,
+      "crawlTime": "2025-08-05T18:18:36.517Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 8,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/86b50467-2a6b-4107-b4f0-c93236290f30.jpg",
+      "materialName": "hengyouxin_1754417776898_8",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417776898_8.jpg",
+      "uploadStatus": "success",
+      "page": 5,
+      "crawlTime": "2025-08-05T18:18:36.517Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 9,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/52086223-1d1f-47dc-a5cf-fe46c998ea9c.jpg",
+      "materialName": "hengyouxin_1754417779877_9",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417779877_9.jpg",
+      "uploadStatus": "success",
+      "page": 5,
+      "crawlTime": "2025-08-05T18:18:36.517Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 10,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/d0fdbe6d-87a9-4973-a4af-0d0be1db6fc3.jpg",
+      "materialName": "hengyouxin_1754417794297_10",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417794297_10.jpg",
+      "uploadStatus": "success",
+      "page": 5,
+      "crawlTime": "2025-08-05T18:18:36.517Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 11,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/cae00605-3726-483e-8772-6403692829e0.jpg",
+      "materialName": "hengyouxin_1754417798785_11",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417798785_11.jpg",
+      "uploadStatus": "success",
+      "page": 5,
+      "crawlTime": "2025-08-05T18:18:36.517Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 12,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/d4ef4baf-c275-4089-b25c-442f137d47f4.jpg",
+      "materialName": "hengyouxin_1754417815326_12",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417815326_12.jpg",
+      "uploadStatus": "success",
+      "page": 5,
+      "crawlTime": "2025-08-05T18:18:36.517Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 13,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/8fb406ef-42ce-40b7-91ea-cb02b1da7493.jpg",
+      "materialName": "hengyouxin_1754417818362_13",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417818362_13.jpg",
+      "uploadStatus": "success",
+      "page": 5,
+      "crawlTime": "2025-08-05T18:18:36.517Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 14,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/a1e3ab7a-3834-453a-bf06-5054a4a18d6b.jpg",
+      "materialName": "hengyouxin_1754417831931_14",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417831931_14.jpg",
+      "uploadStatus": "success",
+      "page": 5,
+      "crawlTime": "2025-08-05T18:18:36.517Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 15,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/d71657f5-efc0-4c2c-9f97-ccb39d802960.jpg",
+      "materialName": "hengyouxin_1754417835728_15",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417835728_15.jpg",
+      "uploadStatus": "success",
+      "page": 5,
+      "crawlTime": "2025-08-05T18:18:36.518Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 16,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/30c6b599-88a4-4d87-8e53-fd39612be516.jpg",
+      "materialName": "hengyouxin_1754417844883_16",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417844883_16.jpg",
+      "uploadStatus": "success",
+      "page": 5,
+      "crawlTime": "2025-08-05T18:18:36.518Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 17,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/ee15b2cd-0157-41f2-80fd-107e190cc7e9.jpg",
+      "materialName": "hengyouxin_1754417854315_17",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417854315_17.jpg",
+      "uploadStatus": "success",
+      "page": 5,
+      "crawlTime": "2025-08-05T18:18:36.518Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 18,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/ca363cb1-7fb1-4946-a777-9890df0f0ef9.jpg",
+      "materialName": "hengyouxin_1754417872130_18",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417872130_18.jpg",
+      "uploadStatus": "success",
+      "page": 5,
+      "crawlTime": "2025-08-05T18:18:36.518Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 19,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/f4644d0a-3051-46c0-867f-0c7a78fd1e8a.jpg",
+      "materialName": "hengyouxin_1754417895600_19",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417895600_19.jpg",
+      "uploadStatus": "success",
+      "page": 5,
+      "crawlTime": "2025-08-05T18:18:36.518Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 20,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/f947be59-fa13-4e2a-ae83-162b0529c11e.jpg",
+      "materialName": "hengyouxin_1754417912850_20",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417912850_20.jpg",
+      "uploadStatus": "success",
+      "page": 5,
+      "crawlTime": "2025-08-05T18:18:36.518Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 1,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/51fcc422-d0fb-46c3-a243-0fbf8f5badf3.jpg",
+      "materialName": "hengyouxin_1754417918827_1",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417918827_1.jpg",
+      "uploadStatus": "success",
+      "page": 6,
+      "crawlTime": "2025-08-05T18:19:46.438Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 2,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/1648c672-c4b3-4877-9b93-ecea648d7c03.jpg",
+      "materialName": "hengyouxin_1754417934743_2",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417934743_2.jpg",
+      "uploadStatus": "success",
+      "page": 6,
+      "crawlTime": "2025-08-05T18:19:46.438Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 3,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/28021ea0-c9f8-4f56-9f16-7ba9946d0d02.jpg",
+      "materialName": "hengyouxin_1754417949509_3",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417949509_3.jpg",
+      "uploadStatus": "success",
+      "page": 6,
+      "crawlTime": "2025-08-05T18:19:46.438Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 4,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/88ba7bf4-b437-406a-b296-2d50c22ea9c2.jpg",
+      "materialName": "hengyouxin_1754417951445_4",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417951445_4.jpg",
+      "uploadStatus": "success",
+      "page": 6,
+      "crawlTime": "2025-08-05T18:19:46.438Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 5,
+      "imageFormat": "jpg",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/437bdac3-cdce-4c56-a740-51cb4192b91c.jpg",
+      "materialName": "hengyouxin_1754417959951_5",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417959951_5.jpg",
+      "uploadStatus": "success",
+      "page": 6,
+      "crawlTime": "2025-08-05T18:19:46.438Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    },
+    {
+      "index": 6,
+      "imageFormat": "png",
+      "ossObjectName": "https://iuufu-erp-material.oss-cn-beijing.aliyuncs.com/dev/material/30ebcb9a-40fb-4326-8766-422f2b7161ea.png",
+      "materialName": "hengyouxin_1754417974077_6",
+      "description": "前一天素材",
+      "cosUrl": "https://1s-1257307499.cos.ap-beijing.myqcloud.com/hengyouxin/hengyouxin_1754417974077_6.jpg",
+      "uploadStatus": "success",
+      "page": 6,
+      "crawlTime": "2025-08-05T18:19:46.438Z",
+      "timeRange": {
+        "startTime": 1754323200000,
+        "endTime": 1754409599999,
+        "description": "前一天素材"
+      }
+    }
+  ],
+  "totalCount": 106,
+  "lastUpdate": "2025-08-05T18:19:46.438Z"
+}
